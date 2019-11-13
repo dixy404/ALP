@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 */
 Route::get('/members', 'RegisterMemeberController@index');
 Route::get('/showuser/{id}', 'RegisterMemeberController@show');
-Route::post('/register', 'RegisterMemeberController@register');
+ 
+Route::post('/register',  'RegisterMemeberController@register');
 Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
 Route::put('/updateuser/{id}', 'RegisterMemeberController@update');
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
