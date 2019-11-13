@@ -14,7 +14,7 @@ class RegisterMemeberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   header("Access-Control-Allow-Origin: *");
         return RegisterMemeber::all();
     }
 
@@ -26,7 +26,7 @@ class RegisterMemeberController extends Controller
      */
     public function register(Request $request)
     {
-        
+        header("Access-Control-Allow-Origin: *");
         //return RegisterMemeber::updateOrCreate($request->all());
        $member = RegisterMemeber::create([
         'name' => request('name'),
