@@ -1,7 +1,13 @@
 .member-form {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 64px;
+    width: 50%;
+    padding-left: 64px;
+    padding-right: 64px;
 
 }
+
+h1{
+    padding-left: 64px;
+}
+

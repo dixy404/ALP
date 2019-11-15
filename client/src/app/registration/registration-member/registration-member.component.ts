@@ -20,6 +20,9 @@ export class RegistrationMemberComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+
+    this.registrationService.testGetUsers()
+      .subscribe(data => console.log(data))
     this.form = this.formBuilder.group({
       name: [this.user.name, Validators.required], 
       address: [this.user.address, Validators.required], 

@@ -1,0 +1,9 @@
+
+<mat-toolbar>
+    <span class="title">ALP</span>
+    <span class="link" routerLink="">Korisnici</span>
+    <span class="link" routerLink="">LogIn</span>
+    <span class="link" (click)="logout()">Odjava ({{user?.firstName}} {{user?.lastName}})</span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
