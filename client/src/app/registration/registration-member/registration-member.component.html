@@ -1,19 +1,65 @@
-<p>registration-member works!</p>
+<div class="login-container">
 
+  <form [formGroup]="form" class="member-form">
+    <h3>Novi član</h3>
+    <mat-form-field>
+      <input matInput placeholder="Ime" required formControlName="name" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Prezime" required formControlName="lastName" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Datum rođenja" required>
+      <mat-datepicker-toggle matSuffix [for]="picker" formControlName="dateOfBirth"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Mjesto rođenja" required formControlName="placeOfBirth" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Broj pasoša" formControlName="passportId" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Broj lične karte" formControlName="idNumber" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="JMBG" formControlName="ssn" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nacionalnost" formControlName="nationality" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Zanimanje" formControlName="occupation" autocomplete="off" />
+    </mat-form-field>
+   
+    <mat-form-field>
+      <mat-label>Krvna grupa</mat-label>
+      <select matNativeControl formControlName="bloodType">
+        <option value="" selected></option>
+        <option value="volvo">A -</option>
+        <option value="saab">A +</option>
+        <option value="mercedes">AB -</option>
+        <option value="audi">AB +</option>
+        <option value="volvo">B -</option>
+        <option value="saab">B +</option>
+        <option value="mercedes">O -</option>
+        <option value="audi">O +</option>
+      </select>
+    </mat-form-field>
 
-<h1>Novi član</h1>
-<form [formGroup]="form" class="member-form">
-  <mat-form-field>
-    <input matInput placeholder="Ime" required
-      formControlName="name" autocomplete="off" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Adresa" required
-      formControlName="address" autocomplete="off" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" required type="email"
-      formControlName="email" autocomplete="off" />
-  </mat-form-field>
-  <button mat-button  type="submit" (click)="save(form)">Sacuvaj</button>
-</form>
+    <mat-form-field>
+      <input matInput placeholder="Adresa" required formControlName="address" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" required type="email" formControlName="email" autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" required autocomplete="off" placeholder="Lozinka" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="confirmPassword" required autocomplete="off"
+        placeholder="Potvrdi lozinku" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit"  (click)="save(form)">Registruj se</button>
+  </form>
+</div>

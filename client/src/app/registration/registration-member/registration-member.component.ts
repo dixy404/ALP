@@ -25,8 +25,20 @@ export class RegistrationMemberComponent implements OnInit {
       .subscribe(data => console.log(data))
     this.form = this.formBuilder.group({
       name: [this.user.name, Validators.required], 
+      lastName: [this.user.lastName, Validators.required], 
+      dateOfBirth: [this.user.dateOfBirth, Validators.required],
+      placeOfBirth: [this.user.placeOfBirth, Validators.required],
+      passportId: [this.user.passportId,],
+      idNumber: [this.user.idNumber,],
+      ssn: [this.user.ssn,],
+      nationality: [this.user.nationality,],
+      occupation: [this.user.occupation,],
+      bloodType: [this.user.bloodType,],
       address: [this.user.address, Validators.required], 
-      email: [this.user.email, Validators.email]
+      email: [this.user.email, Validators.email],
+      password: [this.user.password, Validators.required],
+      confirmPassword: [this.user.confirmPassword, Validators.required],
+
     });
   }
 
@@ -36,7 +48,11 @@ export class RegistrationMemberComponent implements OnInit {
 
     this.registrationService.test(name, address, email)
       .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))
-   // if(valid) { 
+   
+   
+   
+   
+      // if(valid) { 
       //this.service.add(value);
     //  this.form.reset(); 
      // this.snackBar.open("Podaci su sacuvani", null, { 
