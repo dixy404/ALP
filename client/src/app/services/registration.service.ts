@@ -12,4 +12,8 @@ export class RegistrationService {
   test(name, address, email) {
     return this.http.post('http://localhost:8000/api/register', {name: name, address: address, email: email})
   }
+
+  testGetUsers() {
+    return this.http.get('http://localhost:8000/api/members')
+  }
 }

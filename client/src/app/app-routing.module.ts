@@ -11,6 +11,21 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule)
   },
+  {
+    path: 'clubs',
+    loadChildren: () => import('./clubs/clubs.module').then(mod => mod.ClubsModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(mod => mod.UsersModule)
+  },
+  {
+    path: '',
+    redirectTo: '/users',
+    pathMatch: 'full'
+  },
+
+  
 ];
 
 @NgModule({
