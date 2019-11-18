@@ -1,7 +1,7 @@
 export class Member {
     name: string;
     lastName: string;
-    dateOfBirth: number;
+    dateOfBirth: Date;
     placeOfBirth: string;
     passportId: string;
     idNumber: string;

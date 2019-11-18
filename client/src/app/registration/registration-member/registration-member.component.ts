@@ -21,12 +21,11 @@ export class RegistrationMemberComponent implements OnInit {
 
   ngOnInit() {
 
-    this.registrationService.testGetUsers()
-      .subscribe(data => console.log(data))
+    
     this.form = this.formBuilder.group({
       name: [this.user.name, Validators.required], 
       lastName: [this.user.lastName, Validators.required], 
-      dateOfBirth: [this.user.dateOfBirth, Validators.required],
+      dateOfBirth: [this.user.dateOfBirth, ],
       placeOfBirth: [this.user.placeOfBirth, Validators.required],
       passportId: [this.user.passportId,],
       idNumber: [this.user.idNumber,],
@@ -44,12 +43,13 @@ export class RegistrationMemberComponent implements OnInit {
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email} = this.form.value
+    const {name, address, email, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, confirmPassword } = this.form.value
 
-    this.registrationService.test(name, address, email)
-      .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))
-   
-   
+    /*this.registrationService.test(name, address, email)
+      .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
+    
+      this.registrationService.register(name, address, email, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, confirmPassword)
+      .subscribe(data => console.log(data))
    
    
       // if(valid) { 

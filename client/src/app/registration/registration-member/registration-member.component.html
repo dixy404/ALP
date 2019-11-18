@@ -8,11 +8,16 @@
     <mat-form-field>
       <input matInput placeholder="Prezime" required formControlName="lastName" autocomplete="off" />
     </mat-form-field>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Datum rođenja" required>
+    <!--  <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Datum rođenja" >
       <mat-datepicker-toggle matSuffix [for]="picker" formControlName="dateOfBirth"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+  -->
+  <mat-form-field>
+    <input matInput type="date" formControlName="dateOfBirth" required autocomplete="off" placeholder="Datum rođenja" />
+  </mat-form-field>
+
     <mat-form-field>
       <input matInput placeholder="Mjesto rođenja" required formControlName="placeOfBirth" autocomplete="off" />
     </mat-form-field>
@@ -36,14 +41,14 @@
       <mat-label>Krvna grupa</mat-label>
       <select matNativeControl formControlName="bloodType">
         <option value="" selected></option>
-        <option value="volvo">A -</option>
-        <option value="saab">A +</option>
-        <option value="mercedes">AB -</option>
-        <option value="audi">AB +</option>
-        <option value="volvo">B -</option>
-        <option value="saab">B +</option>
-        <option value="mercedes">O -</option>
-        <option value="audi">O +</option>
+        <option value="A -">A -</option>
+        <option value="A +">A +</option>
+        <option value="AB">AB -</option>
+        <option value="AB +">AB +</option>
+        <option value="B -">B -</option>
+        <option value="B +">B +</option>
+        <option value="O -">O -</option>
+        <option value="O +">O +</option>
       </select>
     </mat-form-field>
 
