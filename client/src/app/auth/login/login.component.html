@@ -11,6 +11,6 @@
                 <input matInput type="password" formControlName="password" required autocomplete="off"
                     placeholder="Lozinka" />
             </mat-form-field>
-            <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login(form)" >Prijavi se</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="login(form)" >Prijavi se</button>
         </form>
     </div>
