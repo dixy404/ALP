@@ -12,12 +12,28 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/members', 'RegisterMemeberController@index');
-Route::get('/showuser/{id}', 'RegisterMemeberController@show');
- 
-Route::post('/register',  'RegisterMemeberController@register');
-Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
-Route::put('/updateuser/{id}', 'RegisterMemeberController@update');
+
+
+//Route::put('/updateuser/{id}', 'RegisterMemeberController@update');
+//Route::post('/register',  'RegisterMemeberController@register');
+//Route::get('/shoowuser/{id}', 'UserController@show');
+//Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
+
+Route::post('registeruser', 'UserController@register');
+    Route::post('login', 'UserController@authenticate');
+    Route::get('open', 'DataController@open');
+
+    Route::group(['middleware' => ['jwt.verify']], function() {
+        Route::get('user', 'UserController@getAuthenticatedUser');
+        Route::get('closed', 'DataController@closed');
+        Route::get('/showuser/{id}', 'UserController@show');
+        Route::get('/edituser/{id}', 'UserController@edit');
+        Route::put('/updateuser/{id}', 'UserController@update');
+        Route::delete('/deleteuser/{id}', 'UserController@destroy');
+        
+        //Route::get('/showuser/{id}', 'RegisterMemeberController@show');
+        //Route::get('/members', 'RegisterMemeberController@index');
+        });
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
     //return $request->user();
 //});

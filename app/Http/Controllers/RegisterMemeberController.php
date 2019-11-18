@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Input;
 use App\Http\Resources\RegisterMemeber as RegisterMemeberResource; 
+
 use App\RegisterMemeber;
 class RegisterMemeberController extends Controller
 {
@@ -61,20 +62,29 @@ class RegisterMemeberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   if (RegisterMemeber::where('id', $id)->exists()) {
         $member = RegisterMemeber::find($id)->update(['name' => request('name'),
         'address' => request('address'),
         'email' =>  request('email'),]);
         
+        /*$student = RegisterMemeber::find($id);
+        $student->name = is_null($request->name) ? $student->name : $request->name;
+        $student->address = is_null($request->address) ? $student->address : $request->address;
+        $student->email = is_null($request->email) ? $student->email : $request->email;
+        $student->save();
+        //return $member->toArray();*/
+        return response()->json([
+            "message" => "Korisnik uspješno apdejtovan"
+        ], 200);
+        } else {
+        return response()->json([
+            "message" => "Korisnik ne postoji"
+        ], 404);
         
-           /* $data = $request->only(['name', 'address', 'email']);
-            
-            //dd($data);
-            $player=RegisterMemeber::where('id', $id)->first();
-            $player->name=$data['name'];
-            $player->address=$data['address'];
-            $player->email=$data['email'];
-            $player->save();*/
+    }
+        
+        
+        
 
         }
 
