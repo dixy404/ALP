@@ -62,9 +62,9 @@
       <input matInput type="password" formControlName="password" required autocomplete="off" placeholder="Lozinka" />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="password" formControlName="confirmPassword" required autocomplete="off"
+      <input matInput type="password" formControlName="password_confirmation" required autocomplete="off"
         placeholder="Potvrdi lozinku" />
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit"  (click)="save(form)">Registruj se</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj se</button>
   </form>
 </div>
