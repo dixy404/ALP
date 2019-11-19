@@ -54,7 +54,7 @@ class ClubController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-        $token = JWTAuth::fromClub($club);
+        $token = JWTAuth::fromUser($club);
 
         return response()->json(compact('user','token'),201);
     }
