@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 //Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
 
 Route::post('registeruser', 'UserController@register');
+Route::post('registerclub', 'ClubController@register');
     Route::post('login', 'UserController@authenticate');
     Route::get('open', 'DataController@open');
 
