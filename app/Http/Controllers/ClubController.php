@@ -56,12 +56,12 @@ class ClubController extends Controller
 
         $token = JWTAuth::fromUser($club);
 
-        return response()->json(compact('user','token'),201);
+        return response()->json(compact('club','token'),201);
     }
     public function show($id){ 
       header("Access-Control-Allow-Origin: *");
      $club = Club::find($id);
-     return response()->json(compact('user'),201);
+     return response()->json(compact('club'),201);
 
 
 
@@ -70,7 +70,7 @@ class ClubController extends Controller
     public function edit($id){ 
     header("Access-Control-Allow-Origin: *");
     $club = Club::find($id)->where('id', $id)->select(['clubName','clubPresident',"address",'clubSecretary','foundedIn','vision','mission',"email"])->get();
-     return response()->json(compact('user'),201);
+     return response()->json(compact('club'),201);
 
 
 
@@ -125,7 +125,7 @@ return response()->json([
 
                 }
 
-                return response()->json(compact('user'));
+                return response()->json(compact('club'));
         }
         public function destroy(Request $request, $id)
         {
