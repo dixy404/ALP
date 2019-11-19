@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers;
 use App\Club;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Hash;
