@@ -24,14 +24,15 @@ Route::post('registerclub', 'ClubController@register');
     Route::post('loginuser', 'UserController@authenticate');
     Route::post('loginclub', 'ClubController@authenticate');
     Route::get('open', 'DataController@open');
-
-    Route::group(['middleware' => ['jwt.verify']], function() {
+    
         Route::get('user', 'UserController@getAuthenticatedUser');
         Route::get('closed', 'DataController@closed');
         Route::get('/showuser/{id}', 'UserController@show');
         Route::get('/edituser/{id}', 'UserController@edit');
         Route::put('/updateuser/{id}', 'UserController@update');
         Route::delete('/deleteuser/{id}', 'UserController@destroy');
+    Route::group(['middleware' => ['jwt.verify']], function() {
+        
         
         //Route::get('/showuser/{id}', 'RegisterMemeberController@show');
         //Route::get('/members', 'RegisterMemeberController@index');
