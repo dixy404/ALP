@@ -21,12 +21,12 @@ const routes: Routes = [
     loadChildren: () => import('./members/members.module').then(mod => mod.MembersModule)
   },
   {
-    path: 'users',
+    path: 'home',
     loadChildren: () => import('./users/users.module').then(mod => mod.UsersModule)
   },
   {
     path: '',
-    redirectTo: '/users',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
 
