@@ -14,7 +14,7 @@ export class RegistrationService {
   }
 
   registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, email, password, password_confirmation ) {
-    return this.http.post('http://localhost:8000/api/register', { clubName: clubName, clubPresident: clubPresident, clubSecretary: clubSecretary, foundedIn: foundedIn, vision: vision, mission: mission, address: address, email: email, password: password, password_confirmation: password_confirmation })
+    return this.http.post('http://localhost:8000/api/registerclub', { clubName: clubName, clubPresident: clubPresident, clubSecretary: clubSecretary, foundedIn: foundedIn, vision: vision, mission: mission, address: address, email: email, password: password, password_confirmation: password_confirmation })
   }
 
   testGetUsers() {
