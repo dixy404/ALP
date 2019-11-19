@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthenticationService,
     
   ) { }
 
@@ -23,6 +24,11 @@ export class LoginComponent implements OnInit {
       email: [null, Validators.required],
       password: [null, Validators.required]
     });
+  }
+
+  login() {
+    const {email, password } = this.form.value  
+    this.authService.login(email, password).subscribe(data => console.log('data123', data))
   }
 
 }

@@ -12,7 +12,7 @@ export class LoginService {
 
   getAll() {
     //Igorov API
-    return this.http.get<memberLogin[]>(`/users`);
+    return this.http.get<memberLogin[]>('http://localhost:8000/api/loginuser');
 }
 
 }

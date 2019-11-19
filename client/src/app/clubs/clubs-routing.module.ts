@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ClubContainerComponent,
     children: [
       {
-        path: 'cb',
+        path: '',
         component: ClubPageComponent,
       },
     ]

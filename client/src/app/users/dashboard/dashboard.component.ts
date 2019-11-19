@@ -10,6 +10,10 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    const token = localStorage.getItem('token')
+
+    console.log("TOKWN", token)
   }
 
 }
