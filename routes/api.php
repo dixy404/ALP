@@ -21,7 +21,8 @@ use Illuminate\Http\Request;
 
 Route::post('registeruser', 'UserController@register');
 Route::post('registerclub', 'ClubController@register');
-    Route::post('login', 'UserController@authenticate');
+    Route::post('loginuser', 'UserController@authenticate');
+    Route::post('loginclub', 'ClubController@authenticate');
     Route::get('open', 'DataController@open');
 
     Route::group(['middleware' => ['jwt.verify']], function() {
