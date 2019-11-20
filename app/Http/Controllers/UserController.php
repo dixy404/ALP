@@ -137,6 +137,10 @@ public function update(Request $request, $id)
 
                     return response()->json(compact('user'));
             }
+            public function index()
+            {   header("Access-Control-Allow-Origin: *");
+                return User::all();
+            }
             public function destroy(Request $request, $id)
             {
                 $member = User::find($id);
