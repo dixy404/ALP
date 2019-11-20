@@ -139,7 +139,9 @@ public function update(Request $request, $id)
             }
             public function index()
             {   header("Access-Control-Allow-Origin: *");
-                return User::all();
+                $user= User::all();
+                return response()->json($user);
+
             }
             public function destroy(Request $request, $id)
             {
