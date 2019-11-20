@@ -10,7 +10,7 @@ export class MembersService {
   constructor(private http: HttpClient) { }
 
   GetUser() {
-    //TO DO dodati API
+    
     return this.http.get('http://localhost:8000/api/user')
   }
 }

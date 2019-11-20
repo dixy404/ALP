@@ -135,13 +135,17 @@ public function update(Request $request, $id)
 
                     }
 
-                    return response()->json(compact('user'));
+                   // return response()->json(compact('user'));
+                   return response()->json($user);
             }
-            public function index()
+            public function index(Request $request)
             {   header("Access-Control-Allow-Origin: *");
-                $token = JWTAuth::fromUser($user);
-                $user= User::all();
-                return response()->json($user);
+               /* $credentials = $request->only('token');
+                $token = JWTAuth::fromUser($user);*/
+                $user = User::all();
+                return response()->json(compact('user'),201);
+                //return response()->json($user);
+               // return response()->json(auth()->user());
 
             }
             public function destroy(Request $request, $id)

@@ -7,14 +7,14 @@ import { MembersService } from 'src/app/services/members.service';
   styleUrls: ['./member-page.component.css']
 })
 export class MemberPageComponent implements OnInit {
-  user;
+  users;
 
   constructor(private membersService: MembersService) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
       console.log(data);
-      this.user = data ['user'];
+      this.users = data ['user'];
 
     });
   }

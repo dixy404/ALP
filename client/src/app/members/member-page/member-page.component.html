@@ -1,6 +1,6 @@
 
 <div>
-<mat-list role="list" *ngFor="let u of user">
+<mat-list role="list" *ngFor="let user of users">
     <mat-list-item role="listitem">Ime: {{user.name}}</mat-list-item>
     <mat-list-item role="listitem">Prezime: {{user.lastName}}</mat-list-item>
     <mat-list-item role="listitem">Datum rođenja: {{user.dateOfBirth | date:'dd.MM.yyyy'}}</mat-list-item>

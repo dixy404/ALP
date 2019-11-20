@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'members',
-    loadChildren: () => import('./members/members.module').then(mod => mod.MembersModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./members/members.module').then(mod => mod.MembersModule), //canActivate: [AuthGuard]
   },
   {
     path: 'home',
