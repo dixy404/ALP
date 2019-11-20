@@ -139,6 +139,7 @@ public function update(Request $request, $id)
             }
             public function index()
             {   header("Access-Control-Allow-Origin: *");
+                $token = JWTAuth::fromUser($user);
                 $user= User::all();
                 return response()->json($user);
 
