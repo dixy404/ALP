@@ -1,1 +1,17 @@
-<p>member-page works!</p>
+
+<div>
+<mat-list role="list" *ngFor="let u of user">
+    <mat-list-item role="listitem">Ime: {{user.name}}</mat-list-item>
+    <mat-list-item role="listitem">Prezime: {{user.lastName}}</mat-list-item>
+    <mat-list-item role="listitem">Datum rođenja: {{user.dateOfBirth | date:'dd.MM.yyyy'}}</mat-list-item>
+    <mat-list-item role="listitem">Mjesto rođenja: {{user.placeOfBirth}} </mat-list-item>
+    <mat-list-item role="listitem">Broj pasoša: {{user.passportId}}</mat-list-item>
+    <mat-list-item role="listitem">Broj lične karte: {{user.idNumber}}</mat-list-item>
+    <mat-list-item role="listitem">JMBG: {{user.ssn}}</mat-list-item>
+    <mat-list-item role="listitem">Nacionalnost: {{user.nationality}}</mat-list-item>
+    <mat-list-item role="listitem">Zanimanje: {{user.occupation}}</mat-list-item>
+    <mat-list-item role="listitem">Krvna grupa: {{user.bloodType}}</mat-list-item>
+    <mat-list-item role="listitem">Adresa: {{user.address}}</mat-list-item>
+    <mat-list-item role="listitem">Email: {{user.email}}</mat-list-item>
+  </mat-list>
+</div>
