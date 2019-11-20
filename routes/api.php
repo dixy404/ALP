@@ -32,8 +32,8 @@ Route::post('registerclub', 'ClubController@register');
         Route::put('/updateuser/{id}', 'UserController@update');
         Route::delete('/deleteuser/{id}', 'UserController@destroy');
     Route::group(['middleware' => ['jwt.verify']], function() {
-        //Route::get('user', 'UserController@getAuthenticatedUser');
-        Route::get('user', 'UserController@index');
+        Route::get('user', 'UserController@getAuthenticatedUser');
+        //Route::get('user', 'UserController@index');
         
         //Route::get('/showuser/{id}', 'RegisterMemeberController@show');
         //Route::get('/members', 'RegisterMemeberController@index');

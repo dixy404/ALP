@@ -134,9 +134,9 @@ public function update(Request $request, $id)
                             return response()->json(['token_absent'], $e->getStatusCode());
 
                     }
-
-                   // return response()->json(compact('user'));
-                   return response()->json($user);
+                    
+                  return response()->json(compact('user'));
+                   //return response()->json($user);
             }
             public function index(Request $request)
             {   header("Access-Control-Allow-Origin: *");
