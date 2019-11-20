@@ -27,7 +27,9 @@ class ClubController extends Controller
     public function register(Request $request)
     {        header("Access-Control-Allow-Origin: *");
         $messages = ['required' => 'The :attribute field is required.',
-                     'unique' => 'The :attribute field already exist.',];
+                     'unique' => 'The :attribute field already exist.',
+                     'confirmed' => 'The :attribute does not match.',
+                     'max:255' => 'The :attribute max 255 characters.',];
         $validator = Validator::make($request->all(),  [
          'clubName' => 'required|string|max:255|unique:clubs',
          'clubPresident' => 'required|string|max:255',

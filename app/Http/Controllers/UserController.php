@@ -29,13 +29,15 @@
         public function register(Request $request)
         {        header("Access-Control-Allow-Origin: *");
             $messages = ['required' => 'The :attribute field is required.',
-                         'unique' => 'The :attribute field already exist.',];
+                         'unique' => 'The :attribute field already exist.',
+                         'confirmed' => 'The :attribute does not match.',
+                         'max:255' => 'The :attribute max 255 characters.',];
             $validator = Validator::make($request->all(),  [
              'name' => 'required|string|max:255',
              'lastName' => 'required|string|max:255',
              'dateOfBirth' => 'required|string|max:255',
              'address' => 'required|string|max:255',
-             'ssn' => 'string|max:255|unique:users',
+             'ssn' => 'max:255|unique:users',
              'email' => 'required|string|email|max:255|unique:users',
              'password' => 'required|string|min:8|confirmed',
             ], $messages);
