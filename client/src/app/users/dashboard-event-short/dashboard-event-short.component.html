@@ -1,1 +1,20 @@
-<p>dashboard!</p>
+
+<mat-card class="card" *ngFor="let event of events" >
+    <mat-card-content>
+            <mat-list role="list" >
+            
+                    <mat-list-item role="listitem">Naziv: {{event?.tripName}}</mat-list-item>
+                    <mat-list-item role="listitem">Datum: {{event?.tripDate}}</mat-list-item>
+                    <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime}}</mat-list-item>
+                    <mat-list-item role="listitem">Lokacija: {{event?.location}}</mat-list-item>
+                    <mat-list-item role="listitem">Dužina izleta: {{event?.tripDuration}}</mat-list-item>
+                    <mat-list-item role="listitem">Smještaj: {{event?.accommodation}}</mat-list-item>
+                    <mat-list-item role="listitem">Teren/Težina: {{event?.difficultyLevel}}</mat-list-item>
+         
+                  </mat-list>  
+                  <button mat-raised-button color="primary" routerLink="/home/event-info">Saznaj više</button>
+    </mat-card-content>
+</mat-card>
+
+
+

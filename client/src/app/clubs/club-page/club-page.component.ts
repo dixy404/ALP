@@ -7,14 +7,14 @@ import { ClubsService } from 'src/app/services/clubs.service';
   styleUrls: ['./club-page.component.css']
 })
 export class ClubPageComponent implements OnInit {
-  club;
+  clubs;
 
   constructor(private clubsService: ClubsService) { }
 
   ngOnInit() {
     this.clubsService.GetClub().subscribe((data) => {
       console.log(data);
-      this.club = data ['club'];
+      this.clubs = data ['club'];
       
     });
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-dashboard-event-short',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-event-short.component.css']
 })
 export class DashboardEventShortComponent implements OnInit {
+  events;
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+    this.usersService.GetEvent().subscribe((data) => {
+      console.log(data);
+      this.events = data ['club'];
+      
+    });
   }
 
 }
