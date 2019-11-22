@@ -17,7 +17,7 @@ class Club extends Authenticatable implements JWTSubject
          * @var array
          */
         protected $fillable = [
-            'clubName', 'clubPresident', 'clubSecretary', 'foundedIn', 'vision', 'mission', 'address', 'email', 'password'];
+            'clubName', 'clubPresident', 'clubSecretary', 'foundedIn', 'vision', 'mission','phoneNumber',  'address', 'email', 'password'];
 
         /**
          * The attributes that should be hidden for arrays.
