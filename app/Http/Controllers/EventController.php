@@ -39,4 +39,13 @@ class EventController extends Controller
         return response()->json(compact('event', 'token'), 201);
     
     }
+
+    public function index(Request $request)
+            {   header("Access-Control-Allow-Origin: *");
+               
+                $event = Event::all();
+                return response()->json(compact('club'),201);
+                
+
+            }
 }
