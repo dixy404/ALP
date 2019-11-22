@@ -16,7 +16,7 @@
          * @var array
          */
         protected $fillable = [
-            'name', 'lastName', 'address', 'dateOfBirth', 'placeOfBirth', 'bloodType', 'passportId', 'idNumber', 'ssn', 'nationality', 'occupation', 'email', 'password'  
+            'name', 'lastName', 'address', 'dateOfBirth', 'placeOfBirth', 'bloodType', 'passportId', 'idNumber', 'ssn', 'nationality', 'occupation', 'phoneNumber', 'email', 'password'  
         ];
 
         /**
