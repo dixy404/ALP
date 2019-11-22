@@ -13,18 +13,20 @@ class ClubController extends Controller
 {
     public function authenticate(Request $request)
     {
-        header("Access-Control-Allow-Origin: *");
-        $credentials = $request->only('email', 'password');
+        
+             header("Access-Control-Allow-Origin: *");
+            $credentials = $request->only('email', 'password');
 
-        try {
-            if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+            try {
+                if (! $token = JWTAuth::attempt($credentials)) {
+                    return response()->json(['error' => 'invalid_credentials'], 400);
+                }
+            } catch (JWTException $e) {
+                return response()->json(['error' => 'could_not_create_token'], 500);
             }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
 
-        return response()->json($token);
+            return response()->json($token);
+        
     }
 
     public function register(Request $request)
@@ -127,6 +129,14 @@ class ClubController extends Controller
 
         return response()->json(compact('club'));
     }
+    public function index(Request $request)
+            {   header("Access-Control-Allow-Origin: *");
+               
+                $club = Club::all();
+                return response()->json(compact('club'),201);
+                
+
+            }
     public function destroy(Request $request, $id)
     {
         $member = Club::find($id);
