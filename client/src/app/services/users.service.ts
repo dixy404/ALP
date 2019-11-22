@@ -9,7 +9,7 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   GetEvent() {
-    return this.http.get('http://localhost:8000/api/index')
+    return this.http.get('http://localhost:8000/api/events')
   }
 
 }
