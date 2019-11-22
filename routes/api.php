@@ -24,7 +24,7 @@ Route::post('registerclub', 'ClubController@register');
 Route::post('loginuser', 'UserController@authenticate');
 Route::post('loginclub', 'ClubController@authenticate');
 Route::get('index', 'ClubController@index');
-Route::get('index', 'EventController@index');
+Route::get('events', 'EventController@index');
 Route::get('open', 'DataController@open');
 Route::post('createevent', 'EventController@register');
 
