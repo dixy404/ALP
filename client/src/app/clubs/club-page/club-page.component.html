@@ -1,6 +1,6 @@
 
 <div>
-    <mat-list role="list"  >
+    <mat-list role="list" *ngFor="let club of clubs" >
             
         <mat-list-item role="listitem">Ime kluba: {{club?.clubName}}</mat-list-item>
         <mat-list-item role="listitem">Predsjednik kluba: {{club?.clubPresident}}</mat-list-item>
