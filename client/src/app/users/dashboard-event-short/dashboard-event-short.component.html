@@ -4,7 +4,7 @@
             <mat-list role="list" >
             
                     <mat-list-item role="listitem">Naziv: {{event?.tripName}}</mat-list-item>
-                    <mat-list-item role="listitem">Datum: {{event?.tripDate}}</mat-list-item>
+                    <mat-list-item role="listitem">Datum: {{event?.tripDate | date:'dd.MM.yyyy.'}}</mat-list-item>
                     <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime}}</mat-list-item>
                     <mat-list-item role="listitem">Lokacija: {{event?.location}}</mat-list-item>
                     <mat-list-item role="listitem">Dužina izleta: {{event?.tripDuration}}</mat-list-item>
