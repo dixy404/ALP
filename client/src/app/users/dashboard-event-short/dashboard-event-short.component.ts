@@ -14,7 +14,7 @@ export class DashboardEventShortComponent implements OnInit {
   ngOnInit() {
     this.usersService.GetEvent().subscribe((data) => {
       console.log(data);
-      this.events = data ['club'];
+      this.events = data ['event'];
       
     });
   }
