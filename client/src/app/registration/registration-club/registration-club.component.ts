@@ -27,7 +27,8 @@ export class RegistrationClubComponent implements OnInit {
       foundedIn: [this.club.foundedIn, Validators.required],
       vision: [this.club.vision, Validators.required],
       mission: [this.club.mission, Validators.required],
-      address: [this.club.address, Validators.required], 
+      address: [this.club.address, Validators.required],
+      phoneNumber: [this.club.phoneNumber, Validators.required], 
       email: [this.club.email, Validators.email],
       password: [this.club.password, Validators.required],
       password_confirmation : [this.club.password_confirmation, Validators.required],
@@ -37,10 +38,10 @@ export class RegistrationClubComponent implements OnInit {
 
 save({value, valid}: {value: Club, valid: boolean}) { 
   console.log(this.form.value)
-  const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, email, password, password_confirmation } = this.form.value
+  const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation } = this.form.value
 
   
-    this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, email, password, password_confirmation)
+    this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation)
     .subscribe(data => console.log(data))
  
  

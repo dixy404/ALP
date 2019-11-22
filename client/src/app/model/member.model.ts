@@ -11,6 +11,7 @@ export class Member {
     bloodType: string;
     address: string;
     email: string;
+    phoneNumber: string;
     password: string;
     password_confirmation: string;
 }

@@ -33,7 +33,8 @@ export class RegistrationMemberComponent implements OnInit {
       nationality: [this.user.nationality,],
       occupation: [this.user.occupation,],
       bloodType: [this.user.bloodType,],
-      address: [this.user.address, Validators.required], 
+      address: [this.user.address, Validators.required],
+      phoneNumber: [this.user.phoneNumber, Validators.required], 
       email: [this.user.email, Validators.email],
       password: [this.user.password, Validators.required],
       password_confirmation : [this.user.password_confirmation, Validators.required],
@@ -43,12 +44,12 @@ export class RegistrationMemberComponent implements OnInit {
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation } = this.form.value
+    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation } = this.form.value
 
     /*this.registrationService.test(name, address, email)
       .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
     
-      this.registrationService.register(name, address, email, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation)
+      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation)
       .subscribe(data => console.log(data))
    
    
