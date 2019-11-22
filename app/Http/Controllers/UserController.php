@@ -38,6 +38,7 @@
              'dateOfBirth' => 'required|string|max:255',
              'address' => 'required|string|max:255',
              'ssn' => 'max:255|unique:users',
+             'phoneNumber' => 'required|integer|max:255|unique:users',
              'email' => 'required|string|email|max:255|unique:users',
              'password' => 'required|string|min:8|confirmed',
             ], $messages);
@@ -57,6 +58,7 @@
                 'nationality' => $request->get('nationality'),
                 'occupation' => $request->get('occupation'),
                 'email' => $request->get('email'),
+                'phoneNumber' => $request->get('phoneNumber'),
                 'password' => Hash::make($request->get('password')),
             ]);
 
@@ -75,7 +77,7 @@
 }
         public function edit($id){ 
         header("Access-Control-Allow-Origin: *");
-        $user = User::find($id)->where('id', $id)->select(['name','lastName',"address","dateOfBirth","placeOfBirth","bloodType","passportId","idNumber","ssn","nationality","occupation","email"])->get();
+        $user = User::find($id)->where('id', $id)->select(['name','lastName',"address","dateOfBirth","placeOfBirth","bloodType","passportId","idNumber","ssn","nationality","occupation", 'phoneNumber',"email"])->get();
          return response()->json(compact('user'),201);
 
 
@@ -96,6 +98,7 @@ public function update(Request $request, $id)
     'ssn' => request('ssn'),
     'nationality' => request('nationality'),
     'occupation' => request('occupation'),
+    'phoneNumber' => request('phoneNumber'),
     'email' =>  request('email'),]);
     
     
