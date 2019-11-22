@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClubsService } from 'src/app/services/clubs.service';
 
 @Component({
   selector: 'app-club-page',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./club-page.component.css']
 })
 export class ClubPageComponent implements OnInit {
+  club;
 
-  constructor() { }
+  constructor(private clubsService: ClubsService) { }
 
   ngOnInit() {
+    this.clubsService.GetClub().subscribe((data) => {
+      console.log(data);
+      this.club = data ['club'];
+      
+    });
   }
 
 }

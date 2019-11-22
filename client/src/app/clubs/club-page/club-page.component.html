@@ -1,4 +1,23 @@
-<p>club-page works!</p>
+
+<div>
+    <mat-list role="list"  >
+            
+        <mat-list-item role="listitem">Ime kluba: {{club?.clubName}}</mat-list-item>
+        <mat-list-item role="listitem">Predsjednik kluba: {{club?.clubPresident}}</mat-list-item>
+        <mat-list-item role="listitem">Sekretar kluba: {{club?.clubSecretary}}</mat-list-item>
+        <mat-list-item role="listitem">Datum osnivanja: {{club?.foundedIn | date:'dd.MM.yyyy.'}}</mat-list-item>
+        <mat-list-item role="listitem">Vizija: {{club?.vision}} </mat-list-item>
+        <mat-list-item role="listitem">Misija: {{club?.mission}}</mat-list-item>
+        <mat-list-item role="listitem">Adresa: {{club?.address}}</mat-list-item>
+        <mat-list-item role="listitem">Telefon: {{club?.phoneNumber}}</mat-list-item>
+        <mat-list-item role="listitem">Email: {{club?.email}}</mat-list-item>
+      </mat-list>
+    </div>
+    
+    
+    <!-- *ngFor="let club of clubs" -->
+
+<button mat-raised-button color="primary" routerLink="/clubs/event">Dodaj događaj</button>
 
 
 
