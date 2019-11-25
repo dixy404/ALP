@@ -37,6 +37,7 @@ logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('token');
   this.currentUserSubject.next(null);
+  //this.router.navigate(['/home']);
 }
 
 }

@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
+    private router: Router,
     
   ) { }
 
@@ -28,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     const {email, password } = this.form.value
-    //this.router.navigate(['events']); 
     this.authService.login(email, password).subscribe(data => console.log('data123', data))
+    this.router.navigate(['/members']); 
   }
 
 }

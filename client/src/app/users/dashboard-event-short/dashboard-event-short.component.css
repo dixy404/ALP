@@ -63,4 +63,17 @@
 
   .btn-color {
     background-color:#333; 
+    
+}
+
+.trip-name {
+    font-size: 25px;
+}
+
+.list{
+  padding-left: 270px;
+}
+
+.image{
+  float: left;
 }
