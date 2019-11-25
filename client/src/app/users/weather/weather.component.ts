@@ -16,14 +16,14 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     
-    this.http.get("https://api.openweathermap.org/data/2.5/weather?q=Banja+Luka,ba&units=metric&APPID=ed1f5dd1d096e2db573142fb113a783b")
+    this.http.get("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Banja+Luka,ba&units=metric&APPID=ed1f5dd1d096e2db573142fb113a783b")
     .subscribe(
       (result: any)=> {
-        console.log(result)
+        console.log("result open weather api", result)
         this.data.push(result)
         this.sourceImg = "http://openweathermap.org/img/w/" + result.weather[0].icon + ".png";
         
-      })
+      }, err => console.log("ERROR OPEN WEATHER", err))
   }
 
 }

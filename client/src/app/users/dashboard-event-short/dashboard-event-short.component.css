@@ -1,6 +1,6 @@
-/*.card {
-    margin: 20px;
-}*/
+.card {
+    margin-bottom: 15px;
+}
 
 * {
     box-sizing: border-box;
