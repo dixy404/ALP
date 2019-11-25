@@ -11,6 +11,9 @@
                 <input matInput type="password" formControlName="password" required autocomplete="off"
                     placeholder="Lozinka" />
             </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="login()" >Prijavi se</button>
+            <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="login()" >Prijavi se</button>
+            <br>
+            <button mat-raised-button color="primary" class="btn-color" routerLink="/home"> Vrati se na Početnu
+            </button>
         </form>
     </div>

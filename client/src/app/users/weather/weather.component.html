@@ -1,0 +1,9 @@
+
+ <div class="weather">
+        <p *ngFor = "let d of data">
+            Trenutna temperatura <br>
+             u Banja Luci: {{d.main.temp}} °C 
+            <br>
+            <img [src]="sourceImg" width="90" height="90">
+        </p>
+    </div>

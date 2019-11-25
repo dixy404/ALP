@@ -36,6 +36,9 @@
         <input matInput type="password" formControlName="password_confirmation" required autocomplete="off"
           placeholder="Potvrdi lozinku (min. 8 karaktera)" />
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj se</button>
+      <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj se</button>
+      <br>
+      <button mat-raised-button color="primary" class="btn-color" routerLink="/home"> Vrati se na Početnu
+        </button>
     </form>
   </div>

@@ -1,4 +1,3 @@
-<p>add-event works!</p>
 
 <div class="login-container">
 
@@ -136,7 +135,10 @@
         </mat-form-field>
 
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid"
+        <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid"
             (click)="save(form)">Pošalji</button>
+        <br>
+        <button mat-raised-button color="primary" class="btn-color" routerLink="/home"> Vrati se na Početnu
+        </button>
     </form>
 </div>
