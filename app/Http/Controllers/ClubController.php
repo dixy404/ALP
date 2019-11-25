@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use JWTFactory;
+
 
 class ClubController extends Controller
 {
@@ -15,9 +17,11 @@ class ClubController extends Controller
     {
         
              header("Access-Control-Allow-Origin: *");
+             
             $credentials = $request->only('email', 'password');
-
+            
             try {
+                
                 if (! $token = JWTAuth::attempt($credentials)) {
                     return response()->json(['error' => 'invalid_credentials'], 400);
                 }
