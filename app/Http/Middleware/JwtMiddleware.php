@@ -19,7 +19,7 @@
          */
         public function handle($request, Closure $next)
         {
-            try {
+            try { 
                /* $headers = apache_request_headers(); //get header
             $request->headers->set('Authorization', $headers['authorization']);*/
                 $user = JWTAuth::parseToken()->authenticate();
@@ -33,5 +33,6 @@
                 }
             }
             return $next($request);
+            
         }
     }
