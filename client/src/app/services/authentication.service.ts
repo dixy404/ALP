@@ -4,6 +4,7 @@ import { memberLogin } from '../model/member-login';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<memberLogin>;
   public currentUser: Observable<memberLogin>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private router: Router) {
     this.currentUserSubject = new BehaviorSubject<memberLogin>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
    }
@@ -36,8 +38,7 @@ login(email: string, password: string) {
 logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('token');
-  this.currentUserSubject.next(null);
-  //this.router.navigate(['/home']);
+ this.router.navigate(['/home']);
 }
 
 }
