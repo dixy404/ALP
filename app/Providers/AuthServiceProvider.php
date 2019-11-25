@@ -14,6 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+       // Club::class => ClubPolicy::class,
     ];
 
     /**
@@ -24,7 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        /*Gate::define('createevent', function ($club) {
+            return $club->isModerator;
+        });*/
+        
+        Gate::define("isModerator", function ($club) {
+            return $club->role == "moderator";
+        });
     }
 }
