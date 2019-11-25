@@ -25,4 +25,5 @@ class Cors
        'maxAge' => 0,
    ];
 }
+
 }

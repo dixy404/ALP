@@ -46,6 +46,15 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'users' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            
+        ],
+        'clubs' => [
+            'driver' => 'token',
+            'provider' => 'clubs',
+        ],
     ],
 
     /*
@@ -69,6 +78,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'clubs' => [
+            'driver' => 'eloquent',
+            'model' => App\Club::class,
         ],
 
         // 'users' => [

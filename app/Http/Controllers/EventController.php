@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
     use App\Event;
+    use App\Club;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Validator;
     use JWTAuth;
     use Tymon\JWTAuth\Exceptions\JWTException;
+    use App\Http\Middleware\CheckRole;
 
 class EventController extends Controller
 {
     public function register(Request $request) 
     {
         header("Access-Control-Allow-Origin: *");
+        
         $event = Event::create([
             'tripDate' => $request->get('tripDate'),
             'tripTime' => $request->get('tripTime'),

@@ -17,7 +17,7 @@ class Club extends Authenticatable implements JWTSubject
          * @var array
          */
         protected $fillable = [
-            'clubName', 'clubPresident', 'clubSecretary', 'foundedIn', 'vision', 'mission','phoneNumber',  'address', 'email', 'password'];
+            'clubName', 'clubPresident', 'clubSecretary', 'foundedIn', 'vision', 'mission','phoneNumber',  'address', 'email', 'role', 'password'];
 
         /**
          * The attributes that should be hidden for arrays.
@@ -27,6 +27,12 @@ class Club extends Authenticatable implements JWTSubject
         protected $hidden = [
             'password',  'remember_token',
         ];
+        public function isModerator() {
+            if($this->role == "moderator"){
+                 return true;
+             }
+             return false;
+         }
 
         public function getJWTIdentifier()
         {
@@ -36,4 +42,6 @@ class Club extends Authenticatable implements JWTSubject
         {
             return [];
         }
+        
+
 }
