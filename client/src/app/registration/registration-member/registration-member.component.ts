@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Member} from 'src/app/model/member.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration-member',
@@ -16,7 +17,8 @@ export class RegistrationMemberComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, 
     private snackBar: MatSnackBar,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class RegistrationMemberComponent implements OnInit {
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
     const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation } = this.form.value
-
+    this.router.navigate(['/auth']); 
     /*this.registrationService.test(name, address, email)
       .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
     
