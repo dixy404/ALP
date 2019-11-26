@@ -8,14 +8,28 @@
     use Illuminate\Support\Facades\Validator;
     use JWTAuth;
     use Tymon\JWTAuth\Exceptions\JWTException;
+    use JWTFactory;
+    use Config;
 
     class UserController extends Controller
-    {
+    { 
+        function __construct()
+        {
+            Config::set('jwt.user', User::class);
+            Config::set('auth.providers', ['users' => [
+                    'driver' => 'eloquent',
+                    'model' => User::class,
+                ]]);
+        }
         public function authenticate(Request $request)
-        {     header("Access-Control-Allow-Origin: *");
+    {
+        
+             header("Access-Control-Allow-Origin: *");
+             
             $credentials = $request->only('email', 'password');
-
+            
             try {
+                
                 if (! $token = JWTAuth::attempt($credentials)) {
                     return response()->json(['error' => 'invalid_credentials'], 400);
                 }
@@ -24,7 +38,8 @@
             }
 
             return response()->json($token);
-        }
+        
+    }
 
         public function register(Request $request)
         {        header("Access-Control-Allow-Origin: *");
@@ -38,7 +53,7 @@
              'dateOfBirth' => 'required|string|max:255',
              'address' => 'required|string|max:255',
              'ssn' => 'max:255|unique:users',
-             'phoneNumber' => 'required|integer|max:255|unique:users',
+             'phoneNumber' => 'required|numeric|digits:25|unique:users',
              'email' => 'required|string|email|max:255|unique:users',
              'password' => 'required|string|min:8|confirmed',
             ], $messages);
