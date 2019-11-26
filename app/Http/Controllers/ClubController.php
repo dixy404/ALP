@@ -58,7 +58,7 @@ class ClubController extends Controller
             'mission' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:clubs',
-            'phoneNumber' => 'required|numeric|digits:25|unique:clubs',
+            'phoneNumber' => 'required|numeric|digits_between:1,25|unique:clubs',
             'password' => 'required|string|min:8|confirmed',
         ], $messages);
         if ($validator->fails()) {
