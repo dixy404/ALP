@@ -27,7 +27,7 @@ Route::post('loginclub', 'ClubController@authenticate');
 Route::get('index', 'ClubController@index');
 Route::get('events', 'EventController@index');
 Route::get('open', 'DataController@open');
-//Route::post('createevent', 'EventController@register');
+Route::post('createevent', 'EventController@register');
 //Route::post('createevent',  'EventController@register')->middleware('auth.role');
 //Route::post('createevent', 'EventController@register')->middleware('role');
 //Route::post('createevent', 'EventController@register')->middleware('can:isModerator');
@@ -58,4 +58,4 @@ Route::group(['middleware' => ['role:moderator']], function () {
 {
     Route::post('createevent', 'EventController@register');
 });*/
-Route::post('createevent', ['middleware' => 'auth.role:moderator,user', 'uses' => 'EventController@register', 'as' => 'createevent']);
+//Route::post('createevent', ['middleware' => 'auth.role:moderator,user', 'uses' => 'EventController@register', 'as' => 'createevent']);
