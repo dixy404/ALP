@@ -9,10 +9,17 @@ use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTFactory;
-
+use Config;
 
 class ClubController extends Controller
-{
+{    function __construct()
+    {
+        Config::set('jwt.user', Club::class);
+        config::set('auth.providers', ['users' => [
+                'driver' => 'eloquent',
+                'model' => Club::class,
+            ]]);
+    }
     public function authenticate(Request $request)
     {
         
@@ -51,7 +58,7 @@ class ClubController extends Controller
             'mission' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:clubs',
-            'phoneNumber' => 'required|integer|max:255|unique:clubs',
+            'phoneNumber' => 'required|numeric|digits:25|unique:clubs',
             'password' => 'required|string|min:8|confirmed',
         ], $messages);
         if ($validator->fails()) {
