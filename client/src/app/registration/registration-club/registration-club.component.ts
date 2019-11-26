@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Club } from 'src/app/model/club.model';
 import { RegistrationService } from 'src/app/services/registration.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration-club',
@@ -15,7 +16,8 @@ export class RegistrationClubComponent implements OnInit {
 
 
   constructor(public formBuilder: FormBuilder,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class RegistrationClubComponent implements OnInit {
 save({value, valid}: {value: Club, valid: boolean}) { 
   console.log(this.form.value)
   const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation } = this.form.value
-
+  this.router.navigate(['/auth']); 
   
     this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation)
     .subscribe(data => console.log(data))

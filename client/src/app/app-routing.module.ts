@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'clubs',
-    loadChildren: () => import('./clubs/clubs.module').then(mod => mod.ClubsModule),// canActivate: [AuthGuard]
+    loadChildren: () => import('./clubs/clubs.module').then(mod => mod.ClubsModule), //canActivate: [AuthGuard]
   },
   {
     path: 'members',
