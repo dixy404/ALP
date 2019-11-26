@@ -1,6 +1,6 @@
 
 <div>
-    <mat-list role="list" *ngFor="let club of clubs" >
+    <mat-list role="list" >
             
         <mat-list-item role="listitem">Ime kluba: {{club?.clubName}}</mat-list-item>
         <mat-list-item role="listitem">Predsjednik kluba: {{club?.clubPresident}}</mat-list-item>
@@ -14,10 +14,13 @@
       </mat-list>
     </div>
     
-    
+    <br>
    
-
 <button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event">Dodaj događaj</button>
+
+
+
+<!-- *ngFor="let club of clubs" -->
 
 
 

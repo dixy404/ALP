@@ -33,6 +33,8 @@ login(email: string, password: string) {
           this.currentUserSubject.next(user);
           return user;
       }));
+
+
 }
 
 logout() {

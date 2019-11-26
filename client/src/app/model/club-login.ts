@@ -4,3 +4,4 @@ export class clubLogin {
     password: string;
     token?: string;
 }
+

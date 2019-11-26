@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Event } from 'src/app/model/event.model';
 import { ClubsService } from 'src/app/services/clubs.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-event',
@@ -14,7 +15,8 @@ export class AddEventComponent implements OnInit {
   public event: Event = new Event();
 
   constructor(public formBuilder: FormBuilder,
-    private clubsService: ClubsService
+    private clubsService: ClubsService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class AddEventComponent implements OnInit {
 save({value, valid}: {value: Event, valid: boolean}) { 
   console.log(this.form.value)
   const {tripName, tripDate, tripTime, location, description, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
-
+  this.router.navigate(['/home']);
   
     this.clubsService.addEvent(tripName, tripDate, tripTime, location, description, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
     .subscribe(data => console.log(data))
