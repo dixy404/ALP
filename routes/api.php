@@ -40,6 +40,7 @@ Route::delete('/deleteuser/{id}', 'UserController@destroy');
 Route::group(['middleware' => ['jwt.verify']], function () {
     
     Route::get('user', 'UserController@getAuthenticatedUser');
+    Route::get('club', 'ClubController@getAuthenticatedClub');
 Route::group(['middleware' => ['role:moderator']], function () {
     //Route::post('createevent', 'EventController@register');
     
