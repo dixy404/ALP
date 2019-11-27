@@ -12,7 +12,8 @@
                 
                   <mat-list-item role="listitem" class="trip-name">Naziv: {{event?.tripName}}</mat-list-item>
                   <mat-list-item role="listitem">Datum: {{event?.tripDate | date:'dd.MM.yyyy.'}}</mat-list-item>
-                  <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime}}</mat-list-item>
+                  <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
+                  <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                   <mat-list-item role="listitem">Lokacija: {{event?.location}}</mat-list-item>
                   <mat-list-item role="listitem" >Dužina izleta: <img class="img1" src ={{event?.tripDuration}} width="35px" height="auto"></mat-list-item>
                   <mat-list-item role="listitem" >Smještaj: <img class="img2" src ={{event?.accommodation}} width="35px" height="auto"> </mat-list-item>
