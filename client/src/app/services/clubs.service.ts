@@ -10,7 +10,7 @@ export class ClubsService {
 
   GetClub() {
     
-    return this.http.get('http://localhost:8000/api/index')
+    return this.http.get('http://localhost:8000/api/club')
   }
 
   addEvent(tripName, tripDate, tripTime, location, description, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType) {
