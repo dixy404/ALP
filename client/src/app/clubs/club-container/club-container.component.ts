@@ -16,7 +16,7 @@ export class ClubContainerComponent implements OnInit {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
-   this.router.navigate(['/auth']);
+   this.router.navigate(['/auth/login-club']);
   }
 
 }

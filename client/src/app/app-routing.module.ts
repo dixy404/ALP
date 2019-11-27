@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './login-helpers/auth.guard';
+import { AuthclubGuard } from './login-helpers/auth-club.guard';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'clubs',
-    loadChildren: () => import('./clubs/clubs.module').then(mod => mod.ClubsModule), //canActivate: [AuthGuard]
+    loadChildren: () => import('./clubs/clubs.module').then(mod => mod.ClubsModule), //canActivate: [AuthclubGuard]
   },
   {
     path: 'members',

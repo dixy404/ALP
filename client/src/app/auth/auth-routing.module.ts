@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthContainerComponent } from './auth-container/auth-container.component';
 import { LoginComponent } from './login/login.component';
+import { LoginClubComponent } from './login-club/login-club.component';
 
 
 const routes: Routes = [
@@ -10,8 +11,12 @@ const routes: Routes = [
     component: AuthContainerComponent,
     children: [
       {
-        path: '**',
+        path: '',
         component: LoginComponent,
+      },
+      {
+        path: 'login-club',
+        component: LoginClubComponent,
       },
     ]
   }
