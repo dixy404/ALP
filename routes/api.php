@@ -20,12 +20,14 @@ use Illuminate\Http\Request;
 //Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 Route::post('registeruser', 'UserController@register');
 Route::post('registerclub', 'ClubController@register');
 Route::post('loginuser', 'UserController@authenticate');
 Route::post('loginclub', 'ClubController@authenticate');
 Route::get('index', 'ClubController@index');
 Route::get('events', 'EventController@index');
+Route::get('/showevent/{id}', 'EventController@show');
 Route::get('open', 'DataController@open');
 Route::post('createevent', 'EventController@register');
 //Route::post('createevent',  'EventController@register')->middleware('auth.role');
@@ -59,4 +61,4 @@ Route::group(['middleware' => ['role:moderator']], function () {
 {
     Route::post('createevent', 'EventController@register');
 });*/
-//Route::post('createevent', ['middleware' => 'auth.role:moderator,user', 'uses' => 'EventController@register', 'as' => 'createevent']);
+Route::post('createevent', ['middleware' => 'auth.role:moderator,clubs1', 'uses' => 'EventController@register', 'as' => 'createevent']);
