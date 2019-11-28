@@ -55,7 +55,7 @@ class EventController extends Controller
             {
                 header("Access-Control-Allow-Origin: *");
                 $event = Event::find($id);
-                return response()->json(compact('event'), 201);  
+                return response()->json($event);  
             }     
  }
 
