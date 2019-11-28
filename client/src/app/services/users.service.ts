@@ -12,8 +12,8 @@ export class UsersService {
     return this.http.get('http://localhost:8000/api/events')
   }
 
-  GetEventlong() {
-    return this.http.get('http://localhost:8000/api/showevent/{id}')
+  GetEventlong(id) {
+    return this.http.get(`http://localhost:8000/api/showevent/${id}`)
   }
 
 }

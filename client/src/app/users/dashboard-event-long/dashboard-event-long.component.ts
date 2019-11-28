@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
+import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-event-long',
@@ -9,12 +10,15 @@ import { UsersService } from 'src/app/services/users.service';
 export class DashboardEventLongComponent implements OnInit {
   event;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private route: ActivatedRoute, private usersService: UsersService) { }
 
   ngOnInit() {
-    this.usersService.GetEventlong().subscribe((data) => {
+
+    const id = this.route.snapshot.paramMap.get("id")
+    // console.log("test124", testing)
+    this.usersService.GetEventlong(id).subscribe((data) => {
       console.log(data);
-      this.event = data ['event'];
+      this.event = data
       
     });
   }
