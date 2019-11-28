@@ -61,4 +61,4 @@ Route::group(['middleware' => ['role:moderator']], function () {
 {
     Route::post('createevent', 'EventController@register');
 });*/
-Route::post('createevent', ['middleware' => 'auth.role:moderator,clubs1', 'uses' => 'EventController@register', 'as' => 'createevent']);
+//Route::post('createevent', ['middleware' => 'auth.role:moderator,clubs1', 'uses' => 'EventController@register', 'as' => 'createevent']);
