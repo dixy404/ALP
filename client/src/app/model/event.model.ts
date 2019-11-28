@@ -5,6 +5,7 @@ export class Event {
     tripName: string;
     location: string;
     description: string;
+    price: string;
     tripDuration: string;
     departureTime: string;
     accommodation: string; 

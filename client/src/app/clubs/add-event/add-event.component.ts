@@ -27,7 +27,7 @@ export class AddEventComponent implements OnInit {
       tripDate: [this.event.tripDate], 
       location: [this.event.location], 
       description: [this.event.description],
-      /* price: [this.event.price], */
+      price: [this.event.price],
       tripDuration: [this.event.tripDuration], 
       departureTime: [this.event.departureTime], 
       accommodation: [this.event.accommodation], 
@@ -45,10 +45,10 @@ export class AddEventComponent implements OnInit {
 
 save({value, valid}: {value: Event, valid: boolean}) { 
   console.log(this.form.value)
-  const {tripName, tripDate, tripTime, location, description, /* price, */ tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
+  const {tripName, tripDate, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
   this.router.navigate(['/home']);
   
-    this.clubsService.addEvent(tripName, tripDate, tripTime, location, description, /* price, */ tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
+    this.clubsService.addEvent(tripName, tripDate, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
     .subscribe(data => console.log(data))
 }
 
