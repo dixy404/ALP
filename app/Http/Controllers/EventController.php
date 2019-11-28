@@ -22,6 +22,7 @@ class EventController extends Controller
             'tripTime' => $request->get('tripTime'),
             'tripName' => $request->get('tripName'),
             'location' => $request->get('location'),
+            'price' => $request->get('price'),
             'description' => $request->get('description'),
             'tripDuration' => $request->get('tripDuration'),
             'departureTime' => $request->get('departureTime'),
