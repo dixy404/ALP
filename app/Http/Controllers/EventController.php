@@ -51,4 +51,12 @@ class EventController extends Controller
                 
 
             }
-}
+            public function show($id)
+            {
+                header("Access-Control-Allow-Origin: *");
+                $club = Event::find($id);
+                return response()->json(compact('event'), 201);  
+            }     
+ }
+
+
