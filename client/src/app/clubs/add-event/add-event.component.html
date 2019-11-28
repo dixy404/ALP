@@ -17,17 +17,22 @@
             <input matInput placeholder="Vrijeme polaska" type="time" formControlName="departureTime" autocomplete="off" />
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Lokacija" formControlName="location" autocomplete="off" />
+            <input matInput placeholder="Mjesto polaska" formControlName="location" autocomplete="off" />
         </mat-form-field>
         <mat-form-field>
             <textarea matInput placeholder="Opis" type="text" formControlName="description" autocomplete="off"></textarea>
         </mat-form-field>
+        <!--  
+        <mat-form-field>
+                <input matInput placeholder="Cijena" formControlName="price" autocomplete="off" />
+         </mat-form-field>
+        -->
 
         <mat-form-field>
             <mat-label>Dužina izleta</mat-label>
             <select matNativeControl formControlName="tripDuration">
                 <option value="" selected></option>
-                <option value="/assets/img/Ikone/Duzina_izleta/jednodnevni.JPEG">Jednodnevni</option>
+                <option value="/assets/img/Ikone/Duzina_izleta/jednodnevni.JPEG" matTooltip="Dužina izleta: Jednodnevni">Jednodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/dvodnevni.JPEG">Dvodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/trodnevni.JPEG">Trodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/cetvorodnevni.JPEG">Četverodnevni</option>
@@ -119,7 +124,6 @@
                 <option value="/assets/img/Ikone/Vrsta_terena/rijeka.JPEG">Rijeka</option>
             </select>
         </mat-form-field>
-
 
         <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid"
             (click)="save(form)">Pošalji</button>
