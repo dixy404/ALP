@@ -27,7 +27,7 @@ Route::post('loginuser', 'UserController@authenticate');
 Route::post('loginclub', 'ClubController@authenticate');
 Route::get('index', 'ClubController@index');
 Route::get('events', 'EventController@index');
-Route::get('/showevent/{id}', 'EventController@show');
+Route::get('showevent/{id}', 'EventController@show');
 Route::get('open', 'DataController@open');
 Route::post('createevent', 'EventController@register');
 //Route::post('createevent',  'EventController@register')->middleware('auth.role');
