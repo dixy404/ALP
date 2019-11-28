@@ -15,7 +15,7 @@ const routes: Routes = [
         component: DashboardEventShortComponent,
       },
       {
-        path: 'event-info',
+        path: 'event-info/:id',
         component: DashboardEventLongComponent,
       },
     ]

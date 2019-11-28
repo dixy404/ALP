@@ -1,4 +1,5 @@
 export class Event {
+    id: number;
     tripDate: Date;
     tripTime: string;
     tripName: string;

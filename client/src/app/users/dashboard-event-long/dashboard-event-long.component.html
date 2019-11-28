@@ -1,1 +1,34 @@
-<p>dashboard-event-long works!</p>
+<div class="container">
+        <mat-card class="card" >
+      
+               <!-- TO DO put image -->
+
+                <mat-card-content>
+                        <mat-list role="list" class="list">
+                        
+                          <mat-list-item role="listitem" class="trip-name"> {{event?.tripName}}</mat-list-item>
+                          <mat-list-item role="listitem">Datum: {{event?.tripDate | date:'dd.MM.yyyy.'}}</mat-list-item>
+                          <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
+                          <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
+                          <mat-list-item role="listitem">Lokacija: {{event?.location}}</mat-list-item>
+                          <mat-list-item role="listitem">Opis: {{event?.description}}</mat-list-item>
+                          <mat-list-item role="listitem">Dužina izleta: <img class="img1" src ={{event?.tripDuration}} width="35px" height="auto"></mat-list-item>
+                          <mat-list-item role="listitem">Smještaj: <img class="img2" src ={{event?.accommodation}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Sezona: <img class=" " src ={{event?.season}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Teren/Težina: <img class="img3" src ={{event?.difficultyLevel}} width="35px" height="auto"></mat-list-item>
+                          <mat-list-item role="listitem">Oprema: <img class=" " src ={{event?.equipment}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Visina: <img class=" " src ={{event?.elevation}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Sati: <img class=" " src ={{event?.hours}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Dužina: <img class=" " src ={{event?.trailLength}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Tip staze: <img class=" " src ={{event?.trailType}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Vrsta terena: <img class=" " src ={{event?.terrainType}} width="35px" height="auto"> </mat-list-item>
+                     
+                        </mat-list>  
+                          
+                </mat-card-content>
+              
+            </mat-card>
+
+</div>
+
+<!-- *ngFor="let event of events"  -->
