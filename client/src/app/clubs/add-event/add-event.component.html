@@ -32,7 +32,7 @@
             <mat-label>Dužina izleta</mat-label>
             <select matNativeControl formControlName="tripDuration">
                 <option value="" selected></option>
-                <option value="/assets/img/Ikone/Duzina_izleta/jednodnevni.JPEG" matTooltip="Dužina izleta: Jednodnevni">Jednodnevni</option>
+                <option value="/assets/img/Ikone/Duzina_izleta/jednodnevni.JPEG" title="jednodnevni" >Jednodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/dvodnevni.JPEG">Dvodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/trodnevni.JPEG">Trodnevni</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/cetvorodnevni.JPEG">Četverodnevni</option>
@@ -81,11 +81,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Visina</mat-label>
-            <select matNativeControl formControlName="elevation">
-                <option value="" selected></option>
-                <option value="/assets/img/Ikone/Visina/visina1.JPEG">2368 mnv</option>
-            </select>
+                <input matInput placeholder="Visina" formControlName="elevation" autocomplete="off" />
         </mat-form-field>
 
         <mat-form-field>

@@ -8,10 +8,11 @@ import { AppMaterialModule } from '../app-material/app-material.module';
 import { AddEventComponent } from './add-event/add-event.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
+import { EditClubComponent } from './edit-club/edit-club.component';
 
 
 @NgModule({
-  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent],
+  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent],
   imports: [
     CommonModule,
     ClubsRoutingModule,
