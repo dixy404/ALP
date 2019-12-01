@@ -10,22 +10,67 @@
     use Tymon\JWTAuth\Exceptions\JWTException;
     use JWTFactory;
     use Config;
+    use Illuminate\Foundation\Auth\VerifiesEmails;
+    use Illuminate\Auth\Events\Verified;
+    use Auth;
 
     class UserController extends Controller
     { 
         function __construct()
-        {
+        {  header("Access-Control-Allow-Origin: *");
             Config::set('jwt.user', User::class);
             Config::set('auth.providers', ['users' => [
                     'driver' => 'eloquent',
                     'model' => User::class,
                 ]]);
+                //$this->middleware(['JWTAuth', 'verified']);
         }
-        public function authenticate(Request $request)
+
+use VerifiesEmails;
+public $successStatus = 200;
+/**
+* login api
+*
+* @return \Illuminate\Http\Response
+*/
+public function login(){
+    if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+    $user = Auth::user();
+    if($user->email_verified_at !== NULL){
+    $success['message'] = 'Login successfull';
+    return response()->json(['success' => $success], $this-> successStatus);
+    }else{
+    return response()->json(['error'=>'Please Verify Email'], 401);
+    }
+    }
+    else{
+    return response()->json(['error'=>'Unauthorised'], 401);
+    }
+    }
+    /**
+    * Register api
+    *
+    * @return \Illuminate\Http\Response
+    */
+
+   
+    public function authenticate(Request $request)
     {
         
              header("Access-Control-Allow-Origin: *");
-             
+             if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+                $user = Auth::user();
+                if($user->email_verified_at !== NULL){
+                $success['message'] = 'Login successfull';
+                 response()->json(['success' => $success], $this-> successStatus);
+                }else{  $user->sendApiEmailVerificationNotification();
+                return response()->json(['error'=>'Please Verify Email'], 401);
+                }
+                }
+                else{
+                return response()->json(['error'=>'Unauthorised'], 401);
+                }
+            
             $credentials = $request->only('email', 'password');
             
             try {
@@ -78,7 +123,8 @@
             ]);
 
             $token = JWTAuth::fromUser($user);
-
+            $user->sendApiEmailVerificationNotification();
+            $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
             return response()->json(compact('user','token'),201);
         }
         public function show($id){ 
@@ -152,11 +198,17 @@ public function update(Request $request, $id)
     }
         public function getAuthenticatedUser()
             {   header("Access-Control-Allow-Origin: *");
-                    try {
+                
+                
+                   
+                    
+                    
+                
+                try {
 
                             if (! $user = JWTAuth::parseToken()->authenticate()) {
                                     return response()->json(['user_not_found'], 404);
-                            }
+                            } 
 
                     } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
@@ -170,9 +222,14 @@ public function update(Request $request, $id)
 
                             return response()->json(['token_absent'], $e->getStatusCode());
 
-                    }
-                    
-                  return response()->json(compact('user'));
+                    } 
+                    if($user->email_verified_at !== NULL){
+                       
+                        return response()->json(compact('user'));
+                        }else{
+                            return response()->json(['error'=>'Unauthorised'], 401);
+                            }
+                  
                    //return response()->json($user);
             }
             public function index(Request $request)
