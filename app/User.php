@@ -5,8 +5,10 @@
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Tymon\JWTAuth\Contracts\JWTSubject;
+    use Illuminate\Contracts\Auth\MustVerifyEmail;
+    use App\Notifications\VerifyApiEmail;
 
-    class User extends Authenticatable implements JWTSubject
+    class User extends Authenticatable implements JWTSubject, MustVerifyEmail
     {
         use Notifiable;
 
@@ -28,6 +30,10 @@
             'password',  'remember_token',
         ];
 
+        protected $casts = [
+            'email_verified_at' => 'timestamp',
+        ];
+
         public function getJWTIdentifier()
         {
             return $this->getKey();
@@ -36,4 +42,10 @@
         {
             return [];
         }
+        public function sendApiEmailVerificationNotification()
+        {
+         $this->notify(new VerifyApiEmail); // my notification
+        }
     }
+
+    
