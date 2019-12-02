@@ -14,51 +14,38 @@ use Illuminate\Http\Request;
 */
 
 
-//Route::put('/updateuser/{id}', 'RegisterMemeberController@update');
-//Route::post('/register',  'RegisterMemeberController@register');
-//Route::get('/shoowuser/{id}', 'UserController@show');
-//Route::delete('/deleteuser/{id}', 'RegisterMemeberController@destroy');
 
-Auth::routes();
+
+
 Auth::routes(['verify' => true]);
 Route::post('registeruser', 'UserController@register');
 Route::post('registerclub', 'ClubController@register');
+Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
+Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
 Route::post('loginuser', 'UserController@authenticate');
 Route::post('loginclub', 'ClubController@authenticate');
-Route::get('index', 'ClubController@index');
+Route::get('user', 'UserController@getAuthenticatedUser');
+Route::get('club', 'ClubController@getAuthenticatedClub');
 Route::get('events', 'EventController@index');
 Route::get('showevent/{id}', 'EventController@show');
+Route::post('login', 'UserController@login');
+
+Route::get('index', 'ClubController@index');
+
 Route::get('open', 'DataController@open');
-Route::post('createevent', 'EventController@register');
-//Route::post('createevent',  'EventController@register')->middleware('auth.role');
-//Route::post('createevent', 'EventController@register')->middleware('role');
-//Route::post('createevent', 'EventController@register')->middleware('can:isModerator');
-//Route::post('createevent',  'EventController@register');
+
 Route::get('closed', 'DataController@closed');
 Route::get('/showuser/{id}', 'UserController@show');
 Route::get('/edituser/{id}', 'UserController@edit');
 Route::put('/updateuser/{id}', 'UserController@update');
 Route::delete('/deleteuser/{id}', 'UserController@destroy');
-Route::group(['middleware' => ['jwt.verify']], function () {
+Route::group(['middleware' => 'auth:api2'], function () {
+    Route::post('createevent', 'EventController@register');
     
-    Route::get('user', 'UserController@getAuthenticatedUser');
-    Route::get('club', 'ClubController@getAuthenticatedClub');
+   
+});
 Route::group(['middleware' => ['role:moderator']], function () {
     //Route::post('createevent', 'EventController@register');
     
     });   
-    //Route::get('user', 'UserController@index');
-
-    //Route::get('/showuser/{id}', 'RegisterMemeberController@show');
-    //Route::get('/members', 'RegisterMemeberController@index');
-});
-/*Route::middleware('auth:api')->post('createevent', function (Request $request) {
-    return $request->club();
-});*/
-//Route::post('createevent', ['as'=>'createevent','uses'=>'EventController@register','middleware' => 'jwt.verify']); 
-//Route::post('createevent', ['middleware' => 'auth.role:moderator,club', 'uses' => 'EventController@register', 'as' => 'createevent']);
-/*Route::group(['prefix' => 'club','middleware' => ['auth.role:clubs', 'jwt.verify']],function ()
-{
-    Route::post('createevent', 'EventController@register');
-});*/
-//Route::post('createevent', ['middleware' => 'auth.role:moderator,clubs1', 'uses' => 'EventController@register', 'as' => 'createevent']);
+    
