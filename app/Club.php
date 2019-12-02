@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\VerifyApiEmail;
 
-class Club extends Authenticatable implements JWTSubject
+class Club extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
     use Notifiable;
+
+    protected $guard = 'api2';
 
         /**
          * The attributes that are mass assignable.
@@ -27,6 +31,11 @@ class Club extends Authenticatable implements JWTSubject
         protected $hidden = [
             'password',  'remember_token',
         ];
+
+        protected $casts = [
+            'email_verified_at' => 'timestamp',
+        ];
+
         public function isModerator() {
             if($this->role == "moderator"){
                  return true;
@@ -41,6 +50,11 @@ class Club extends Authenticatable implements JWTSubject
         public function getJWTCustomClaims()
         {
             return ['role'=>'moderator'];
+        }
+
+        public function sendApiEmailVerificationNotification()
+        {
+         $this->notify(new VerifyApiEmail); // my notification
         }
         
 
