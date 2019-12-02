@@ -82,6 +82,11 @@
   float: left;
 }
 
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
 /*.img1 {
   padding-left: 2px;
 }
