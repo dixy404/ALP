@@ -18,11 +18,11 @@
     { 
         function __construct()
         {  header("Access-Control-Allow-Origin: *");
-            Config::set('jwt.user', User::class);
+            /*Config::set('jwt.user', User::class);
             Config::set('auth.providers', ['users' => [
                     'driver' => 'eloquent',
                     'model' => User::class,
-                ]]);
+                ]]);*/
                 //$this->middleware(['JWTAuth', 'verified']);
         }
 
@@ -58,7 +58,8 @@ public function login(){
     {
         
              header("Access-Control-Allow-Origin: *");
-             if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+             auth()->shouldUse('api');
+             if(Auth::guard('api')->attempt(['email' => request('email'), 'password' => request('password')])){
                 $user = Auth::user();
                 if($user->email_verified_at !== NULL){
                 $success['message'] = 'Login successfull';
