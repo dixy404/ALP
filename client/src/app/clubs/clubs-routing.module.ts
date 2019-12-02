@@ -16,7 +16,7 @@ const routes: Routes = [
         component: ClubPageComponent,
       },
       {
-        path: 'edit-club',
+        path: 'edit-club/:id',
         component: EditClubComponent,
       },
       {

@@ -3,34 +3,34 @@
   
     <div class="login-container">
    
-        <form [formGroup]="form" class="member-form">
+        <form [formGroup]="form" class="member-form" *ngIf="form">
           <h3>Prepravi podatke</h3>
           <mat-form-field>
-            <input matInput placeholder="{{club?.clubName}}" formControlName="clubName" autocomplete="off" />
+            <input matInput placeholder="Ime kluba" formControlName="clubName" autocomplete="off" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="{{club?.clubPresident}}" formControlName="clubPresident" autocomplete="off" />
+            <input matInput  placeholder="Predsjednik kluba" formControlName="clubPresident" autocomplete="off" />
           </mat-form-field>   
           <mat-form-field>
-            <input matInput placeholder="{{club?.clubSecretary}}" formControlName="clubSecretary" autocomplete="off" />
+            <input matInput placeholder="Sekretar kluba" formControlName="clubSecretary" autocomplete="off" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput type="date" formControlName="foundedIn" autocomplete="off" placeholder="{{club?.foundedIn | date:'dd.MM.yyyy.'}}" />
+            <input matInput placeholder="Datum osnivanja" type="date" formControlName="foundedIn" autocomplete="off"   />
           </mat-form-field> 
           <mat-form-field>
-            <textarea matInput type="text" placeholder="{{club?.vision}}" formControlName="vision" autocomplete="off" ></textarea>
+            <textarea matInput placeholder="Vizija" type="text" formControlName="vision" autocomplete="off" ></textarea>
           </mat-form-field>
           <mat-form-field>
-            <textarea matInput type="text" placeholder="{{club?.mission}}" formControlName="mission" autocomplete="off" ></textarea>
+            <textarea matInput placeholder="Misija" type="text" formControlName="mission" autocomplete="off" ></textarea>
           </mat-form-field>  
           <mat-form-field>
-            <input matInput placeholder="{{club?.address}}" formControlName="address" autocomplete="off" />
+            <input matInput placeholder="Adresa" formControlName="address" autocomplete="off" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput type="tel" placeholder="{{club?.phoneNumber}}" formControlName="phoneNumber" autocomplete="off" />
+            <input matInput placeholder="Telefon" type="tel"  formControlName="phoneNumber" autocomplete="off" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="{{club?.email}}" type="email" formControlName="email" autocomplete="off" />
+            <input matInput placeholder="Email" type="email" formControlName="email" autocomplete="off" />
           </mat-form-field>
           
           <button mat-raised-button color="primary" class="btn-color" type="submit" (click)="save(form)">Sačuvaj promjene</button>

@@ -1,4 +1,5 @@
 export class Club {
+    id: number;
     clubName: string;
     clubPresident: string;
     clubSecretary: string;
