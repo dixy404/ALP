@@ -38,6 +38,7 @@ Route::get('open', 'DataController@open');
 Route::get('closed', 'DataController@closed');
 Route::get('/showuser/{id}', 'UserController@show');
 Route::get('/edituser/{id}', 'UserController@edit');
+Route::get('/editclub/{id}', 'ClubController@edit');
 Route::put('/updateuser/{id}', 'UserController@update');
 Route::delete('/deleteuser/{id}', 'UserController@destroy');
 Route::group(['middleware' => 'auth:api2'], function () {
