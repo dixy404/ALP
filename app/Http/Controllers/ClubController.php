@@ -10,21 +10,44 @@ use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTFactory;
 use Config;
+use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Auth\Events\Verified;
+use Auth;
 
 class ClubController extends Controller
 {    function __construct()
-    {
-        Config::set('jwt.user', Club::class);
+    {  header("Access-Control-Allow-Origin: *");
+       /* Config::set('jwt.user', Club::class);
         config::set('auth.providers', ['users' => [
                 'driver' => 'eloquent',
                 'model' => Club::class,
-            ]]);
+            ]]);*/
+            
     }
+    use VerifiesEmails;
+public $successStatus = 200;
+/**
+* login api
+*
+* @return \Illuminate\Http\Response
+*/
     public function authenticate(Request $request)
     {
         
              header("Access-Control-Allow-Origin: *");
-             
+             auth()->shouldUse('api2');
+             if(Auth::guard('api2')->attempt(['email' => request('email'), 'password' => request('password')])){
+                $club = Auth::user();
+                if($club->email_verified_at !== NULL){
+                $success['message'] = 'Login successfull';
+                 response()->json(['success' => $success], $this-> successStatus);
+                }else{  $club->sendApiEmailVerificationNotification();
+                return response()->json(['error'=>'Please Verify Email'], 401);
+                }
+                }
+                else{
+                return response()->json(['error'=>'Unauthorised'], 401);
+                }
             $credentials = $request->only('email', 'password');
             
             try {
@@ -78,7 +101,9 @@ class ClubController extends Controller
         ]);
 
         $token = JWTAuth::fromUser($club);
-
+        $club->sendApiEmailVerificationNotification();
+        $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
+            
         return response()->json(compact('club', 'token'), 201);
     }
     public function show($id)
@@ -138,7 +163,12 @@ class ClubController extends Controller
             return response()->json(['token_absent'], $e->getStatusCode());
         }
 
-        return response()->json(compact('club'));
+        if($club->email_verified_at !== NULL){
+                       
+            return response()->json(compact('club'));
+            }else{
+                return response()->json(['error'=>'Unauthorised'], 401);
+                }
     }
     public function index(Request $request)
             {   header("Access-Control-Allow-Origin: *");
