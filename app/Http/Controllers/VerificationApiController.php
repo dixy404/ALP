@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Club;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Verified;
@@ -30,6 +31,21 @@ $user->email_verified_at = $date; // to enable the “email_verified_at field of
 $user->save();
 return response()->json('Email verified!');
 }
+
+/**
+* Mark the authenticated user’s email address as verified.
+*
+* @param \Illuminate\Http\Request $request
+* @return \Illuminate\Http\Response
+*/
+public function verifyClub(Request $request) {
+    $userID = $request['id'];
+    $club = Club::findOrFail($userID);
+    $date = date('Y-m-d g:i:s');
+    $club->email_verified_at = $date; // to enable the “email_verified_at field of that user be a current time stamp by mimicing the must verify email feature
+    $club->save();
+    return response()->json('Email verified!');
+    }
 /**
 * Resend the email verification notification.
 *
