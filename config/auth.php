@@ -42,9 +42,13 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
+        ],
+        'api2' => [
+            'driver' => 'jwt',
+            'provider' => 'clubs',
         ],
         
     ],
