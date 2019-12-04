@@ -47,16 +47,10 @@ export class EditClubComponent implements OnInit {
   }
 
   save({value, valid}: {value: Club, valid: boolean}) { 
-    //console.log(this.form.value)
-    //const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email } = this.form.value
-    // this.clubsService.editClub(id)
-    // .subscribe();
+    
     this.clubsService.editClub(this.club.id, this.form.value).subscribe()
     this.router.navigate(['/clubs']); 
     
-     /* this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email)
-      .subscribe(data => console.log(data))*/
-   
    
   }
 

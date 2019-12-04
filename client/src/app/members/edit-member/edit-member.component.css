@@ -1,0 +1,42 @@
+#background {
+    background-image: url('/assets/img/bcg7.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 75px);
+    overflow: hidden;
+}
+
+
+.login-container {    
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.member-form {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    padding: 30px;
+    border-radius: 10px;
+    height: 700px;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+h3{
+   text-align: center;
+   font-size: 30px;
+   padding-bottom: 20px; 
+}
+
+.btn-color {
+    background-color:#333; 
+}

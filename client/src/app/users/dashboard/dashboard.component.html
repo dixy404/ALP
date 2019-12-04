@@ -5,7 +5,7 @@
     <span class="link" routerLink="/registration/club-form">Registracija kluba</span>
     <span class="link" routerLink="/auth">LogIn</span>
 </mat-toolbar>
--->
+
 
 
 <div class="nav">
@@ -29,10 +29,111 @@
       <a href="/registration/member-form">Registracija člana</a>
       <a href="/auth/login-club">Prijava kluba</a>
       <a href="/auth">Prijava člana</a>
-    </div>
+
   </div>
 
 
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css" />
+<link href='https://fonts.googleapis.com/css?family=Slabo+27px|Open+Sans' rel='stylesheet' type='text/css'>
+<nav>
+  <ul id="header">
+    <a href="/home" id="brand">
+      <li>
+         <img src="/assets/img/logo_trsw2.png" alt="logo">
+      </li>
+    </a>
+    <label id="trigger2" for="x7"><i class="fa fa-bars"></i></label>
+  </ul>
+  <input type="checkbox" id="x7" />
+  <ul id="main">
+    <a href="/home">
+      <li class="x1">
+          Početna
+      </li>
+    </a>
+   
+    <a href="#" id="trigger">
+      <li class="x1">
+        Registracija&nbsp;
+        <span id="caret"></span>
+      </li>
+    </a>
+    <ul id="dropdown">
+      <a href="/registration/club-form">
+        <li>
+          Kluba
+        </li>
+      </a>
+      <a href="/registration/member-form">
+        <li>
+          Člana
+        </li>
+      </a>
+    </ul>
+  </ul>
+
+     
+      <a href="#" id="trigger">
+          <li class="x1">
+            Prijava&nbsp;
+            <span id="caret"></span>
+          </li>
+        </a>
+        <ul id="dropdown">
+          <a href="/auth/login-club">
+            <li>
+              Kluba
+            </li>
+          </a>
+          <a href="/auth">
+            <li>
+              Člana
+            </li>
+          </a>
+    </ul>
+</nav>
+-->
+
+
+
+
+<nav>
+    <div id="logo">
+        <a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a>
+    </div>
+    <label for="drop" class="toggle">Menu</label>
+    <input type="checkbox" id="drop">
+    <ul class="menu">
+      <li><a href="/home">Početna</a></li>
+      <li> 
+        <!-- First Tier Drop Down -->
+        <label for="drop-1" class="toggle">Registracija&nbsp;</label>
+        <a href="#">Registracija</a>
+        <input type="checkbox" id="drop-1">
+        <ul>
+          <li><a href="/registration/club-form">Kluba</a></li>
+          <li><a href="/registration/member-form">Člana</a></li>
+        </ul>
+      </li>
+      <li> 
+        
+        <!-- First Tier Drop Down -->
+        <label for="drop-2" class="toggle">Prijava&nbsp;</label>
+        <a href="#">Prijava</a>
+        <input type="checkbox" id="drop-2">
+        <ul>
+          <li><a href="/auth/login-club">Kluba</a></li>
+          <li><a href="/auth">Člana</a></li>
+         
+        </ul>
+      </li>
+     
+    </ul>
+  </nav>
+
+ 
 
 
 <router-outlet></router-outlet>

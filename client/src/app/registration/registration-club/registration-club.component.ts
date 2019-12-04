@@ -4,6 +4,10 @@ import { Club } from 'src/app/model/club.model';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Router } from '@angular/router';
 
+
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 @Component({
   selector: 'app-registration-club',
   templateUrl: './registration-club.component.html',
@@ -14,10 +18,12 @@ export class RegistrationClubComponent implements OnInit {
   public form: FormGroup; 
   public club: Club = new Club();
 
+  errors;
+
 
   constructor(public formBuilder: FormBuilder,
     private registrationService: RegistrationService,
-    private router: Router
+    private router: Router,
     ) { }
 
   ngOnInit() {
@@ -38,13 +44,22 @@ export class RegistrationClubComponent implements OnInit {
     });
 }
 
+
+
 save({value, valid}: {value: Club, valid: boolean}) { 
   console.log(this.form.value)
   const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation } = this.form.value
-  this.router.navigate(['/auth']); 
+  this.router.navigate(['/auth/login-club']); 
   
     this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation)
-    .subscribe(data => console.log(data))
+    
+     .pipe(
+      catchError(err => {
+        console.log(err);
+        return throwError(err);
+      })
+    )
+    .subscribe(data => console.log(data), err => console.log("Igor's errors", err))
  
  
 }

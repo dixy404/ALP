@@ -43,7 +43,9 @@
                 <span><b>Krvna grupa:</b> {{user?.bloodType}}</span> <br>
                 <span><b>Adresa:</b> {{user?.address}}</span> <br>
                 <span><b>Telefon:</b> {{user?.phoneNumber}}</span> <br>
-                <span><b>Email:</b> {{user?.email}}</span> <br>
+                <span><b>Email:</b> {{user?.email}}</span> <br><br>
+
+                <button mat-raised-button color="primary" (click)="editMember()" class="btn-color">Prepravi podatke</button>
               
         </div>
 

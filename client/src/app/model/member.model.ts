@@ -1,4 +1,5 @@
 export class Member {
+    id: number;
     name: string;
     lastName: string;
     dateOfBirth: Date;

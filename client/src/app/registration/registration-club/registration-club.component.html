@@ -30,6 +30,7 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Email: email@example.com" required type="email" formControlName="email" autocomplete="off" />
+        <mat-error></mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput type="password" formControlName="password" required autocomplete="off" placeholder="Lozinka (min. 8 karaktera)" />
@@ -38,7 +39,7 @@
         <input matInput type="password" formControlName="password_confirmation" required autocomplete="off"
           placeholder="Potvrdi lozinku (min. 8 karaktera)" />
       </mat-form-field>
-      <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj se</button>
+      <button mat-raised-button color="primary" class="btn-color" type="submit" (click)="save(form)">Registruj se</button>
       <br>
       <button mat-raised-button color="primary" class="btn-color" routerLink="/home"> Vrati se na Početnu
         </button>
