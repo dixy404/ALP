@@ -122,7 +122,19 @@ public function login(){
                 'phoneNumber' => $request->get('phoneNumber'),
                 'password' => Hash::make($request->get('password')),
             ]);
-
+            if ($request->hasFile('thumbnail')) {
+                $thumbnail      = $request->file('thumbnail');
+                
+                $filename = $user->name.time().'.'.$request->thumbnail->extension();
+                $image_resize = Image::make($thumbnail->getRealPath());              
+                $image_resize->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }); 
+                 $image_resize->save(public_path('assets/photo/' .$filename));
+                 $folder = 'assets/photo/';
+                 
+                 $user->thumbnail=$folder.$filename;
+                }
             $token = JWTAuth::fromUser($user);
             $user->sendApiEmailVerificationNotification();
             $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
