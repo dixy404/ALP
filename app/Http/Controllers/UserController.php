@@ -135,6 +135,7 @@ public function login(){
                  $folder = 'assets/photo/';
                  
                  $user->thumbnail=$folder.$filename;
+                 $user->save();
                 }
             $token = JWTAuth::fromUser($user);
             $user->sendApiEmailVerificationNotification();
