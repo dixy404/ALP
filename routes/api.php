@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 
 
 Auth::routes(['verify' => true]);
-Route::post('registeruser', 'UserController@register');
+Route::post('registeruser', 'UserController@register')->middleware('cors');
 Route::post('registerclub', 'ClubController@register');
 Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
 Route::get('email/verifyClub/{id}', 'VerificationApiController@verifyClub')->name('verificationapi.verifyClub');

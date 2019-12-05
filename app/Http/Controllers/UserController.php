@@ -58,7 +58,7 @@ public function login(){
     public function authenticate(Request $request)
     {
         
-             header("Access-Control-Allow-Origin: *");
+             header("Access-Control-Allow-Origin: *" );
              auth()->shouldUse('api');
              if(Auth::guard('api')->attempt(['email' => request('email'), 'password' => request('password')])){
                 $user = Auth::user();
@@ -89,7 +89,7 @@ public function login(){
     }
 
         public function register(Request $request)
-        {        header("Access-Control-Allow-Origin: *");
+        {       // header("Access-Control-Allow-Origin: * , Access-Control-Allow-Credentials: true");
             $messages = ['required' => 'The :attribute field is required.',
                          'unique' => 'The :attribute field already exist.',
                          'confirmed' => 'The :attribute does not match.',
