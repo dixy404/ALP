@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, NgForm, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Member} from 'src/app/model/member.model';
@@ -15,7 +15,19 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class RegistrationMemberComponent implements OnInit {
 
+  //IMAGE UPLOAD
   uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", removeAfterUpload: false, autoUpload: true });
+
+ 
+  name = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
+  dateOfBirth = new FormControl('', [Validators.required]);
+  placeOfBirth = new FormControl('', [Validators.required]);
+  address = new FormControl('', [Validators.required]);
+  phoneNumber = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+  password_confirmation = new FormControl('', [Validators.required]);
   
   
   public form: FormGroup; 
@@ -56,7 +68,7 @@ export class RegistrationMemberComponent implements OnInit {
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
     const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
-    this.router.navigate(['/auth']); 
+   //  this.router.navigate(['/auth']); 
     /*this.registrationService.test(name, address, email)
       .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
     
@@ -71,6 +83,53 @@ export class RegistrationMemberComponent implements OnInit {
       //  duration: 2000,
       //});
   //  }
+  }
+
+
+  getEmailErrorMessage() {
+    return this.email.hasError('required') ? 'Unesite email' :
+        this.email.hasError('email') ? 'Email nije ispravan' :
+           '';
+  }
+
+  getNameErrorMessage() {
+    return this.name.hasError('required') ? 'Unesite Ime' :
+           '';
+  }
+
+  getlastNameErrorMessage() {
+    return this.lastName.hasError('required') ? 'Unesite Prezime' :
+           '';
+  }
+
+  getdateOfBirthErrorMessage() {
+    return this.dateOfBirth.hasError('required') ? 'Unesite Datum rođenja' :
+           '';
+  }
+
+  getplaceOfBirthErrorMessage() {
+    return this.placeOfBirth.hasError('required') ? 'Unesite Mjesto rođenja' :
+           '';
+  }
+
+  getaddressErrorMessage() {
+    return this.address.hasError('required') ? 'Unesite Adresu' :
+           '';
+  }
+
+  getphoneNumberErrorMessage() {
+    return this.phoneNumber.hasError('required') ? 'Unesite Broj telefona' :
+           '';
+  }
+
+  getpasswordErrorMessage() {
+    return this.password.hasError('required') ? 'Unesite Lozinku' :
+           '';
+  }
+
+  getpassword_confirmationErrorMessage() {
+    return this.password_confirmation.hasError('required') ? 'Unesite istu lozinku' :
+           '';
   }
 
 
