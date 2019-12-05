@@ -4,9 +4,11 @@
 <div class="col-9 col-s-9">
 <div class="main">
 
-    <mat-card class="card" *ngFor="let event of events" >
+    <div class='md-padding' layout="row" layout-wrap>
+
+    <mat-card flex="30" flex-sm="70" class="card" *ngFor="let event of events" >
       
-        <img class="image" src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering" width="20%" height="auto">
+        <img mat-card-image class="image" src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering" width="20%" height="20%">
         <mat-card-content>
                 <mat-list role="list" class="list">
                 
@@ -15,19 +17,27 @@
                   <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
                   <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                   <mat-list-item role="listitem">Mjesto polaska: {{event?.location}}</mat-list-item>
-                  <mat-list-item role="listitem" >Dužina izleta: <img class="img1" src ={{event?.tripDuration}} width="35px" height="auto" title="{{event?.tripDuration}}"></mat-list-item>
-                  <mat-list-item role="listitem" >Smještaj: <img class="img2" src ={{event?.accommodation}} width="35px" height="auto"> </mat-list-item>
-                  <mat-list-item role="listitem" >Teren/Težina: <img class="img3" src ={{event?.difficultyLevel}} width="35px" height="auto"></mat-list-item>
+                  <mat-list-item role="listitem" >Dužina izleta: <img class="image" src ={{event?.tripDuration}} width="35px" height="auto" title="Dužina izleta u danima" ></mat-list-item>
+                  <mat-list-item role="listitem" >Smještaj: <img class="image" src ={{event?.accommodation}} width="35px" height="auto" title="Vrsta smještaja: vidi Legendu"> </mat-list-item>
+                  <mat-list-item role="listitem" >Teren/Težina: <img class="image" src ={{event?.difficultyLevel}} width="35px" height="auto" title="Teren/Težina: vidi Legendu"></mat-list-item>
                   <mat-list-item role="listitem">Cijena: {{event?.price}}</mat-list-item>
              
                 </mat-list>  
-                  <button mat-raised-button color="primary" class="btn-color" routerLink="/home/event-info/{{event?.id}}">Saznaj više</button>
+                
         </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" class="btn-color" routerLink="/home/event-info/{{event?.id}}">Saznaj više</button>
+        </mat-card-actions>
       
     </mat-card>
+
+    </div>
  
 </div>
+
 </div>
+
+
 
 <div class="col-3 col-s-12" >
 <div class="aside" style="text-align: center">

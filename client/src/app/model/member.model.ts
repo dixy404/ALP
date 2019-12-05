@@ -15,4 +15,6 @@ export class Member {
     phoneNumber: string;
     password: string;
     password_confirmation: string;
+    thumbnail: string;
+   
 }

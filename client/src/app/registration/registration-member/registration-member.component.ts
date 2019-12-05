@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Member} from 'src/app/model/member.model';
 import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-registration-member',
@@ -12,13 +14,20 @@ import { Router } from '@angular/router';
 })
 export class RegistrationMemberComponent implements OnInit {
 
+  selectedFile: File
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0]
+  }
+
   public form: FormGroup; 
   public user: Member = new Member();
 
   constructor(public formBuilder: FormBuilder, 
     private snackBar: MatSnackBar,
     private registrationService: RegistrationService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
     ) { }
 
   ngOnInit() {
@@ -40,18 +49,20 @@ export class RegistrationMemberComponent implements OnInit {
       email: [this.user.email, Validators.email],
       password: [this.user.password, Validators.required],
       password_confirmation : [this.user.password_confirmation, Validators.required],
+      thumbnail: [this.user.thumbnail],
+      
 
     });
   }
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation } = this.form.value
+    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
     this.router.navigate(['/auth']); 
     /*this.registrationService.test(name, address, email)
       .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
     
-      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation)
+      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail )
       .subscribe(data => console.log(data))
    
    
@@ -63,6 +74,24 @@ export class RegistrationMemberComponent implements OnInit {
       //});
   //  }
   }
+
+
+
+  
+  //IMAGE UPLOAD
+
+ /* onUpload() {
+    // this.http is the injected HttpClient
+    const uploadData = new FormData();
+    uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+    this.http.post('http://localhost:8000/api/registeruser', uploadData, {
+      reportProgress: true,
+     observe: 'events'
+    })
+      .subscribe(event => {
+        console.log(event); 
+      });
+  }*/
 
   
   }
