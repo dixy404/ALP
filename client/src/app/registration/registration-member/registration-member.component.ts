@@ -15,11 +15,7 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class RegistrationMemberComponent implements OnInit {
 
-  uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", removeAfterUpload: false, autoUpload: true, isHTML5: true,
-  method: 'POST',
-  itemAlias: 'file',
-  authTokenHeader:  'authorization',
-  authToken: 'Bearer ',});
+  uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", removeAfterUpload: false, autoUpload: true });
   
   
   public form: FormGroup; 

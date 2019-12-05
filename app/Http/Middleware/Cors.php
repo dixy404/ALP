@@ -7,13 +7,23 @@ class Cors
 {
   public function handle($request, Closure $next)
   {
-      
-      header('Access-Control-Allow-Credentials', true);
-      header('Access-Control-Allow-Origin', 'http://localhost:8000');
-      header('Access-Control-Allow-Methods', '*');
-      header('Access-Control-Allow-Headers', 'Origin, X-Requested-With,Authorization, Content-Type, Accept');
-
-      return $next($request);        
+    return [
+        /*
+        |--------------------------------------------------------------------------
+        | Laravel CORS
+        |--------------------------------------------------------------------------
+        |
+        | allowedOrigins, allowedHeaders and allowedMethods can be set to array('*')
+        | to accept any value.
+        |
+        */
+       'supportsCredentials' => false,
+       'allowedOrigins' => ['*'],
+       'allowedHeaders' => ['Content-Type', 'X-Requested-With'],
+       'allowedMethods' => ['*'], // ex: ['GET', 'POST', 'PUT',  'DELETE']
+       'exposedHeaders' => [],
+       'maxAge' => 0,
+   ];
 }
 
 }
