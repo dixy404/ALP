@@ -13,6 +13,7 @@
     use Illuminate\Foundation\Auth\VerifiesEmails;
     use Illuminate\Auth\Events\Verified;
     use Auth;
+    use Intervention\Image\ImageManagerStatic as Image;
 
     class UserController extends Controller
     { 
