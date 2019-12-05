@@ -19,7 +19,7 @@ public function handle($request, Closure $next, ...$roles)
         //Access token from the request        
         $token = JWTAuth::parseToken();
         //Try authenticating user       
-        $user = $token->authenticate();
+        $clubs = $token->authenticate();
         
     } catch (TokenExpiredException $e) {
         //Thrown if token has expired        
@@ -31,13 +31,40 @@ public function handle($request, Closure $next, ...$roles)
         //Thrown if token was not found in the request.
         return $this->unauthorized('Please, attach a Bearer Token to your request');
     }
-    $user = array("role"=>"moderator");
+    
     //If user was authenticated successfully and user is in one of the acceptable roles, send to next request.
-    if ($user && in_array($user->role, $roles)) {
+    /*$clubs= JWTAuth::getToken();
+    dd(JWTAuth::decode($clubs));
+    $clubs1 = json_decode($clubs);*/
+   
+        $token = $token ?? JWTAuth::getToken();
+
+        if ($token) {
+            $token = list($header, $claims, $signature) = explode('.', $token);
+
+            $header = self::decodeFragment($header);
+            $claims = self::decodeFragment($claims);
+            $signature = (string) base64_decode($signature);
+
+            return dd([
+                'header' => $header,
+                'claims' => $claims,
+                'signature' => $signature
+            ]);
+        }
+
+        
+    
+
+    
+    
+        
+    
+    /*if ($clubs1 && in_array($clubs1->role, $roles)) {
         return $next($request);
     }
 
-    return $this->unauthorized();
+    return $this->unauthorized();*/
 }
 
 private function unauthorized($message = null){
