@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Club } from 'src/app/model/club.model';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Router } from '@angular/router';
@@ -14,6 +14,18 @@ import { throwError } from 'rxjs';
   styleUrls: ['./registration-club.component.css']
 })
 export class RegistrationClubComponent implements OnInit {
+
+  clubName = new FormControl('', [Validators.required]);
+  clubPresident = new FormControl('', [Validators.required]);
+  clubSecretary = new FormControl('', [Validators.required]);
+  foundedIn = new FormControl('', [Validators.required]);
+  vision= new FormControl('', [Validators.required]);
+  mission = new FormControl('', [Validators.required]);
+  address = new FormControl('', [Validators.required]);
+  phoneNumber = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+  password_confirmation = new FormControl('', [Validators.required]);
 
   public form: FormGroup; 
   public club: Club = new Club();
@@ -62,6 +74,64 @@ save({value, valid}: {value: Club, valid: boolean}) {
     .subscribe(data => console.log(data), err => console.log("Igor's errors", err))
  
  
+}
+
+
+
+getEmailErrorMessage() {
+  return this.email.hasError('required') ? 'Unesite email' :
+      this.email.hasError('email') ? 'Email nije ispravan' :
+         '';
+}
+
+getclubNameErrorMessage() {
+  return this.clubName.hasError('required') ? 'Unesite Ime kluba' :
+         '';
+}
+
+getclubPresidentErrorMessage() {
+  return this.clubPresident.hasError('required') ? 'Unesite ime predsjednika kluba' :
+         '';
+}
+
+getclubSecretaryErrorMessage() {
+  return this.clubSecretary.hasError('required') ? 'Unesite ime sekretara kluba' :
+         '';
+}
+
+getfoundedInErrorMessage() {
+  return this.foundedIn.hasError('required') ? 'Unesite godinu osnivanja kluba' :
+         '';
+}
+
+getvisionErrorMessage() {
+  return this.vision.hasError('required') ? 'Unesite viziju' :
+         '';
+}
+
+getmissionErrorMessage() {
+  return this.mission.hasError('required') ? 'Unesite misiju' :
+         '';
+}
+
+getaddressErrorMessage() {
+  return this.address.hasError('required') ? 'Unesite Adresu' :
+         '';
+}
+
+getphoneNumberErrorMessage() {
+  return this.phoneNumber.hasError('required') ? 'Unesite Broj telefona' :
+         '';
+}
+
+getpasswordErrorMessage() {
+  return this.password.hasError('required') ? 'Unesite Lozinku' :
+         '';
+}
+
+getpassword_confirmationErrorMessage() {
+  return this.password_confirmation.hasError('required') ? 'Unesite istu lozinku' :
+         '';
 }
 
 }
