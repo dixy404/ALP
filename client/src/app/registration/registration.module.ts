@@ -8,6 +8,7 @@ import { RegistrationMemberComponent } from './registration-member/registration-
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatSnackBarModule } from '@angular/material';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FileUploadModule,
   ]
 })
 export class RegistrationModule { }

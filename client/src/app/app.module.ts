@@ -10,12 +10,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './login-helpers/jwt.interceptor';
 import { ErrorInterceptor } from './login-helpers/error.interceptor';
 
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
     
        
   
@@ -25,7 +28,8 @@ import { ErrorInterceptor } from './login-helpers/error.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+   
    
   ],
   providers: [

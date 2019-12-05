@@ -5,6 +5,7 @@ import { RegistrationService } from 'src/app/services/registration.service';
 import { Member} from 'src/app/model/member.model';
 import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { FileUploader } from 'ng2-file-upload';
 
 
 @Component({
@@ -14,12 +15,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class RegistrationMemberComponent implements OnInit {
 
-  selectedFile: File
-
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0]
-  }
-
+  uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", removeAfterUpload: false, autoUpload: true });
+  
+  
   public form: FormGroup; 
   public user: Member = new Member();
 
