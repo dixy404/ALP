@@ -89,7 +89,8 @@ public function login(){
     }
 
         public function register(Request $request)
-        {        header("Access-Control-Allow-Origin: *");
+        {       header("Access-Control-Allow-Origin: http://127.0.0.1:4200");
+            header("Access-Control-Allow-Credentials: true");
             $messages = ['required' => 'The :attribute field is required.',
                          'unique' => 'The :attribute field already exist.',
                          'confirmed' => 'The :attribute does not match.',
