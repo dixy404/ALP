@@ -102,7 +102,7 @@ public function login(){
              'dateOfBirth' => 'required|string|max:255',
              'address' => 'required|string|max:255',
              'ssn' => 'max:255',
-             'checkbox' => 'required|in:1',
+             
              'phoneNumber' => 'required|numeric|digits_between:1,25|unique:users',
              'email' => 'required|string|email|max:255|unique:users',
              'password' => 'required|string|min:8|confirmed',
@@ -123,7 +123,7 @@ public function login(){
                 'nationality' => $request->get('nationality'),
                 'occupation' => $request->get('occupation'),
                 'email' => $request->get('email'),
-                'checkbox' => $request->get('checkbox'),
+                
                 'phoneNumber' => $request->get('phoneNumber'),
                 'password' => Hash::make($request->get('password')),
             ]);

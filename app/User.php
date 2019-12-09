@@ -19,7 +19,7 @@
          * @var array
          */
         protected $fillable = [
-            'thumbnail', 'name', 'lastName', 'address', 'dateOfBirth', 'placeOfBirth', 'bloodType', 'passportId', 'idNumber', 'ssn', 'nationality', 'occupation', 'phoneNumber', 'email', 'password', 'checkbox'  
+            'thumbnail', 'name', 'lastName', 'address', 'dateOfBirth', 'placeOfBirth', 'bloodType', 'passportId', 'idNumber', 'ssn', 'nationality', 'occupation', 'phoneNumber', 'email', 'password',   
         ];
 
         /**
@@ -34,9 +34,7 @@
         protected $casts = [
             'email_verified_at' => 'timestamp',
         ];
-        protected $attributes = [
-            'checkbox' => false
-         ];
+        
 
         public function getJWTIdentifier()
         {
