@@ -54,6 +54,12 @@
       </select>
     </mat-form-field>
 
+    <!-- 
+    <label>Slika:</label> 
+    <input type="file" ng2FileSelect [uploader]="uploader" /> <br>
+
+   -->
+
     <mat-form-field>
       <input matInput placeholder="Adresa" required formControlName="address" autocomplete="off" />
       <mat-error *ngIf="address.invalid">{{getaddressErrorMessage()}}</mat-error>
@@ -84,11 +90,16 @@
            id="file"
            (change)="handleFileInput($event.target.files)"> <br> 
     -->
+   
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)"/>
+      <button>Upload Image</button>
+      </form>
+      <br>
 
-    <label>Slika:</label> 
-    <input type="file" ng2FileSelect [uploader]="uploader" /> <br>
-
-    
+   
+      <mat-checkbox formControlName="checkbox"> <button mat-button color="primary" (click)="openRules()">Slažem se sa pravilima</button> </mat-checkbox> <br>
+          
         
     <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj
       se</button>

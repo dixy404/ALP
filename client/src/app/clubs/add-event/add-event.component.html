@@ -5,32 +5,38 @@
     <form [formGroup]="form" class="member-form">
         <h3>Dodaj događaj</h3>
         <mat-form-field>
-            <input matInput placeholder="Naziv" formControlName="tripName" autocomplete="off" />
+            <input matInput placeholder="Naziv" required formControlName="tripName" autocomplete="off" />
+            <mat-error *ngIf="tripName.invalid">{{gettripNameErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Datum" type="date" formControlName="tripDate" autocomplete="off" />
+            <input matInput placeholder="Datum" required type="date" formControlName="tripDate" autocomplete="off" />
+            <mat-error *ngIf="tripDate.invalid">{{gettripDateErrorMessage()}}</mat-error>
         </mat-form-field>    
         <mat-form-field>
-            <input matInput placeholder="Vrijeme okupljanja" type="time" formControlName="tripTime" autocomplete="off" />
+            <input matInput placeholder="Vrijeme okupljanja" required type="time" formControlName="tripTime" autocomplete="off" />
+            <mat-error *ngIf="tripTime.invalid">{{gettripTimeErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Vrijeme polaska" type="time" formControlName="departureTime" autocomplete="off" />
+            <input matInput placeholder="Vrijeme polaska" required type="time" formControlName="departureTime" autocomplete="off" />
+            <mat-error *ngIf="departureTime.invalid">{{getdepartureTimeErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Mjesto polaska" formControlName="location" autocomplete="off" />
+            <input matInput placeholder="Mjesto polaska" required formControlName="location" autocomplete="off" />
+            <mat-error *ngIf="location.invalid">{{getlocationErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
             <textarea matInput placeholder="Opis" type="text" formControlName="description" autocomplete="off"></textarea>
         </mat-form-field>
         
         <mat-form-field>
-                <input matInput placeholder="Cijena" formControlName="price" autocomplete="off" />
+                <input matInput placeholder="Cijena" required formControlName="price" autocomplete="off" />
+                <mat-error *ngIf="price.invalid">{{getpriceErrorMessage()}}</mat-error>
          </mat-form-field>
         
 
         <mat-form-field>
             <mat-label>Dužina izleta</mat-label>
-            <select matNativeControl formControlName="tripDuration">
+            <select matNativeControl formControlName="tripDuration" required >
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Duzina_izleta/1dan.JPEG" >1 dan</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/2dana.JPEG">2 dana</option>
@@ -95,11 +101,12 @@
                 <option value="/assets/img/Ikone/Duzina_izleta/61dan.JPEG">61 dan</option>
                 <option value="/assets/img/Ikone/Duzina_izleta/62dana.JPEG">62 dana</option>
             </select>
+            <mat-error *ngIf="tripDuration.invalid">{{gettripDurationErrorMessage()}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Smještaj</mat-label>
-            <select matNativeControl formControlName="accommodation">
+            <select matNativeControl formControlName="accommodation" >
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Spavanje/planinarski_dom.JPEG">Planinarski dom</option>
                 <option value="/assets/img/Ikone/Spavanje/sator.JPEG">Šator</option>
@@ -120,22 +127,24 @@
 
         <mat-form-field>
             <mat-label>Teren/Težina</mat-label>
-            <select matNativeControl formControlName="difficultyLevel">
+            <select matNativeControl formControlName="difficultyLevel" required >
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Teren-Tezina/lako.JPEG">Lako</option>
                 <option value="/assets/img/Ikone/Teren-Tezina/srednje_tesko.JPEG">Srednje teško</option>
                 <option value="/assets/img/Ikone/Teren-Tezina/tesko.JPEG">Teško</option>
             </select>
+            <mat-error *ngIf="difficultyLevel.invalid">{{getdifficultyLevelErrorMessage()}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Oprema</mat-label>
-            <select matNativeControl formControlName="equipment">
+            <select matNativeControl formControlName="equipment" required>
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Oprema/rekreativna.JPEG">Rekreativna</option>
                 <option value="/assets/img/Ikone/Oprema/osnovna.JPEG">Osnovna</option>
                 <option value="/assets/img/Ikone/Oprema/posebna.JPEG">Posebna</option>
             </select>
+            <mat-error *ngIf="equipment.invalid">{{getequipmentErrorMessage()}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -143,7 +152,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Sati</mat-label>
+            <mat-label>Sati hoda</mat-label>
             <select matNativeControl formControlName="hours">
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Sati/1h.JPEG">1h</option>
@@ -174,7 +183,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Dužina</mat-label>
+            <mat-label>Dužina staze</mat-label>
             <select matNativeControl formControlName="trailLength">
                 <option value="" selected></option>
                 <option value="/assets/img/Ikone/Duzina/1km.JPEG">1km</option>

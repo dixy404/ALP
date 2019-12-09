@@ -17,9 +17,9 @@
                   <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
                   <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                   <mat-list-item role="listitem">Mjesto polaska: {{event?.location}}</mat-list-item>
-                  <mat-list-item role="listitem" >Dužina izleta: <img class="image" src ={{event?.tripDuration}} width="35px" height="auto" title="Dužina izleta u danima" ></mat-list-item>
-                  <mat-list-item role="listitem" >Smještaj: <img class="image" src ={{event?.accommodation}} width="35px" height="auto" title="Vrsta smještaja: vidi Legendu"> </mat-list-item>
-                  <mat-list-item role="listitem" >Teren/Težina: <img class="image" src ={{event?.difficultyLevel}} width="35px" height="auto" title="Teren/Težina: vidi Legendu"></mat-list-item>
+                  <mat-list-item role="listitem" >Dužina izleta: <img class="icon" src ={{event?.tripDuration}} matTooltip="Dužina izleta u danima" matTooltipPosition="above"></mat-list-item>
+                  <mat-list-item role="listitem" >Teren/Težina: <img class="icon" src ={{event?.difficultyLevel}}  matTooltip="Teren/Težina: vidi Legendu" matTooltipPosition="above"></mat-list-item>
+                  <mat-list-item role="listitem" >Oprema: <img class="icon" src ={{event?.equipment}} matTooltip="Vrsta opreme: vidi Legendu" matTooltipPosition="above"> </mat-list-item>
                   <mat-list-item role="listitem">Cijena: {{event?.price}}</mat-list-item>
              
                 </mat-list>  
@@ -32,7 +32,7 @@
     </mat-card>
 
     </div>
- 
+
 </div>
 
 </div>
@@ -42,9 +42,18 @@
 <div class="col-3 col-s-12" >
 <div class="aside" style="text-align: center">
 
-    <app-weather></app-weather>
 
-    <a href="https://www.mountain-forecast.com/" target="_blank" > <img src="/assets/img/prognoza.jpg" alt="prognoza" class="responsive" > </a>
+   <div> 
+    <app-weather></app-weather>
+   </div>
+
+   <div>
+    <button mat-raised-button color="primary" class="btn-color" (click)="openLegend()">LEGENDA</button> 
+  </div>
+   
+</div>
+<div>
+    <a href="https://www.mountain-forecast.com/" target="_blank" > <img src="/assets/img/prognoza.jpg" alt="prognoza" class="forecast-img-responsive" > </a>
  
 </div>
 </div>

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, NgForm, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Member} from 'src/app/model/member.model';
 import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
+import { MemberRulesComponent } from '../member-rules/member-rules.component';
 
 
 @Component({
@@ -15,8 +16,25 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class RegistrationMemberComponent implements OnInit {
 
+  filedata:any;
+  fileEvent(e) {
+      this.filedata = e.target.files[0];
+  
+  }
+
   //IMAGE UPLOAD
-  uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", removeAfterUpload: false, autoUpload: true });
+  // uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", disableMultipart: true,formatDataFunctionIsAsync: true, formatDataFunction: async (item) => {
+  //   return new Promise( (resolve, reject) => {
+  //     resolve({
+  //       name: item._file.name,
+  //       length: item._file.size,
+  //       contentType: item._file.type,
+  //       date: new Date()
+  //     });
+  //   });
+  // } });
+
+
 
  
   name = new FormControl('', [Validators.required]);
@@ -32,13 +50,48 @@ export class RegistrationMemberComponent implements OnInit {
   
   public form: FormGroup; 
   public user: Member = new Member();
-
+  uploader: FileUploader;
   constructor(public formBuilder: FormBuilder, 
     private snackBar: MatSnackBar,
     private registrationService: RegistrationService,
     private router: Router,
-    private http: HttpClient
-    ) { }
+    private http: HttpClient,
+    private dialog: MatDialog
+    ) {
+
+        //IMAGE UPLOAD
+      /* this.uploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", headers:  {}, disableMultipart: true,formatDataFunctionIsAsync: true, formatDataFunction: async (item) => {
+          return new Promise( (resolve, reject) => {
+            resolve({
+              name: item._file.name,
+              length: item._file.size,
+              contentType: item._file.type,
+              date: new Date()
+            });
+          });
+        } });
+
+
+        this.uploader.response.subscribe( res => console.log("BLABLABLABLBL") ); */
+
+      }
+
+        onSubmit(f: NgForm) { 
+       
+        var myFormData = new FormData();
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+        myFormData.append('image', this.filedata);
+        this.http.post('http://localhost:8000/api/registeruser', myFormData, {
+        headers: headers
+        }).subscribe(data => {
+        console.log(data);
+        });
+      
+        }
+
+       
 
   ngOnInit() {
 
@@ -60,6 +113,8 @@ export class RegistrationMemberComponent implements OnInit {
       password: [this.user.password, Validators.required],
       password_confirmation : [this.user.password_confirmation, Validators.required],
       thumbnail: [this.user.thumbnail],
+      checkbox : [this.user.checkbox , Validators.required],
+
       
 
     });
@@ -67,23 +122,24 @@ export class RegistrationMemberComponent implements OnInit {
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
+    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, checkbox, thumbnail } = this.form.value
    //  this.router.navigate(['/auth']); 
-    /*this.registrationService.test(name, address, email)
-      .subscribe(data => console.log("FIRST SERVICE DATA FROM SUBSCRIBE"))*/
     
-      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail )
+    
+      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, checkbox, thumbnail )
       .subscribe(data => console.log(data))
    
    
-      // if(valid) { 
-      //this.service.add(value);
-    //  this.form.reset(); 
-     // this.snackBar.open("Podaci su sacuvani", null, { 
-      //  duration: 2000,
-      //});
-  //  }
   }
+
+
+  openRules() {
+    this.dialog.open(MemberRulesComponent, {
+      width: '750px'
+    })
+      
+  }
+
 
 
   getEmailErrorMessage() {

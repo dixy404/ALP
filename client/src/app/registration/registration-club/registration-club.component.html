@@ -49,7 +49,7 @@
           placeholder="Potvrdi lozinku (min. 8 karaktera)" />
         <mat-error *ngIf="password_confirmation.invalid">{{getpassword_confirmationErrorMessage()}}</mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" class="btn-color" type="submit" (click)="save(form)">Registruj se</button>
+      <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="save(form)">Registruj se</button>
       <br>
       <button mat-raised-button color="primary" class="btn-color" routerLink="/home"> Vrati se na Početnu
         </button>

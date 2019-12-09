@@ -7,14 +7,19 @@ import { DashboardEventShortComponent } from './dashboard-event-short/dashboard-
 import { DashboardEventLongComponent } from './dashboard-event-long/dashboard-event-long.component';
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { WeatherComponent } from './weather/weather.component';
+import { IconLegendComponent } from './icon-legend/icon-legend.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, DashboardEventShortComponent, DashboardEventLongComponent, WeatherComponent],
+  declarations: [DashboardComponent, DashboardEventShortComponent, DashboardEventLongComponent, WeatherComponent, IconLegendComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,
     AppMaterialModule,
-  ]
+  ],
+
+  entryComponents: [
+    IconLegendComponent,
+  ],
 })
 export class UsersModule { }
