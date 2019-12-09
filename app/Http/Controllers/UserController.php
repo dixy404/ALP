@@ -14,6 +14,7 @@
     use Illuminate\Auth\Events\Verified;
     use Auth;
     use Intervention\Image\ImageManagerStatic as Image;
+    use File;
 
     class UserController extends Controller
     { 
@@ -125,7 +126,29 @@ public function login(){
                 'password' => Hash::make($request->get('password')),
             ]);
             if ($request->hasFile('thumbnail')) {
-                $thumbnail      = $request->file('thumbnail');
+               /* $fileName = time().'.'.$request->file->getClientOriginalExtension();
+
+                $request->file->move(public_path('assets/photo'), $fileName);
+        
+                      
+        
+                return response()->json(['success'=>'You have successfully upload file.']);}*/
+               $file      = $request->file('thumbnail');
+                $filename  = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $picture   = date('His').'-'.$filename;
+                $file->move(public_path('assets/photo'), $picture);
+                return response()->json(["message" => "Image Uploaded Succesfully"]);
+          } 
+          else
+          {
+                return response()->json(["message" => "Select image first."]);
+          }
+       
+  
+              
+            
+               /* $thumbnail      = $request->file('avatar');
                 
                 $filename = $user->name.time().'.'.$request->thumbnail->extension();
                 $image_resize = Image::make($thumbnail->getRealPath());              
@@ -136,8 +159,9 @@ public function login(){
                  $folder = 'assets/photo/';
                  
                  $user->thumbnail=$folder.$filename;
-                 $user->save();
-                }
+                 $user->move(public_path('assets/photo/'), $thumbnail);
+                 $user->save();}*/
+                
             $token = JWTAuth::fromUser($user);
             $user->sendApiEmailVerificationNotification();
             $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
