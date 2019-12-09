@@ -24,7 +24,7 @@ export class DashboardEventShortComponent implements OnInit {
 
   openLegend() {
     this.dialog.open(IconLegendComponent, {
-      width: '750px'
+      width: '950px'
     })
       
   }

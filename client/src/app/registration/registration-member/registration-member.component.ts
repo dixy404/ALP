@@ -16,11 +16,12 @@ import { MemberRulesComponent } from '../member-rules/member-rules.component';
 })
 export class RegistrationMemberComponent implements OnInit {
 
+/*
   filedata:any;
   fileEvent(e) {
-      this.filedata = e.target.files[0];
-  
+      this.filedata = e.target.files[0];   
   }
+  */
 
   //IMAGE UPLOAD
   // uploader: FileUploader = new FileUploader({ url: "http://localhost:8000/api/registeruser", disableMultipart: true,formatDataFunctionIsAsync: true, formatDataFunction: async (item) => {
@@ -76,6 +77,7 @@ export class RegistrationMemberComponent implements OnInit {
 
       }
 
+      /*
         onSubmit(f: NgForm) { 
        
         var myFormData = new FormData();
@@ -90,6 +92,7 @@ export class RegistrationMemberComponent implements OnInit {
         });
       
         }
+        */
 
        
 
@@ -122,11 +125,11 @@ export class RegistrationMemberComponent implements OnInit {
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, checkbox, thumbnail } = this.form.value
+    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
    //  this.router.navigate(['/auth']); 
     
     
-      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, checkbox, thumbnail )
+      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail )
       .subscribe(data => console.log(data))
    
    
