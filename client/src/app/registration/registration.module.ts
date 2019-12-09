@@ -9,10 +9,11 @@ import { AppMaterialModule } from '../app-material/app-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 import { FileUploadModule } from 'ng2-file-upload';
+import { MemberRulesComponent } from './member-rules/member-rules.component';
 
 
 @NgModule({
-  declarations: [RegistrationContainerComponent, RegistrationClubComponent, RegistrationMemberComponent],
+  declarations: [RegistrationContainerComponent, RegistrationClubComponent, RegistrationMemberComponent, MemberRulesComponent],
   imports: [
     CommonModule,
     RegistrationRoutingModule,
@@ -21,6 +22,10 @@ import { FileUploadModule } from 'ng2-file-upload';
     ReactiveFormsModule,
     MatSnackBarModule,
     FileUploadModule,
-  ]
+  ],
+
+  entryComponents: [
+    MemberRulesComponent,
+  ],
 })
 export class RegistrationModule { }

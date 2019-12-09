@@ -13,16 +13,16 @@
                           <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                           <mat-list-item role="listitem">Mjesto polaska: {{event?.location}}</mat-list-item>
                           <mat-list-item role="listitem">Opis: {{event?.description}}</mat-list-item>
-                          <mat-list-item role="listitem">Dužina izleta: <img class="img1" src ={{event?.tripDuration}} width="35px" height="auto" ></mat-list-item>
-                          <mat-list-item role="listitem">Smještaj: <img class="img2" src ={{event?.accommodation}} width="35px" height="auto"> </mat-list-item>
-                          <mat-list-item role="listitem">Sezona: <img class=" " src ={{event?.season}} width="35px" height="auto"> </mat-list-item>
-                          <mat-list-item role="listitem">Teren/Težina: <img class="img3" src ={{event?.difficultyLevel}} width="35px" height="auto"></mat-list-item>
-                          <mat-list-item role="listitem">Oprema: <img class=" " src ={{event?.equipment}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Dužina izleta: <img class="icon" src ={{event?.tripDuration}} matTooltip="Dužina izleta u danima" matTooltipPosition="above"></mat-list-item>
+                          <mat-list-item role="listitem">Smještaj: <img class="icon" src ={{event?.accommodation}} matTooltip="Vrsta smještaja" matTooltipPosition="above"> </mat-list-item>
+                          <mat-list-item role="listitem">Sezona: <img class="icon" src ={{event?.season}} matTooltip="Sezona: vidi Legendu" matTooltipPosition="above"> </mat-list-item>
+                          <mat-list-item role="listitem">Teren/Težina: <img class="icon" src ={{event?.difficultyLevel}} matTooltip="Teren/Težina: vidi Legendu" matTooltipPosition="above"></mat-list-item>
+                          <mat-list-item role="listitem">Oprema: <img class="icon" src ={{event?.equipment}} matTooltip="Vrsta opreme: vidi Legendu" matTooltipPosition="above"> </mat-list-item>
                           <mat-list-item role="listitem">Visina: {{event?.elevation}}</mat-list-item>
-                          <mat-list-item role="listitem">Sati: <img class=" " src ={{event?.hours}} width="35px" height="auto"> </mat-list-item>
-                          <mat-list-item role="listitem">Dužina: <img class=" " src ={{event?.trailLength}} width="35px" height="auto"> </mat-list-item>
-                          <mat-list-item role="listitem">Tip staze: <img class=" " src ={{event?.trailType}} width="35px" height="auto"> </mat-list-item>
-                          <mat-list-item role="listitem">Vrsta terena: <img class=" " src ={{event?.terrainType}} width="35px" height="auto"> </mat-list-item>
+                          <mat-list-item role="listitem">Sati hoda: <img class="icon" src ={{event?.hours}} matTooltip="Sati hoda" matTooltipPosition="above"> </mat-list-item>
+                          <mat-list-item role="listitem">Dužina staze: <img class="icon" src ={{event?.trailLength}} matTooltip="Dužina staze u kilometrima" matTooltipPosition="above"> </mat-list-item>
+                          <mat-list-item role="listitem">Tip staze: <img class="icon" src ={{event?.trailType}} matTooltip="Tip staze: vidi Legendu" matTooltipPosition="above" > </mat-list-item>
+                          <mat-list-item role="listitem">Vrsta terena: <img class="icon" src ={{event?.terrainType}} matTooltip="Vrsta terena: vidi Legendu" matTooltipPosition="above"> </mat-list-item>
                           <mat-list-item role="listitem">Cijena: {{event?.price}}</mat-list-item> 
                      
                         </mat-list>  

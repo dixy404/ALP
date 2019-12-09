@@ -16,5 +16,6 @@ export class Member {
     password: string;
     password_confirmation: string;
     thumbnail: string;
+    checkbox: boolean;
    
 }

@@ -11,6 +11,7 @@ import { JwtInterceptor } from './login-helpers/jwt.interceptor';
 import { ErrorInterceptor } from './login-helpers/error.interceptor';
 
 import { FileUploadModule } from 'ng2-file-upload';
+import { MemberRulesComponent } from './registration/member-rules/member-rules.component';
 
 
 
@@ -30,8 +31,9 @@ import { FileUploadModule } from 'ng2-file-upload';
     AppMaterialModule,
     HttpClientModule,
    
-   
   ],
+
+  
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
