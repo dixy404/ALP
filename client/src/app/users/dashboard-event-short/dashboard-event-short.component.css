@@ -90,8 +90,9 @@
 }*/
 
 .icon{
-  width: 35px;
+  width: 25%;
   height: auto;
+  padding-left: 20px;
 }
 
 .forecast-img-responsive {

@@ -12,10 +12,12 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { MemberRulesComponent } from './member-rules/member-rules.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { VerifyClubComponent } from './verify-club/verify-club.component';
+import { VerifyMemberComponent } from './verify-member/verify-member.component';
 
 
 @NgModule({
-  declarations: [RegistrationContainerComponent, RegistrationClubComponent, RegistrationMemberComponent, MemberRulesComponent],
+  declarations: [RegistrationContainerComponent, RegistrationClubComponent, RegistrationMemberComponent, MemberRulesComponent, VerifyClubComponent, VerifyMemberComponent],
   imports: [
     CommonModule,
     RegistrationRoutingModule,

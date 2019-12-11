@@ -61,7 +61,7 @@ export class RegistrationClubComponent implements OnInit {
 save({value, valid}: {value: Club, valid: boolean}) { 
   console.log(this.form.value)
   const {clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation } = this.form.value
-  this.router.navigate(['/auth/login-club']); 
+  this.router.navigate(['/registration/verification-club']); 
   
     this.registrationService.registerClub(clubName, clubPresident, clubSecretary, foundedIn, vision, mission, address, phoneNumber, email, password, password_confirmation)
     
