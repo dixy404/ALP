@@ -11,6 +11,8 @@ import { MatSnackBarModule } from '@angular/material';
 import { FileUploadModule } from 'ng2-file-upload';
 import { MemberRulesComponent } from './member-rules/member-rules.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [RegistrationContainerComponent, RegistrationClubComponent, RegistrationMemberComponent, MemberRulesComponent],
@@ -22,6 +24,7 @@ import { MemberRulesComponent } from './member-rules/member-rules.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     FileUploadModule,
+    FlexLayoutModule,
   ],
 
   entryComponents: [

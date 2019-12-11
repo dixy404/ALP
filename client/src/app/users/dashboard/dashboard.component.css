@@ -104,8 +104,8 @@
 
 
 
-/*-------------------------------------------------------
-@import url(https://fonts.googleapis.com/css?family=roboto);*/
+/*-------------------------------------------------------------------------------------------------------------------------------------
+@import url(https://fonts.googleapis.com/css?family=roboto);
 
 body {
   background: #212121;
@@ -164,7 +164,7 @@ nav {
   padding: 0 30px;
   float: left;
   /*font-size: 20px;
-  line-height: 60px;*/
+  line-height: 60px;
 }
 
 nav:after {
@@ -183,7 +183,7 @@ nav ul {
 
 nav ul li {
   margin: 0px;
-  /*display: inline-block;*/
+  /*display: inline-block;
   float: left;
   background-color: #4d4d4d;
 }
@@ -230,7 +230,7 @@ li > a:only-child:after { content: ''; }
 
 
 /* Media Queries
---------------------------------------------- */
+--------------------------------------------- 
 
 @media all and (max-width : 768px) {
 
@@ -305,3 +305,27 @@ nav ul li {
 }
 
 }
+-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: #4d4d4d;
+  padding-top: 7px;
+}
+
+.toolbar-button-menu {
+  font-size: 20px;
+}
+
+.toolbar-button {
+  font-size: 18px;
+}
+

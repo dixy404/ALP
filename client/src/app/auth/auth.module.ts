@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginClubComponent } from './login-club/login-club.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [AuthContainerComponent, LoginComponent, LoginClubComponent],
@@ -17,6 +19,7 @@ import { LoginClubComponent } from './login-club/login-club.component';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
   ]
 })
 export class AuthModule { }

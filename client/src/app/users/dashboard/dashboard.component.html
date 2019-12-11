@@ -1,37 +1,4 @@
 <!--  
-<mat-toolbar>
-    <span class="title">ALP</span>
-    <span class="link" routerLink="/registration/member-form">Registracija člana</span>
-    <span class="link" routerLink="/registration/club-form">Registracija kluba</span>
-    <span class="link" routerLink="/auth">LogIn</span>
-</mat-toolbar>
-
-
-
-<div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-      <div class="nav-title">
-        <a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a>
-      </div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    
-    <div class="nav-links">
-      <a href="/home">Početna</a>
-      <a href="/registration/club-form">Registracija kluba</a>
-      <a href="/registration/member-form">Registracija člana</a>
-      <a href="/auth/login-club">Prijava kluba</a>
-      <a href="/auth">Prijava člana</a>
-
-  </div>
-
 
 
 
@@ -98,7 +65,7 @@
 
 
 
-
+<!--  
 <nav>
     <div id="logo">
         <a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a>
@@ -108,7 +75,7 @@
     <ul class="menu">
       <li><a href="/home">Početna</a></li>
       <li> 
-        <!-- First Tier Drop Down -->
+        First Tier Drop Down 
         <label for="drop-1" class="toggle">Registracija&nbsp;</label>
         <a href="#">Registracija</a>
         <input type="checkbox" id="drop-1">
@@ -119,7 +86,7 @@
       </li>
       <li> 
         
-        <!-- First Tier Drop Down -->
+         First Tier Drop Down 
         <label for="drop-2" class="toggle">Prijava&nbsp;</label>
         <a href="#">Prijava</a>
         <input type="checkbox" id="drop-2">
@@ -132,8 +99,76 @@
      
     </ul>
   </nav>
+-->
 
- 
 
 
-<router-outlet></router-outlet>
+  <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span><a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a></span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a class="toolbar-button-menu" href="/home" mat-button>
+            Početna
+        </a>
+
+
+      <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="beforeMenu">Registracija</button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item  class="toolbar-button" routerLink="/registration/club-form">Kluba</button>
+      <button mat-menu-item  class="toolbar-button" routerLink="/registration/member-form">Člana</button>
+      </mat-menu>
+
+      
+        <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="belowMenu">Prijava</button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item class="toolbar-button" routerLink="/auth/login-club">Kluba</button>
+        <button mat-menu-item class="toolbar-button" routerLink="/auth">Člana</button>
+        </mat-menu>
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+
+        <a href="#" mat-list-item>
+          <mat-icon>home</mat-icon>
+          Početna
+        </a>
+        <a href="/registration/club-form" mat-list-item>
+          <mat-icon>group_add</mat-icon>
+          Registracija kluba</a>
+        <a href="/registration/member-form" mat-list-item>
+          <mat-icon>person_add</mat-icon>
+          Registracija člana
+        </a>
+        <a href="/auth/login-club" mat-list-item>
+          <mat-icon>people</mat-icon>
+          Prijava kluba
+        </a>
+        <a href="/auth" mat-list-item>
+            <mat-icon>person</mat-icon>
+            Prijava člana
+          </a>
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Zatvori
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill> <router-outlet></router-outlet> </mat-sidenav-content>
+  
+
+
+
+<!-- <router-outlet></router-outlet> -->
+
+
+
+
