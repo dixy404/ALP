@@ -67,9 +67,19 @@
   }
 
   .btn-color {
-    background-color:#333; 
-    
+    background-color:#333;    
 }
+
+.btn-legend {
+  background-color:#333;
+  padding-top: 20px;
+  padding-bottom: 20px; 
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 30px;
+  
+}
+
 
 .trip-name {
     font-size: 25px;

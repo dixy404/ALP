@@ -1,4 +1,4 @@
-
+<!--  
 <div>
     <mat-list role="list" >
             
@@ -24,9 +24,65 @@
 <br><br>  
 <button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event">Dodaj događaj</button>
 
-
+-->
 
 <!-- *ngFor="let club of clubs" -->
+
+
+
+
+<table>
+    <tr>
+		<th style="text-align: center;"> <img src="/assets/img/summit.jpg" alt="logo_kluba" class="img-responsive"> </th>
+		<td>
+				<button mat-raised-button color="primary" (click)="editClub()" class="btn-color"><mat-icon>edit</mat-icon>  Prepravi podatke</button>
+
+				<br><br>
+				<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
+				
+				<br><br>  
+				<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event"><mat-icon>add</mat-icon> Dodaj događaj</button>	
+		</td>
+       
+    </tr>
+	<tr>
+		<th>Ime kluba: </th>
+		<td>{{club?.clubName}}</td>
+	</tr>
+	<tr>
+		<th>Predsjednik kluba:</th>
+		<td>{{club?.clubPresident}}</td>
+	</tr>
+	<tr>
+		<th>Sekretar kluba:</th>
+		<td>{{club?.clubSecretary}}</td>
+  </tr>
+  <tr>
+		<th>Datum osnivanja:</th>
+		<td>{{club?.foundedIn | date:'dd.MM.yyyy.'}}</td>
+	</tr>
+	<tr>
+		<th>Vizija:</th>
+		<td>{{club?.vision}} </td>
+	</tr>
+	<tr>
+		<th>Misija:</th>
+		<td>{{club?.mission}}</td>
+  </tr>
+  <tr>
+		<th>Adresa:</th>
+		<td>{{club?.address}}</td>
+	</tr>
+	<tr>
+		<th>Telefon:</th>
+		<td>{{club?.phoneNumber}}</td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td>{{club?.email}}</td>
+  </tr>
+  
+</table>
 
 
 
