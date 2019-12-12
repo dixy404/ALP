@@ -13,17 +13,29 @@
         </a>
 
 
-      <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="beforeMenu">Registracija</button>
+      <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="beforeMenu">Registracija ▾ </button>
       <mat-menu #beforeMenu="matMenu" xPosition="before" >
-      <button mat-menu-item  class="toolbar-button" routerLink="/registration/club-form">Kluba</button>
-      <button mat-menu-item  class="toolbar-button" routerLink="/registration/member-form">Člana</button>
+      <button mat-menu-item  class="toolbar-button" routerLink="/registration/club-form">
+        <mat-icon>group_add</mat-icon>
+        Kluba
+      </button>
+      <button mat-menu-item  class="toolbar-button" routerLink="/registration/member-form">
+        <mat-icon>person_add</mat-icon>
+        Člana
+      </button>
       </mat-menu>
 
       
-        <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="belowMenu">Prijava</button>
+        <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="belowMenu">Prijava ▾ </button> 
         <mat-menu #belowMenu="matMenu" yPosition="below">
-        <button mat-menu-item class="toolbar-button" routerLink="/auth/login-club">Kluba</button>
-        <button mat-menu-item class="toolbar-button" routerLink="/auth">Člana</button>
+        <button mat-menu-item class="toolbar-button" routerLink="/auth/login-club">
+          <mat-icon>people</mat-icon>
+          Kluba
+        </button>
+        <button mat-menu-item class="toolbar-button" routerLink="/auth">
+          <mat-icon>person</mat-icon>
+          Člana
+        </button>
         </mat-menu>
 
       </div>
