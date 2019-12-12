@@ -19,12 +19,12 @@ use Illuminate\Http\Request;
 
 
 Auth::routes(['verify' => true]);
-Route::post('registeruser', 'UserController@register')->middleware('cors');
+Route::post('registeruser', 'UserController@register');
 Route::post('registerclub', 'ClubController@register');
 Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
 Route::get('email/verifyClub/{id}', 'VerificationApiController@verifyClub')->name('verificationapi.verifyClub');
 Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
-Route::post('loginuser', 'UserController@authenticate')->middleware('cors');
+Route::post('loginuser', 'UserController@authenticate');
 Route::post('loginclub', 'ClubController@authenticate');
 
 Route::get('events', 'EventController@index');
