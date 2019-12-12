@@ -4,11 +4,20 @@
 <div class="col-9 col-s-9">
 <div class="main">
 
-    <div class='md-padding' layout="row" layout-wrap>
+ <!-- 
+  <div class="page-wrapper"  fxLayout="row wrap" fxLayoutGap="40px" fxLayoutAlign="center" >
+    
 
-    <mat-card flex="30" flex-sm="70" class="card" *ngFor="let event of events" >
-      
-        <img mat-card-image class="image" src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering" width="20%" height="20%">
+    <mat-card  class="card" *ngFor="let event of events" fxFlex="20%" fxLayout.xs="column" >
+
+      -->
+
+      <div  fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="30px" ngClass.gt-xs="ml-10">
+    
+
+          <mat-card  class="card" *ngFor="let event of events"  fxFlex.sm="0 1 calc(50%-30px)" fxFlex.md="0 1 calc(33%-30px)" fxFlex.gt-md="0 1 calc(25%-30px)">
+
+        <img mat-card-image class="image" src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering">
         <mat-card-content>
                 <mat-list role="list" class="list">
                 
@@ -17,11 +26,14 @@
                   <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
                   <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                   <mat-list-item role="listitem">Mjesto polaska: {{event?.location}}</mat-list-item>
-                  <mat-list-item role="listitem" >Dužina izleta: <img class="icon" src ={{event?.tripDuration}} matTooltip="Dužina izleta u danima" matTooltipPosition="above"></mat-list-item>
-                  <mat-list-item role="listitem" >Teren/Težina: <img class="icon" src ={{event?.difficultyLevel}}  matTooltip="Teren/Težina: vidi Legendu" matTooltipPosition="above"></mat-list-item>
-                  <mat-list-item role="listitem" >Oprema: <img class="icon" src ={{event?.equipment}} matTooltip="Vrsta opreme: vidi Legendu" matTooltipPosition="above"> </mat-list-item>
                   <mat-list-item role="listitem">Cijena: {{event?.price}}</mat-list-item>
-             
+                  <mat-list-item role="listitem" >
+                    <img class="icon" src ={{event?.tripDuration}} matTooltip="Dužina izleta u danima" matTooltipPosition="above">
+                    <img class="icon" src ={{event?.difficultyLevel}}  matTooltip="Teren/Težina: vidi Legendu" matTooltipPosition="above">
+                    <img class="icon" src ={{event?.equipment}} matTooltip="Vrsta opreme: vidi Legendu" matTooltipPosition="above">
+                  
+                  </mat-list-item>
+                                              
                 </mat-list>  
                 
         </mat-card-content>
@@ -48,7 +60,7 @@
    </div>
 
    <div>
-    <button mat-raised-button color="primary" class="btn-color" (click)="openLegend()">LEGENDA</button> 
+    <button mat-raised-button color="primary" class="btn-legend" (click)="openLegend()">LEGENDA</button> 
   </div>
    
 </div>

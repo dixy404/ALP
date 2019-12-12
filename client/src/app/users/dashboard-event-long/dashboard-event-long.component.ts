@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { IconLegendComponent } from '../icon-legend/icon-legend.component';
 
 @Component({
   selector: 'app-dashboard-event-long',
@@ -10,7 +12,9 @@ import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 export class DashboardEventLongComponent implements OnInit {
   event;
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) { }
+  constructor(private route: ActivatedRoute,
+     private usersService: UsersService,
+     private dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -21,6 +25,13 @@ export class DashboardEventLongComponent implements OnInit {
       this.event = data
       
     });
+  }
+
+  openLegend() {
+    this.dialog.open(IconLegendComponent, {
+      width: '950px'
+    })
+      
   }
 
 }

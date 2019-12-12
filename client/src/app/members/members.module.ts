@@ -9,6 +9,8 @@ import { EditMemberComponent } from './edit-member/edit-member.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [MemberContainerComponent, MemberPageComponent, EditMemberComponent],
@@ -18,7 +20,8 @@ import { MatSnackBarModule } from '@angular/material';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FlexLayoutModule,
   ],
 
  

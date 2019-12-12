@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationContainerComponent } from './registration-container/registration-container.component';
 import { RegistrationClubComponent } from './registration-club/registration-club.component';
 import { RegistrationMemberComponent } from './registration-member/registration-member.component';
+import { VerifyClubComponent } from './verify-club/verify-club.component';
+import { VerifyMemberComponent } from './verify-member/verify-member.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,15 @@ const routes: Routes = [
         path: 'member-form',
         component: RegistrationMemberComponent,
       },
+      {
+        path: 'verification-club',
+        component: VerifyClubComponent,
+      },
+      {
+        path: 'verification-member',
+        component: VerifyMemberComponent,
+      }
      
-      
     ]
   }
 ];

@@ -4,7 +4,7 @@
        
 <form [formGroup]="form" class="member-form" *ngIf="form">
        
-    <h3>Prepravi podatke</h3>
+    <h3>Promjeni podatke</h3>
     <mat-form-field>
       <input matInput placeholder="Ime" required formControlName="name" autocomplete="off" />
     </mat-form-field>
@@ -64,7 +64,7 @@
 
     <button mat-raised-button color="primary" class="btn-color" type="submit" (click)="save(form)">Sačuvaj promjene</button>
     <br>
-    <button mat-raised-button color="primary" class="btn-color" routerLink="/clubs"> Nazad
+    <button mat-raised-button color="primary" class="btn-color" routerLink="/members"> Nazad
       </button>
     </form>
 

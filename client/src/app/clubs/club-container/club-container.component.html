@@ -1,26 +1,40 @@
 
-<div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-      <div class="nav-title">
-        <a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a>
+<mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span><a href="/home"><img src="/assets/img/logo_trsw2.png" alt="logo"></a></span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a class="toolbar-button-menu" href="/home" mat-button>
+            Početna
+        </a>
+
+        <a class="pointer" (click)="logout() ">Odjava</a>
+     
       </div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    
-    <div class="nav-links">
-      <a href="/home">Početna</a>
-      <a class="pointer" (click)="logout() ">Odjava</a>
-    </div>
-  </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
 
+        <a href="#" mat-list-item>
+          <mat-icon>home</mat-icon>
+          Početna
+        </a>
 
+        <a href="#" mat-list-item (click)="logout()">
+            <mat-icon>person</mat-icon>
+            Odjava
+          </a>
 
-<router-outlet></router-outlet>
+        <a (click)="sidenav.toggle()" mat-list-item>
+          <mat-icon>close</mat-icon> Zatvori
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill> <router-outlet></router-outlet> </mat-sidenav-content>

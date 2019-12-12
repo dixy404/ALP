@@ -10,6 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './login-helpers/jwt.interceptor';
 import { ErrorInterceptor } from './login-helpers/error.interceptor';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { FileUploadModule } from 'ng2-file-upload';
 import { MemberRulesComponent } from './registration/member-rules/member-rules.component';
 
@@ -30,6 +32,7 @@ import { MemberRulesComponent } from './registration/member-rules/member-rules.c
     BrowserAnimationsModule,
     AppMaterialModule,
     HttpClientModule,
+    FlexLayoutModule,
    
   ],
 

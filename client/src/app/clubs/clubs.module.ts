@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 import { EditClubComponent } from './edit-club/edit-club.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent],
@@ -19,7 +21,8 @@ import { EditClubComponent } from './edit-club/edit-club.component';
     AppMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FlexLayoutModule,
   ]
 })
 export class ClubsModule { }

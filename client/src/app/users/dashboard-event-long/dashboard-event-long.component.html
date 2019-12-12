@@ -1,8 +1,9 @@
+<!-- 
 <div class="container">
        
         <mat-card class="card" >
       
-                <!-- TO DO put image -->
+                TO DO put image 
 
                 <mat-card-content>
                         <mat-list role="list" class="list">
@@ -34,5 +35,70 @@
 
        
 </div>
+-->
 
 <!-- *ngFor="let event of events"  -->
+
+
+
+
+<table>
+        <tr>
+                <th colspan="2" > <img src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering2" class="img-responsive"> </th>
+              
+        </tr>
+        <tr>
+                <th colspan="2"  id="trip-name"> {{event?.tripName}} </th>
+               
+        </tr>
+        <tr>
+                <th colspan="2"  id="trip-date">{{event?.tripDate | date:'dd.MM.yyyy.'}}</th>
+               
+        </tr>
+        <tr>
+                <th>Vrijeme okupljanja: </th>
+                <td>{{event?.tripTime }}</td>
+        </tr>
+        <tr>
+                <th>Vrijeme polaska:</th>
+                <td>{{event?.departureTime }}</td>
+        </tr>
+        <tr>
+                <th>Mjesto polaska: </th>
+                <td> {{event?.location}}</td>
+        </tr>
+        <tr>
+                <th>Opis: </th>
+                <td>{{event?.description}}</td>
+        </tr>
+        <tr>
+                <th>Cijena:</th>
+                <td>{{event?.price}}</td>
+        </tr>
+        <tr>
+                <th>Visina:</th>
+                <td>{{event?.elevation}}</td>
+        </tr>
+        <tr>
+                <th colspan="2" >
+                        <img class="icon" src ={{event?.tripDuration}} matTooltip="Dužina izleta u danima" matTooltipPosition="above"> 
+                        <img class="icon" src ={{event?.accommodation}} matTooltip="Vrsta smještaja" matTooltipPosition="above">
+                        <img class="icon" src ={{event?.season}} matTooltip="Sezona: vidi Legendu" matTooltipPosition="above"> 
+                        
+                        <img class="icon" src ={{event?.difficultyLevel}} matTooltip="Teren/Težina: vidi Legendu" matTooltipPosition="above">
+                        <img class="icon" src ={{event?.equipment}} matTooltip="Vrsta opreme: vidi Legendu" matTooltipPosition="above">
+                        <img class="icon" src ={{event?.hours}} matTooltip="Sati hoda" matTooltipPosition="above">
+                        
+                        <img class="icon" src ={{event?.trailLength}} matTooltip="Dužina staze u kilometrima" matTooltipPosition="above">
+                        <img class="icon" src ={{event?.trailType}} matTooltip="Tip staze: vidi Legendu" matTooltipPosition="above">
+                        <img class="icon" src ={{event?.terrainType}} matTooltip="Vrsta terena: vidi Legendu" matTooltipPosition="above"> 
+
+                </th>
+                
+        </tr>
+
+        <tr>
+                <th colspan="2"> <button mat-raised-button color="primary" class="btn-legend" (click)="openLegend()">LEGENDA</button> </th>
+        </tr>
+      
+</table>

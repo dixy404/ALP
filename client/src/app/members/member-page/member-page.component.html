@@ -22,6 +22,8 @@
  *ngFor="let user of users" -->
 
 
+
+ <!-- 
 <div class="container">
 <div id = "our-team-section"> 
 
@@ -72,10 +74,80 @@
 				</div>
 			</div>
 		
-    
+    -->
 
 
 
 <!-- https://codepen.io/Zelcro/pen/Gravyw -->
+
+
+
+  <table>
+    <tr>
+        <th > <img src="https://www.regissalons.com/wp-content/uploads/2017/10/Services-Header-Mens_V2-1.png" alt="avatar" class="img-responsive"> </th>
+        <td>
+            <button mat-raised-button color="primary" (click)="editMember()" class="btn-color"><mat-icon>edit</mat-icon>Promjeni podatke</button>
+            <br><br>
+			    	<button mat-raised-button color="primary" class="btn-color" routerLink="/members"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
+        </td> 
+    </tr>
+	<tr>
+		<th>Ime: </th>
+		<td>{{user?.name}}</td>
+	</tr>
+	<tr>
+		<th>Prezime:</th>
+		<td>{{user?.lastName}}</td>
+  </tr>
+  <tr>
+      <th>Član kluba: </th>
+      <td></td>
+  </tr>
+	<tr>
+		<th>Datum rođenja:</th>
+		<td>{{user?.dateOfBirth | date:'dd.MM.yyyy.'}}</td>
+  </tr>
+  <tr>
+		<th>Mjesto rođenja:</th>
+		<td>{{user?.placeOfBirth}}</td>
+	</tr>
+	<tr>
+		<th>Broj pasoša:</th>
+		<td>{{user?.passportId}}</td>
+	</tr>
+	<tr>
+		<th>Broj lične karte:</th>
+		<td>{{user?.idNumber}}</td>
+  </tr>
+  <tr>
+		<th>JMBG: </th>
+		<td>{{user?.ssn}}</td>
+	</tr>
+	<tr>
+		<th>Nacionalnost:</th>
+		<td>{{user?.nationality}}</td>
+	</tr>
+	<tr>
+		<th>Zanimanje:</th>
+		<td>{{user?.occupation}}</td>
+  </tr>
+  <tr>
+		<th>Krvna grupa:</th>
+		<td>{{user?.bloodType}}</td>
+  </tr>
+  <tr>
+		<th>Adresa:</th>
+		<td>{{user?.address}}</td>
+	</tr>
+	<tr>
+		<th>Telefon:</th>
+		<td>{{user?.phoneNumber}}</td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td>{{user?.email}}</td>
+	</tr>
+</table>
+
 
     

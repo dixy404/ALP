@@ -126,7 +126,7 @@ export class RegistrationMemberComponent implements OnInit {
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
     const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
-   //  this.router.navigate(['/auth']); 
+   //  this.router.navigate(['/registration/verification-member']); 
     
     
       this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail )

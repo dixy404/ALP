@@ -9,6 +9,8 @@ import { AppMaterialModule } from '../app-material/app-material.module';
 import { WeatherComponent } from './weather/weather.component';
 import { IconLegendComponent } from './icon-legend/icon-legend.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [DashboardComponent, DashboardEventShortComponent, DashboardEventLongComponent, WeatherComponent, IconLegendComponent],
@@ -16,6 +18,7 @@ import { IconLegendComponent } from './icon-legend/icon-legend.component';
     CommonModule,
     UsersRoutingModule,
     AppMaterialModule,
+    FlexLayoutModule,
   ],
 
   entryComponents: [
