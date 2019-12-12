@@ -15,15 +15,7 @@ use Illuminate\Auth\Events\Verified;
 use Auth;
 
 class ClubController extends Controller
-{    function __construct()
-    {  header("Access-Control-Allow-Origin: *");
-       /* Config::set('jwt.user', Club::class);
-        config::set('auth.providers', ['users' => [
-                'driver' => 'eloquent',
-                'model' => Club::class,
-            ]]);*/
-            
-    }
+{   
     use VerifiesEmails;
 public $successStatus = 200;
 /**
@@ -34,20 +26,21 @@ public $successStatus = 200;
     public function authenticate(Request $request)
     {
         
-             header("Access-Control-Allow-Origin: *");
-             auth()->shouldUse('api2');
-             if(Auth::guard('api2')->attempt(['email' => request('email'), 'password' => request('password')])){
-                $club = Auth::user();
-                if($club->email_verified_at !== NULL){
-                $success['message'] = 'Login successfull';
-                 response()->json(['success' => $success], $this-> successStatus);
-                }else{  $club->sendApiEmailVerificationNotification();
-                return response()->json(['error'=>'Please Verify Email'], 401);
-                }
-                }
-                else{
-                return response()->json(['error'=>'Unauthorised'], 401);
-                }
+        
+        
+        auth()->shouldUse('api2');
+        if(Auth::guard('api2')->attempt(['email' => request('email'), 'password' => request('password')])){
+           $club = Auth::user();
+           if($club->email_verified_at !== NULL){
+           $success['message'] = 'Login successfull';
+            response()->json(['success' => $success], $this-> successStatus);
+           }else{  $club->sendApiEmailVerificationNotification();
+           return response()->json(['error'=>'Please Verify Email'], 401);
+           }
+           }
+           else{
+           return response()->json(['error'=>'Unauthorised'], 401);
+           }   
             $credentials = $request->only('email', 'password');
             
             try {
@@ -65,7 +58,7 @@ public $successStatus = 200;
 
     public function register(Request $request)
     {
-        header("Access-Control-Allow-Origin: *");
+        
         $messages = [
             'required' => 'The :attribute field is required.',
             'unique' => 'The :attribute field already exist.',
@@ -108,13 +101,13 @@ public $successStatus = 200;
     }
     public function show($id)
     {
-        header("Access-Control-Allow-Origin: *");
+        
         $club = Club::find($id);
         return response()->json(compact('club'), 201);
     }
     public function edit($id)
     {
-        header("Access-Control-Allow-Origin: *");
+       
         $club = Club::find($id)->where('id', $id)->select(['clubName', 'clubPresident', "address", 'clubSecretary', 'foundedIn', 'vision', 'mission', 'phoneNumber', "email"])->get();
         return response()->json(compact('club'), 201);
     }
@@ -134,7 +127,7 @@ public $successStatus = 200;
 
         return response()->json(['token_absent'], $e->getStatusCode());
     }
-        header("Access-Control-Allow-Origin: *");
+        
         if (Club::where('id', $id)->exists()) {
             $club = Club::find($id)->update([
                 'clubName' => request('clubName'),
@@ -159,8 +152,8 @@ public $successStatus = 200;
         }
     }
     public function getAuthenticatedClub()
-    {
-        header("Access-Control-Allow-Origin: *");
+    {  
+       
         try {
 
             if (!$club = JWTAuth::parseToken()->authenticate()) {
@@ -185,7 +178,7 @@ public $successStatus = 200;
                 }
     }
     public function index(Request $request)
-            {   header("Access-Control-Allow-Origin: *");
+            {   
                
                 $club = Club::all();
                 return response()->json(compact('club'),201);

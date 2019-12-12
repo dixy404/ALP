@@ -15,7 +15,7 @@ class EventController extends Controller
 {
     public function register(Request $request) 
     {
-        header("Access-Control-Allow-Origin: *");
+        
         
         $event = Event::create([
             'tripDate' => $request->get('tripDate'),
@@ -45,8 +45,9 @@ class EventController extends Controller
     }
 
     public function index(Request $request)
-            {   header("Access-Control-Allow-Origin: *");
-               
+            {  
+                
+                
                 $event = Event::all();
                 return response()->json(compact('event'),201);
                 
@@ -54,7 +55,7 @@ class EventController extends Controller
             }
             public function show($id)
             {
-                header("Access-Control-Allow-Origin: *");
+               
                 $event = Event::find($id);
                 return response()->json($event);  
             }     

@@ -18,15 +18,7 @@
 
     class UserController extends Controller
     { 
-        function __construct()
-        {  header("Access-Control-Allow-Origin: *");
-            /*Config::set('jwt.user', User::class);
-            Config::set('auth.providers', ['users' => [
-                    'driver' => 'eloquent',
-                    'model' => User::class,
-                ]]);*/
-                //$this->middleware(['JWTAuth', 'verified']);
-        }
+        
 
 use VerifiesEmails;
 public $successStatus = 200;
@@ -59,7 +51,7 @@ public function login(){
     public function authenticate(Request $request)
     {
         
-             header("Access-Control-Allow-Origin: *");
+             
              auth()->shouldUse('api');
              if(Auth::guard('api')->attempt(['email' => request('email'), 'password' => request('password')])){
                 $user = Auth::user();
@@ -90,13 +82,12 @@ public function login(){
     }
 
         public function register(Request $request)
-        {       header("Access-Control-Allow-Origin: http://127.0.0.1:4200");
-            header("Access-Control-Allow-Credentials: true");
+        {      
             $messages = ['required' => 'The :attribute field is required.',
                          'unique' => 'The :attribute field already exist.',
                          'confirmed' => 'The :attribute does not match.',
                          'max:255' => 'The :attribute max 255 characters.',];
-            $validator = Validator::make($request->all(),  [
+           /* $validator = Validator::make($request->all(),  [
              'name' => 'required|string|max:255',
              'lastName' => 'required|string|max:255',
              'dateOfBirth' => 'required|string|max:255',
@@ -109,7 +100,7 @@ public function login(){
             ], $messages);
          if($validator->fails()){
                  return response()->json($validator->errors()->toJson(), 400);
-         }
+         }*/
             $user = User::create([
                 'name' => $request->get('name'),
                 'lastName' => $request->get('lastName'),
@@ -123,8 +114,8 @@ public function login(){
                 'nationality' => $request->get('nationality'),
                 'occupation' => $request->get('occupation'),
                 'email' => $request->get('email'),
-                
-                'phoneNumber' => $request->get('phoneNumber'),
+               // 'thumbnail' => $request->get('thumbnail'),
+               'phoneNumber' => $request->get('phoneNumber'),
                 'password' => Hash::make($request->get('password')),
             ]);
             if ($request->hasFile('thumbnail')) {
@@ -170,7 +161,7 @@ public function login(){
             return response()->json(compact('user','token'),201);
         }
         public function show($id){ 
-          header("Access-Control-Allow-Origin: *");
+         
           try {
 
             if (! $user = JWTAuth::parseToken()->authenticate()) {
@@ -198,7 +189,7 @@ public function login(){
 
 }
         public function edit($id){ 
-        header("Access-Control-Allow-Origin: *");
+        
         $user = User::find($id)->where('id', $id)->select(['name','lastName',"address","dateOfBirth","placeOfBirth","bloodType","passportId","idNumber","ssn","nationality","occupation", 'phoneNumber',"email"])->get();
          return response()->json(compact('user'),201);
 
@@ -207,7 +198,7 @@ public function login(){
 
 }
 public function update(Request $request, $id)
-{        header("Access-Control-Allow-Origin: *");
+{        
         if (User::where('id', $id)->exists()) {
     $user = User::find($id)->update(['name' => request('name'),
     'lastName' => request('lastName'),
@@ -239,7 +230,7 @@ public function update(Request $request, $id)
 
     }
         public function getAuthenticatedUser()
-            {   header("Access-Control-Allow-Origin: *");
+            {  
                 
                 
                    
@@ -275,7 +266,7 @@ public function update(Request $request, $id)
                    //return response()->json($user);
             }
             public function index(Request $request)
-            {   header("Access-Control-Allow-Origin: *");
+            {  
                /* $credentials = $request->only('token');
                 $token = JWTAuth::fromUser($user);*/
                 $user = User::all();

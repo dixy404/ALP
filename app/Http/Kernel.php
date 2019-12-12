@@ -14,11 +14,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+       
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \Barryvdh\Cors\HandleCors::class,
     ];
 
     /**
@@ -57,6 +60,7 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        //'cors' => \Barryvdh\Cors\HandleCors::class,
         'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
@@ -65,7 +69,8 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         //'role' => \App\Http\Middleware\CheckRole::class,
         'auth.role' => \App\Http\Middleware\CheckRole::class,
-        'cors' => \Barryvdh\Cors\HandleCors::class,
+        
+        
     ];
 
     /**
