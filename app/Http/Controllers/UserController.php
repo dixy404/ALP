@@ -52,7 +52,7 @@ public function login(){
     {
         
              
-             auth()->shouldUse('api');
+            auth()->shouldUse('api');
              if(Auth::guard('api')->attempt(['email' => request('email'), 'password' => request('password')])){
                 $user = Auth::user();
                 if($user->email_verified_at !== NULL){
@@ -87,7 +87,7 @@ public function login(){
                          'unique' => 'The :attribute field already exist.',
                          'confirmed' => 'The :attribute does not match.',
                          'max:255' => 'The :attribute max 255 characters.',];
-           /* $validator = Validator::make($request->all(),  [
+            $validator = Validator::make($request->all(),  [
              'name' => 'required|string|max:255',
              'lastName' => 'required|string|max:255',
              'dateOfBirth' => 'required|string|max:255',
@@ -100,7 +100,7 @@ public function login(){
             ], $messages);
          if($validator->fails()){
                  return response()->json($validator->errors()->toJson(), 400);
-         }*/
+         }
             $user = User::create([
                 'name' => $request->get('name'),
                 'lastName' => $request->get('lastName'),
@@ -118,14 +118,14 @@ public function login(){
                'phoneNumber' => $request->get('phoneNumber'),
                 'password' => Hash::make($request->get('password')),
             ]);
-            if ($request->hasFile('thumbnail')) {
+            /*if ($request->hasFile('thumbnail')) {
                /* $fileName = time().'.'.$request->file->getClientOriginalExtension();
 
                 $request->file->move(public_path('assets/photo'), $fileName);
         
                       
         
-                return response()->json(['success'=>'You have successfully upload file.']);}*/
+                return response()->json(['success'=>'You have successfully upload file.']);}
                $file      = $request->file('thumbnail');
                 $filename  = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
@@ -136,7 +136,7 @@ public function login(){
           else
           {
                 return response()->json(["message" => "Select image first."]);
-          }
+          }*/
        
   
               
