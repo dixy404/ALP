@@ -38,6 +38,7 @@ Route::get('open', 'DataController@open');
 Route::get('closed', 'DataController@closed');
 Route::get('/showuser/{id}', 'UserController@show');
 Route::get('/edituser/{id}', 'UserController@edit');
+Route::delete('/deleteclub/{id}', 'ClubController@destroy');
 
 
 
