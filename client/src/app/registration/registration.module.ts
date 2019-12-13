@@ -28,7 +28,7 @@ import { EmailVerifiedComponent } from './email-verified/email-verified.componen
     MatSnackBarModule,
     FileUploadModule,
     FlexLayoutModule,
-    MatSidenavModule
+    
   ],
 
   entryComponents: [

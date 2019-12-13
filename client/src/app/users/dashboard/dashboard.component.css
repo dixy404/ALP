@@ -319,6 +319,7 @@ nav ul li {
 .toolbar {
   background-color: #4d4d4d;
   padding-top: 7px;
+  height: 70px;
 }
 
 .toolbar-button-menu {
