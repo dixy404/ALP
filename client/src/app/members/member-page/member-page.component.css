@@ -281,3 +281,8 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  #background {
+    height: calc(100vh - 120px);
+    
+  }
