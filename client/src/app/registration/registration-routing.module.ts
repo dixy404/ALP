@@ -5,6 +5,7 @@ import { RegistrationClubComponent } from './registration-club/registration-club
 import { RegistrationMemberComponent } from './registration-member/registration-member.component';
 import { VerifyClubComponent } from './verify-club/verify-club.component';
 import { VerifyMemberComponent } from './verify-member/verify-member.component';
+import { EmailVerifiedComponent } from './email-verified/email-verified.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'verification-member',
         component: VerifyMemberComponent,
+      },
+      {
+        path: 'email-verified',
+        component: EmailVerifiedComponent,
       }
      
     ]
