@@ -28,7 +28,7 @@
 
 <!-- *ngFor="let club of clubs" -->
 
-
+ 
 <div id="background">
 
 <table>
@@ -38,7 +38,7 @@
 				<button mat-raised-button color="primary" (click)="editClub()" class="btn-color"><mat-icon>edit</mat-icon> Promjeni podatke</button>
 
 				<br><br>
-				<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
+				<button mat-raised-button color="primary" class="btn-color" (click)="deleteClub(club?.id)" routerLink="/clubs"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
 				
 				<br><br>  
 				<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event"><mat-icon>add</mat-icon> Dodaj događaj</button>	

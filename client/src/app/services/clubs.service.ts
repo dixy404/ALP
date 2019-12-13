@@ -25,4 +25,8 @@ export class ClubsService {
     return this.http.put(`http://localhost:8000/api/updateclub/${id}`, club)
      
   }
+
+  deleteClub(id) {
+    return this.http.delete(`http://localhost:8000/api/deleteclub/${id}`,)
+  }
 }

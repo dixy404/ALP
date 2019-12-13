@@ -25,4 +25,9 @@ export class ClubPageComponent implements OnInit {
     console.log("testing club", this.club)
     this.router.navigate([`clubs/edit-club/${this.club.id}`]);
   }
+
+  deleteClub(id) {
+    this.clubsService.deleteClub(id).subscribe(data => console.log(data))
+  }
+
 }

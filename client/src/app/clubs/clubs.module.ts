@@ -11,10 +11,11 @@ import { MatSnackBarModule } from '@angular/material';
 import { EditClubComponent } from './edit-club/edit-club.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 
 @NgModule({
-  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent],
+  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent, ConfirmDeleteComponent],
   imports: [
     CommonModule,
     ClubsRoutingModule,
@@ -23,6 +24,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatSnackBarModule,
     FlexLayoutModule,
-  ]
+  ],
+
+  entryComponents: [
+    ConfirmDeleteComponent,
+  ],
 })
 export class ClubsModule { }
