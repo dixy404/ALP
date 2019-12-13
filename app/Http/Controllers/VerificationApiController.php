@@ -29,7 +29,8 @@ $user = User::findOrFail($userID);
 $date = date('Y-m-d g:i:s');
 $user->email_verified_at = $date; // to enable the “email_verified_at field of that user be a current time stamp by mimicing the must verify email feature
 $user->save();
-return response()->json('Email verified!');
+$url = "http://localhost:4200/registration/email-verified";
+return redirect()->to($url);
 }
 
 /**
