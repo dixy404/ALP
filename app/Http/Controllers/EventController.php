@@ -48,7 +48,7 @@ class EventController extends Controller
             {  
                 
                 
-                $event = Event::all();
+                $event = Event::orderBy('tripDate', 'desc')->get();
                 return response()->json(compact('event'),201);
                 
 
