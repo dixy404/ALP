@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './login-helpers/auth.guard';
 import { AuthclubGuard } from './login-helpers/auth-club.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileDeletedMessageComponent } from './profile-deleted-message/profile-deleted-message.component';
 
 
 const routes: Routes = [
@@ -26,11 +28,18 @@ const routes: Routes = [
     loadChildren: () => import('./users/users.module').then(mod => mod.UsersModule)
   },
   {
+    path:'profile-deleted',
+    component: ProfileDeletedMessageComponent,
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
   
 ];
 

@@ -1,4 +1,10 @@
 <div id="background">
+
+    <div class="row">
+        <div class="col-3 col-s-3 menu"> 
+        </div>
+
+        <div class="col-6 col-s-9" >
   
 <div class="login-container">
 
@@ -54,17 +60,13 @@
       </select>
     </mat-form-field>
 
-    <!-- 
-    <label>Slika:</label> 
-    <input type="file" ng2FileSelect [uploader]="uploader" /> <br>
-
-   -->
-
+  <!-- 
    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <input type="file" #fileupload [(ngModel)]="myFile" name="myFile" (change)="fileEvent($event)"/>
       <button>Upload Image</button>
       </form>
       <br>
+    -->
 
     <mat-form-field>
       <input matInput placeholder="Adresa" required formControlName="address" autocomplete="off" />
@@ -90,13 +92,7 @@
       <mat-error *ngIf="password_confirmation.invalid">{{getpassword_confirmationErrorMessage()}}</mat-error>
     </mat-form-field>
 
-   <!--  
-    <label for="file">Slika</label>
-    <input type="file"
-           id="file"
-           (change)="handleFileInput($event.target.files)"> <br> 
-    -->
-   
+     
        
       <mat-checkbox formControlName="checkbox"> <button mat-button color="primary" (click)="openRules()">Slažem se sa pravilima</button> </mat-checkbox> <br>
           
@@ -108,5 +104,14 @@
       </button>
   </form>
 </div>
+
+</div>
+
+<div class="col-3 col-s-12">
+    <div class="aside">
+     
+  </div>
+</div>
+</div>   
 
 </div>

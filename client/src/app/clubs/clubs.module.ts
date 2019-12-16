@@ -14,8 +14,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 
+
 @NgModule({
-  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent, ConfirmDeleteComponent],
+  declarations: [ClubContainerComponent, ClubPageComponent, AddEventComponent, EditClubComponent, ConfirmDeleteComponent, ],
   imports: [
     CommonModule,
     ClubsRoutingModule,
@@ -26,7 +27,7 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
     FlexLayoutModule,
   ],
 
-  entryComponents: [
+ entryComponents: [
     ConfirmDeleteComponent,
   ],
 })

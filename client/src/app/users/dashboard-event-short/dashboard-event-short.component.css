@@ -56,13 +56,13 @@
 
 .aside {   
     padding: 15px;
-    border: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;*/
     margin-top: 10px;
   }
   
   .main {  
     padding: 15px;
-    border: 1px solid lightgray;
+    /*border: 1px solid lightgray;*/
     margin-top: 10px; 
   }
 

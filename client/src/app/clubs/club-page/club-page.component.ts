@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClubsService } from 'src/app/services/clubs.service';
 import { Router } from '@angular/router';
 import { Club } from 'src/app/model/club.model';
+import { MatDialog } from '@angular/material';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-club-page',
@@ -11,7 +13,9 @@ import { Club } from 'src/app/model/club.model';
 export class ClubPageComponent implements OnInit {
   club: Club;
 
-  constructor(private clubsService: ClubsService, private router: Router) { }
+  constructor(private clubsService: ClubsService, 
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.clubsService.GetClub().subscribe((data) => {
@@ -27,7 +31,11 @@ export class ClubPageComponent implements OnInit {
   }
 
   deleteClub(id) {
+    this.dialog.open(ConfirmDeleteComponent, {
+      width: '300px'
+    })
     this.clubsService.deleteClub(id).subscribe(data => console.log(data))
   }
+  
 
 }

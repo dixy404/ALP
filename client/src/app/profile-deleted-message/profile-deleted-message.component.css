@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
   }
@@ -68,8 +69,17 @@
     .col-12 {width: 100%;}
   }
 
+ .center {
+     text-align: center;
+     font-size: 20px;
+ }
 
-#background {
+ .card-style {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    margin-top: 200px;
+ }
+
+ #background {
     background-image: url('/assets/img/bcg7.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -79,48 +89,29 @@
     overflow: hidden;  
 }
 
-
-.login-container {    
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.member-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-color: white;
-    border-style: solid;
-    border-width: 3px;
-    padding: 30px;
-    border-radius: 10px;
-    height: 540px;
-    overflow-y: scroll;
-    background-color: white;
-    
-   
-}
-
-h3{
-   text-align: center;
-   font-size: 30px;
-   padding-bottom: 0px;
-}
-
 .btn-color {
-    background-color:#333; 
-    margin-bottom: 10px; 
+  background-color:#333; 
 }
 
-/* overwrite the checkbox background */
-::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
-    background-color: black !important;
+
+.example-icon {
+    padding: 0 14px;
   }
-
-/* overwrite the ripple overlay on hover and click */
-::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
-  background-color: black !important;
-}
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .toolbar {
+    background-color: #4d4d4d;
+    padding-top: 7px;
+    height: 70px;
+  }
+  
+  .toolbar-button-menu {
+    font-size: 20px;
+  }
+  
+  .toolbar-button {
+    font-size: 18px;
+  }

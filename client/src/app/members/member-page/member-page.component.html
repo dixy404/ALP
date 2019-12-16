@@ -83,13 +83,19 @@
 
 <div id="background"> 
 
+    <div class="row">
+        <div class="col-3 col-s-3 menu"> 
+        </div>
+
+        <div class="col-6 col-s-9" >
+
   <table>
     <tr>
         <th > <img src="https://www.regissalons.com/wp-content/uploads/2017/10/Services-Header-Mens_V2-1.png" alt="avatar" class="img-responsive"> </th>
         <td>
             <button mat-raised-button color="primary" (click)="editMember()" class="btn-color"><mat-icon>edit</mat-icon>Promjeni podatke</button>
             <br><br>
-			    	<button mat-raised-button color="primary" class="btn-color" routerLink="/members"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
+			    	<button mat-raised-button color="primary" class="btn-color" (click)="deleteMember(club?.id)"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
         </td> 
     </tr>
 	<tr>
@@ -149,6 +155,15 @@
 		<td>{{user?.email}}</td>
 	</tr>
 </table>
+
+</div>
+
+<div class="col-3 col-s-12">
+    <div class="aside">
+     
+  </div>
+</div>
+</div>   
 
 </div>
 

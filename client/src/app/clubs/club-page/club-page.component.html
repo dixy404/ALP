@@ -31,6 +31,12 @@
  
 <div id="background">
 
+		<div class="row">
+				<div class="col-3 col-s-3 menu"> 
+				</div>
+						
+			<div class="col-6 col-s-9" >  
+
 <table>
     <tr>
 		<th style="text-align: center;"> <img src="/assets/img/summit.jpg" alt="logo_kluba" class="img-responsive"> </th>
@@ -38,7 +44,7 @@
 				<button mat-raised-button color="primary" (click)="editClub()" class="btn-color"><mat-icon>edit</mat-icon> Promjeni podatke</button>
 
 				<br><br>
-				<button mat-raised-button color="primary" class="btn-color" (click)="deleteClub(club?.id)" routerLink="/clubs"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
+				<button mat-raised-button color="primary" class="btn-color" (click)="deleteClub(club?.id)" ><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
 				
 				<br><br>  
 				<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event"><mat-icon>add</mat-icon> Dodaj događaj</button>	
@@ -83,6 +89,15 @@
   </tr>
   
 </table>
+
+</div>
+
+<div class="col-3 col-s-12">
+    <div class="aside">
+     
+  </div>
+</div>
+</div>   
 
 </div>
 

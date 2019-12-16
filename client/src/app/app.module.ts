@@ -13,7 +13,9 @@ import { ErrorInterceptor } from './login-helpers/error.interceptor';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FileUploadModule } from 'ng2-file-upload';
-import { MemberRulesComponent } from './registration/member-rules/member-rules.component';
+
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileDeletedMessageComponent } from './profile-deleted-message/profile-deleted-message.component';
 
 
 
@@ -21,9 +23,9 @@ import { MemberRulesComponent } from './registration/member-rules/member-rules.c
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
-       
+    PageNotFoundComponent,
+    ProfileDeletedMessageComponent,
+        
   
   ],
   imports: [
