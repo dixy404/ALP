@@ -18,4 +18,8 @@ export class MembersService {
   editUser(id, user: Member) {
     return this.http.put(`http://localhost:8000/api/updateuser/${id}`, user)
   }
+
+  deleteUser(id) {
+    return this.http.delete(`http://localhost:8000/api/deleteuser/${id}`)
+  }
 }

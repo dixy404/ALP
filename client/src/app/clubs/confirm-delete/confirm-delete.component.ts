@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-delete',
@@ -8,7 +9,8 @@ import { MatDialogRef } from '@angular/material';
 })
 export class ConfirmDeleteComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<ConfirmDeleteComponent>) { }
+  constructor(private dialogRef: MatDialogRef<ConfirmDeleteComponent>,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,8 +22,7 @@ export class ConfirmDeleteComponent implements OnInit {
 
   confirm() {
     this.dialogRef.close(true);
+    this.router.navigate(['/profile-deleted']); 
   }
 
 }
-
-

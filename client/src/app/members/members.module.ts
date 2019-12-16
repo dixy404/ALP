@@ -10,10 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDeleteMemberComponent } from './confirm-delete-member/confirm-delete-member.component';
+
 
 
 @NgModule({
-  declarations: [MemberContainerComponent, MemberPageComponent, EditMemberComponent],
+  declarations: [MemberContainerComponent, MemberPageComponent, EditMemberComponent, ConfirmDeleteMemberComponent],
   imports: [
     CommonModule,
     MembersRoutingModule,
@@ -24,6 +26,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
   ],
 
- 
+  entryComponents: [
+    ConfirmDeleteMemberComponent
+  ],
+
 })
 export class MembersModule { }
