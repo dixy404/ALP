@@ -20,6 +20,7 @@ export class AddEventComponent implements OnInit {
   difficultyLevel = new FormControl('', [Validators.required]);
   equipment = new FormControl('', [Validators.required]);
   price = new FormControl('', [Validators.required]);
+  organizer = new FormControl('', [Validators.required]);
 
   public form: FormGroup; 
   public event: Event = new Event();
@@ -33,7 +34,8 @@ export class AddEventComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       tripName: [this.event.tripName, Validators.required], 
-      tripTime: [this.event.tripTime, Validators.required], 
+      tripTime: [this.event.tripTime, Validators.required],
+      organizer: [this.event.organizer, Validators.required],
       tripDate: [this.event.tripDate, Validators.required], 
       location: [this.event.location, Validators.required], 
       description: [this.event.description],
@@ -55,10 +57,10 @@ export class AddEventComponent implements OnInit {
 
 save({value, valid}: {value: Event, valid: boolean}) { 
   console.log(this.form.value)
-  const {tripName, tripDate, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
+  const {tripName, tripDate, organizer, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
   this.router.navigate(['/home']);
   
-    this.clubsService.addEvent(tripName, tripDate, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
+    this.clubsService.addEvent(tripName, tripDate, organizer, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
     .subscribe(data => console.log(data))
 }
 
@@ -104,6 +106,11 @@ getequipmentErrorMessage() {
 
 getpriceErrorMessage() {
   return this.price.hasError('required') ? 'Unesite cijenu' :
+         '';
+}
+
+getorganizerErrorMessage() {
+  return this.organizer.hasError('required') ? 'Unesite organizatora' :
          '';
 }
 

@@ -4,6 +4,7 @@ import { Member } from 'src/app/model/member.model';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { ConfirmDeleteMemberComponent } from '../confirm-delete-member/confirm-delete-member.component';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-member-page',
@@ -15,7 +16,9 @@ export class MemberPageComponent implements OnInit {
 
   constructor(private membersService: MembersService, 
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    //Za upload slike
+    public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
@@ -36,5 +39,22 @@ export class MemberPageComponent implements OnInit {
     })
     this.membersService.deleteUser(id).subscribe(data => console.log(data))
   }
+
+
+
+
+
+  /*
+
+  onSelectImage(event) {
+    this.selectedImage = event.srcElement.files[0];
+ }
+
+ onCreateService(form: FormGroup) {
+   const formData = new FormData();
+   formData.append('image', this.selectedImage, this.selectedImage.name);
+   
+   console.log(formData);
+ }  */
 
 }

@@ -98,6 +98,19 @@
 			    	<button mat-raised-button color="primary" class="btn-color" (click)="deleteUser(user?.id)"><mat-icon>delete_forever</mat-icon> Izbriši profil</button>
         </td> 
     </tr>
+    <tr>
+      <th>
+
+          <form [formGroup]="servicesForm" (ngSubmit)="onCreateService(servicesForm)">
+              <div class="col-sm-8"> 
+                  <input  type="file" accept=".png, .jpg, .jpeg" (change)="onSelectImage($event)" class="form-control" formControlName="icon">
+              </div> 
+               <button type="submit" >Save</button>
+          </form>
+
+
+      </th>
+    </tr>
 	<tr>
 		<th>Ime: </th>
 		<td>{{user?.name}}</td>

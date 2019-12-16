@@ -17,4 +17,5 @@ export class Event {
     trailLength: string;
     trailType: string;
     terrainType: string;
+    organizer: string;
 }

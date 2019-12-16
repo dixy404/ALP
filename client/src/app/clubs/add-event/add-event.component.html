@@ -18,6 +18,14 @@
             <input matInput placeholder="Datum" required type="date" formControlName="tripDate" autocomplete="off" />
             <mat-error *ngIf="tripDate.invalid">{{gettripDateErrorMessage()}}</mat-error>
         </mat-form-field>    
+
+        <!-- 
+        <mat-form-field>
+            <input matInput placeholder="Organizator" required formControlName="organizer" autocomplete="off" />
+            <mat-error *ngIf="organizer.invalid">{{getorganizerErrorMessage()}}</mat-error>
+        </mat-form-field>
+         -->
+
         <mat-form-field>
             <input matInput placeholder="Vrijeme okupljanja" required type="time" formControlName="tripTime" autocomplete="off" />
             <mat-error *ngIf="tripTime.invalid">{{gettripTimeErrorMessage()}}</mat-error>
