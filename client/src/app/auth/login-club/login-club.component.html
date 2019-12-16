@@ -1,10 +1,10 @@
 <div id="background">
-
+<!--  
         <div class="row">
                 <div class="col-3 col-s-3 menu"> 
                 </div>
         
-                <div class="col-4 col-s-9" >  
+                <div class="col-4 col-s-9" >  -->
      
     <div class="login-container">
             <form [formGroup]="form" class="login-form">
@@ -15,7 +15,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type="password" formControlName="password" required autocomplete="off"
-                        placeholder="Lozinka" />
+                        placeholder="Lozinka"  />
                 </mat-form-field>
                 <button mat-raised-button color="primary" class="btn-color" type="submit" [disabled]="form.invalid" (click)="login()" >Prijavi se</button>
                 <br>
@@ -25,7 +25,7 @@
         </div>
 
     </div>
-
+<!--  
     <div class="col-3 col-s-12">
         <div class="aside">
          
@@ -33,5 +33,5 @@
     </div>
     </div>   
        
-    </div>
+    </div> -->
     
