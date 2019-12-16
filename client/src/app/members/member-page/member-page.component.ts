@@ -44,8 +44,8 @@ export class MemberPageComponent implements OnInit {
 
 
 
-  /*
-
+  
+/*
   onSelectImage(event) {
     this.selectedImage = event.srcElement.files[0];
  }
