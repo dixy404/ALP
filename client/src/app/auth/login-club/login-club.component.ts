@@ -28,8 +28,9 @@ export class LoginClubComponent implements OnInit {
 
   login() {
     const {email, password } = this.form.value
-    this.authclubService.login(email, password).subscribe(data => console.log('data123', data))
-    this.router.navigate(['/clubs']); 
+    this.authclubService.login(email, password).subscribe(data => {
+      this.router.navigate(['/clubs']);
+  })
   }
 
 }
