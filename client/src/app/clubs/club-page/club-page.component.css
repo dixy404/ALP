@@ -181,7 +181,7 @@ body {
     height: auto;
   }
 
-/*#background {
-  height: calc(100vh - 110px);
+#background {
+  height: calc(100vh - 70px);
     
-}*/
+}
