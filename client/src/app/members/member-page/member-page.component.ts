@@ -30,7 +30,7 @@ export class MemberPageComponent implements OnInit {
     this.router.navigate([`members/edit-member/${this.user.id}`]);
   }
 
-  deleteMember(id) {
+  deleteUser(id) {
     this.dialog.open(ConfirmDeleteMemberComponent, {
       width: '300px'
     })
