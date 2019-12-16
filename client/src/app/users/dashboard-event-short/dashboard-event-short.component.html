@@ -17,12 +17,17 @@
 
           <mat-card  class="card" *ngFor="let event of events"  fxFlex.sm="0 1 calc(50%-30px)" fxFlex.md="0 1 calc(33%-30px)" fxFlex.gt-md="0 1 calc(25%-30px)">
 
+
         <img mat-card-image class="image" src="https://www.zermatt.ch/extension/portal-zermatt/var/storage/images/media/bibliothek/aktivitaeten/sommer/bergsteigen-alpin-center-3/85043-3-ger-DE/Bergsteigen-Alpin-Center-3_grid_346x365.jpg" alt="Mountaineering">
+
+          
+        <mat-card-title  class="trip-date">
+            {{event?.tripDate | date:'dd.MM.yyyy.'}}
+        </mat-card-title>
         <mat-card-content>
                 <mat-list role="list" class="list">
                 
                   <mat-list-item role="listitem" class="trip-name"> {{event?.tripName}}</mat-list-item>
-                  <mat-list-item role="listitem">Datum: {{event?.tripDate | date:'dd.MM.yyyy.'}}</mat-list-item>
                   <mat-list-item role="listitem">Vrijeme okupljanja: {{event?.tripTime }}</mat-list-item>
                   <mat-list-item role="listitem">Vrijeme polaska: {{event?.departureTime }}</mat-list-item>
                   <mat-list-item role="listitem">Mjesto polaska: {{event?.location}}</mat-list-item>
@@ -35,7 +40,7 @@
                   </mat-list-item>
                                               
                 </mat-list>  
-                
+            
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary" class="btn-color" routerLink="/home/event-info/{{event?.id}}">Saznaj više</button>
