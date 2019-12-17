@@ -16,7 +16,7 @@ class Event extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable = ['tripDate', 'tripTime', 'tripName', 'location', 'description', 'tripDuration', 'departureTime', 'accommodation', 'season', 'difficultyLevel', 'equipment', 'elevation', 'hours', 'trailLength', 'trailType', 'terrainType', 'price'];
+    protected $fillable = ['tripDate', 'tripTime', 'tripName', 'location', 'description', 'tripDuration', 'departureTime', 'accommodation', 'season', 'difficultyLevel', 'equipment', 'elevation', 'hours', 'trailLength', 'trailType', 'terrainType', 'price', 'organizer'];
 
     /**
      * The attributes that should be hidden for arrays.
