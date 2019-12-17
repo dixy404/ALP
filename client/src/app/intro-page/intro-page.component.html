@@ -1,0 +1,95 @@
+
+<div id="background_height"> 
+  
+    <mat-toolbar color="primary" class="toolbar">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span><a href="/intro"><img src="/assets/img/logo_trsw2.png" alt="logo"></a></span>
+        <span class="example-spacer"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+          <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+          <a class="toolbar-button-menu" href="/home" mat-button>
+              Početna
+          </a>
+  
+  
+        <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="beforeMenu">Registracija ▾ </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item  class="toolbar-button" routerLink="/registration/club-form">
+          <mat-icon>group_add</mat-icon>
+          Kluba
+        </button>
+        <button mat-menu-item  class="toolbar-button" routerLink="/registration/member-form">
+          <mat-icon>person_add</mat-icon>
+          Člana
+        </button>
+        </mat-menu>
+  
+        
+          <button class="toolbar-button-menu" mat-button [matMenuTriggerFor]="belowMenu">Prijava ▾ </button>
+          <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item class="toolbar-button" routerLink="/auth/login-club">
+            <mat-icon>people</mat-icon>
+            Kluba
+          </button>
+          <button mat-menu-item class="toolbar-button" routerLink="/auth">
+            <mat-icon>person</mat-icon>
+            Člana
+          </button>
+          </mat-menu>
+  
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+  
+          <a href="/home" mat-list-item>
+            <mat-icon>home</mat-icon>
+            Početna
+          </a>
+          <a href="/registration/club-form" mat-list-item>
+            <mat-icon>group_add</mat-icon>
+            Registracija kluba</a>
+          <a href="/registration/member-form" mat-list-item>
+            <mat-icon>person_add</mat-icon>
+            Registracija člana
+          </a>
+          <a href="/auth/login-club" mat-list-item>
+            <mat-icon>people</mat-icon>
+            Prijava kluba
+          </a>
+          <a href="/auth" mat-list-item>
+              <mat-icon>person</mat-icon>
+              Prijava člana
+            </a>
+          <a (click)="sidenav.toggle()" mat-list-item>
+            <mat-icon>close</mat-icon> Zatvori
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill> 
+
+
+<div id="background">
+
+    <ul id="list">
+        
+        <li><a href="/home">A</a></li>
+        <li><a href="/home">L</a></li>
+        <li><a href="/home">P</a></li>
+       
+    </ul>
+
+</div>
+
+      
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+</div>
+
