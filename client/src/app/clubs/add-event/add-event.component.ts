@@ -58,7 +58,7 @@ export class AddEventComponent implements OnInit {
 save({value, valid}: {value: Event, valid: boolean}) { 
   console.log(this.form.value)
   const {tripName, tripDate, organizer, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType } = this.form.value
-  this.router.navigate(['/home']);
+  this.router.navigate(['/clubs']);
   
     this.clubsService.addEvent(tripName, tripDate, organizer, tripTime, location, description, price, tripDuration, departureTime, accommodation, season, difficultyLevel, equipment, elevation, hours, trailLength, trailType, terrainType)
     .subscribe(data => console.log(data))
