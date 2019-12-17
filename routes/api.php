@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 
 
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify', 'verifyClub' => true]);
 Route::post('registeruser', 'UserController@register');
 Route::post('registerclub', 'ClubController@register');
 Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');

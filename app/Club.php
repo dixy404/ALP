@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Notifications\VerifyApiEmail;
+use App\Notifications\VerifyApiEmail2;
 
 class Club extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
@@ -54,7 +55,7 @@ class Club extends Authenticatable implements JWTSubject, MustVerifyEmail
 
         public function sendApiEmailVerificationNotification()
         {
-         $this->notify(new VerifyApiEmail); // my notification
+         $this->notify(new VerifyApiEmail2); // my notification
         }
         
 
