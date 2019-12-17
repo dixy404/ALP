@@ -4,6 +4,7 @@ import { AuthGuard } from './login-helpers/auth.guard';
 import { AuthclubGuard } from './login-helpers/auth-club.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileDeletedMessageComponent } from './profile-deleted-message/profile-deleted-message.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 
 
 const routes: Routes = [
@@ -32,8 +33,12 @@ const routes: Routes = [
     component: ProfileDeletedMessageComponent,
   },
   {
+    path: 'intro',
+    component: IntroPageComponent,
+  },
+  {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/intro',
     pathMatch: 'full'
   },
   {

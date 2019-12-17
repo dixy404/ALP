@@ -16,6 +16,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProfileDeletedMessageComponent } from './profile-deleted-message/profile-deleted-message.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 
 
 
@@ -25,6 +26,7 @@ import { ProfileDeletedMessageComponent } from './profile-deleted-message/profil
     AppComponent,
     PageNotFoundComponent,
     ProfileDeletedMessageComponent,
+    IntroPageComponent,
         
   
   ],

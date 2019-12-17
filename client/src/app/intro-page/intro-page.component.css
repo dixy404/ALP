@@ -1,0 +1,160 @@
+#background {
+    background-image: url('/assets/img/mountain.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow: hidden;  
+}
+
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .toolbar {
+    background-color: #4d4d4d;
+    padding-top: 7px;
+    height: 70px;
+  }
+  
+  .toolbar-button-menu {
+    font-size: 20px;
+  }
+  
+  .toolbar-button {
+    font-size: 18px;
+  }
+
+/*
+  #list {
+	margin: 2em auto;
+	padding: 0;
+	max-width: 600px;
+	list-style: none;
+	height: 15em;
+}
+
+#list li {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 0 5px;
+	background: #ccc;
+	text-align: center;
+	line-height: 100px;
+	opacity: 0;
+	animation: fadeIn 1s ease-in both;
+}
+
+#list li:nth-child(2) {
+	animation-delay: 1s;
+}
+#list li:nth-child(3) {
+	animation-delay: 2s;
+}
+#list li:nth-child(4) {
+	animation-delay: 3s;
+}
+#list li:nth-child(5) {
+	animation-delay: 4s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+*/
+
+#list {
+	margin: 2em auto;
+    padding-top: 180px;
+    padding-left: 150px;
+	max-width: 600px;
+	list-style: none;
+    height: 15em;
+    
+}
+
+#list li {
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin: 0 5px;
+	background: #4d4d4d ;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+	line-height: 150px;
+	opacity: 0;
+	animation: fadeIn 1s ease-in both;
+}
+
+#list li a {
+    text-decoration: none;
+    color: white;
+}
+
+#list li:nth-child(2) {
+	animation-delay: 1s;
+}
+#list li:nth-child(3) {
+	animation-delay: 2s;
+}
+#list li:nth-child(4) {
+	animation-delay: 3s;
+}
+#list li:nth-child(5) {
+	animation-delay: 4s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+@media only screen and (max-width: 700px) {
+  #list {
+    margin: 2em auto;
+    padding-top: 120px;
+    padding-left: 17px;
+	max-width: 600px;
+	list-style: none;
+    height: 15em;
+    }
+
+    #list li {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 0 5px;
+        background: #4d4d4d ;
+        text-align: center;
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+        line-height: 100px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in both;
+    }
+}
+
