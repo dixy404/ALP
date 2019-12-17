@@ -18,7 +18,7 @@ export class MemberPageComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     //Za upload slike
-    public formBuilder: FormBuilder) { }
+    /*public formBuilder: FormBuilder*/) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
