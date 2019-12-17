@@ -18,6 +18,7 @@ class EventController extends Controller
         
         
         $event = Event::create([
+            'organizer' => $request->get('organizer'),
             'tripDate' => $request->get('tripDate'),
             'tripTime' => $request->get('tripTime'),
             'tripName' => $request->get('tripName'),
