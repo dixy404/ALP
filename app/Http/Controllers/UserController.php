@@ -229,6 +229,24 @@ public function update(Request $request, $id)
     
 
     }
+    public function addthumbnail(Request $request, $id)
+            {$user = User::find($id);
+                 if($request->hasFile('thumbnail')){
+                $thumbnail      = $request->file('thumbnail');
+                //$filename    = $thumbnail->getClientOriginalName();
+                $filename =  $user->thumbnail.time().'.'.$request->thumbnail->extension();
+                $image_resize = Image::make($thumbnail->getRealPath());              
+                $image_resize->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }); 
+                 $image_resize->save(public_path('assets/photo/' .$filename));
+                 $folder = 'assets/photo/';
+                 
+                 $user->thumbnail=$folder.$filename;
+                 $user->save();
+            }
+            
+            }
         public function getAuthenticatedUser()
             {  
                 
