@@ -25,7 +25,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'http://192.168.1.100:4200';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -35,7 +35,7 @@ class VerificationController extends Controller
     public function __construct()
     {
         $this->middleware(['auth']);
-        $this->middleware('signed')->only('verify');
+        $this->middleware('signed')->only('verify', 'verifyClub');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 }
