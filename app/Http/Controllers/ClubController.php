@@ -151,6 +151,20 @@ public $successStatus = 200;
             ], 404);
         }
     }
+    public function addthumbnail(Request $request, $id)
+    {$club = Club::find($id);
+         if($request->hasFile('thumbnail')){
+            $thumbnail      = $request->file('thumbnail');
+            $filename  = $thumbnail ->getClientOriginalName();
+            $extension = $thumbnail ->getClientOriginalExtension();
+            $picture   = date('His').'-'.$filename;
+            $thumbnail->move(public_path('assets/photo/club/'), $picture);
+            $folder = 'assets/photo/club/';
+            $club->thumbnail=$folder.$picture;
+            $club->save();
+            return response()->json(["message" => "Image Uploaded Succesfully"]);
+         }
+        }
     public function getAuthenticatedClub()
     {  
        

@@ -40,6 +40,7 @@ Route::get('/showuser/{id}', 'UserController@show');
 Route::get('/edituser/{id}', 'UserController@edit');
 Route::delete('/deleteclub/{id}', 'ClubController@destroy');
 Route::post('/adduserphoto/{id}', 'UserController@addthumbnail');
+Route::post('/addclubphoto/{id}', 'ClubController@addthumbnail');
 
 
 Route::delete('/deleteuser/{id}', 'UserController@destroy');
