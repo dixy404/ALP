@@ -71,9 +71,6 @@ console.log(data);
 });
 
 }
-
-
-
  
 
 

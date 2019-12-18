@@ -91,12 +91,15 @@
 
   <table>
     <tr>
-        <th > <img src="http://localhost:8000/{{user?.thumbnail}}" alt="avatar" class="img-responsive">
+        <th > <img src="http://localhost:8000/{{user?.thumbnail}}" alt="" class="img-responsive">
         <br>
         
         <form #f="ngForm" (ngSubmit)="onSubmit(f,user?.id)">
-          <input type="file" #fileupload [(ngModel)]="thumbnail" name="thumbnail" (change)="fileEvent($event)"/>
-          <button>Upload Image</button>
+          
+          <input id="input" type="file" #fileupload [(ngModel)]="thumbnail" name="thumbnail" (change)="fileEvent($event)"/>
+          <label for="input" id="label">Izaberite sliku</label> 
+        
+          <button mat-raised-button color="primary" class="btn-color">Učitaj sliku</button>
           </form>
         </th>
         <td>

@@ -357,13 +357,23 @@ body {
     .col-12 {width: 100%;}
   }
 
-/*
-#background {
-    background-image: url('/assets/img/bcg7.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: calc(100vh - 70px);
-    overflow: hidden;
-}*/
+  input#input{
+    display: none;
+}
+label#label{
+    /* Customize your label here */
+    background-color: #333 ;
+    color: white;
+    text-transform: none;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    font-size: 13px;
+    box-shadow: 5px black;
+    margin-right: 60px;
+    cursor: pointer;
+ 
+}
+
