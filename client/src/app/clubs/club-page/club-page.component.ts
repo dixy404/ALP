@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Club } from 'src/app/model/club.model';
 import { MatDialog } from '@angular/material';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-club-page',
@@ -12,10 +14,16 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 })
 export class ClubPageComponent implements OnInit {
   club: Club;
+  filedata:any;
+  public form: NgForm
+    fileEvent(e){
+        this.filedata = e.target.files[0];
+    }
 
   constructor(private clubsService: ClubsService, 
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private http: HttpClient,) { }
 
   ngOnInit() {
     this.clubsService.GetClub().subscribe((data) => {
@@ -43,7 +51,20 @@ export class ClubPageComponent implements OnInit {
 });
 }
 
+onSubmit(f: NgForm, id, club:Club) {
+       
+  var myFormData = new FormData();
+  const headers = new HttpHeaders();
+headers.append('Content-Type', 'multipart/form-data');
+headers.append('Accept', 'application/json');
+myFormData.append('thumbnail', this.filedata);
+this.http.post(`http://localhost:8000/api/addclubphoto/${id}` +  club, myFormData, {
+headers: headers
+}).subscribe(data => {
+console.log(data);
+});
 
+}
 
   }
   
