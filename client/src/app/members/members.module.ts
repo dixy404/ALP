@@ -14,6 +14,7 @@ import { ConfirmDeleteMemberComponent } from './confirm-delete-member/confirm-de
 
 
 
+
 @NgModule({
   declarations: [MemberContainerComponent, MemberPageComponent, EditMemberComponent, ConfirmDeleteMemberComponent],
   imports: [
@@ -24,6 +25,7 @@ import { ConfirmDeleteMemberComponent } from './confirm-delete-member/confirm-de
     ReactiveFormsModule,
     MatSnackBarModule,
     FlexLayoutModule,
+    
   ],
 
   entryComponents: [

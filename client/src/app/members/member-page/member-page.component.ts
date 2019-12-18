@@ -4,7 +4,8 @@ import { Member } from 'src/app/model/member.model';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { ConfirmDeleteMemberComponent } from '../confirm-delete-member/confirm-delete-member.component';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-member-page',
@@ -14,10 +15,21 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class MemberPageComponent implements OnInit {
   user: Member;
 
+
+ 
+  filedata:any;
+  //membersService: any;
+  //user: any;
+  public form: NgForm
+    fileEvent(e){
+        this.filedata = e.target.files[0];
+    }
+
+
   constructor(private membersService: MembersService, 
     private router: Router,
     private dialog: MatDialog,
-    ) { }
+    private http: HttpClient,) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
@@ -45,10 +57,24 @@ export class MemberPageComponent implements OnInit {
 });
 }
 
+onSubmit(f: NgForm, id, user:Member) {
+       
+  var myFormData = new FormData();
+  const headers = new HttpHeaders();
+headers.append('Content-Type', 'multipart/form-data');
+headers.append('Accept', 'application/json');
+myFormData.append('thumbnail', this.filedata);
+this.http.post(`http://localhost:8000/api/adduserphoto/${id}` +  user, myFormData, {
+headers: headers
+}).subscribe(data => {
+console.log(data);
+});
 
+}
 
 
 
  
+
 
 }

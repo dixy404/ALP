@@ -21,6 +21,12 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
 
 
 
+import { FormsModule }   from '@angular/forms';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +43,7 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
     AppMaterialModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
    
   ],
 
