@@ -17,8 +17,7 @@ export class MemberPageComponent implements OnInit {
   constructor(private membersService: MembersService, 
     private router: Router,
     private dialog: MatDialog,
-    //Za upload slike
-    /*public formBuilder: FormBuilder*/) { }
+    ) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
@@ -50,17 +49,6 @@ export class MemberPageComponent implements OnInit {
 
 
 
-  
-/*
-  onSelectImage(event) {
-    this.selectedImage = event.srcElement.files[0];
- }
-
- onCreateService(form: FormGroup) {
-   const formData = new FormData();
-   formData.append('image', this.selectedImage, this.selectedImage.name);
-   
-   console.log(formData);
- }  */
+ 
 
 }
