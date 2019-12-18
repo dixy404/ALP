@@ -11,5 +11,6 @@ export class Club {
     phoneNumber: string;
     password: string;
     password_confirmation: string;
+    thumbnail: string;
 
 }
