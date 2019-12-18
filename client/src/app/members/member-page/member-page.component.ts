@@ -18,7 +18,7 @@ export class MemberPageComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     //Za upload slike
-    public formBuilder: FormBuilder) { }
+    /*public formBuilder: FormBuilder*/) { }
 
   ngOnInit() {
     this.membersService.GetUser().subscribe((data) => {
@@ -35,10 +35,16 @@ export class MemberPageComponent implements OnInit {
 
   deleteUser(id) {
     this.dialog.open(ConfirmDeleteMemberComponent, {
-      width: '300px'
+      width: '350px'
     })
-    this.membersService.deleteUser(id).subscribe(data => console.log(data))
+    
+    .afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Yes clicked');
+        this.membersService.deleteUser(id).subscribe(data => console.log(data))
   }
+});
+}
 
 
 

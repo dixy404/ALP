@@ -32,10 +32,19 @@ export class ClubPageComponent implements OnInit {
 
   deleteClub(id) {
     this.dialog.open(ConfirmDeleteComponent, {
-      width: '300px'
+      width: '350px'
     })
-    this.clubsService.deleteClub(id).subscribe(data => console.log(data))
+    
+    .afterClosed().subscribe(result => {
+      if(result) {
+        console.log('Yes clicked');
+      this.clubsService.deleteClub(id).subscribe(data => console.log(data))
+  }
+});
+}
+
+
+
   }
   
 
-}
