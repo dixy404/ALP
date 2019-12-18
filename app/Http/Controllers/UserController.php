@@ -58,8 +58,10 @@ public function login(){
                 if($user->email_verified_at !== NULL){
                 $success['message'] = 'Login successfull';
                  response()->json(['success' => $success], $this-> successStatus);
-                }else{  $user->sendApiEmailVerificationNotification();
-                return response()->json(['error'=>'Please Verify Email'], 401);
+                }elseif($user->email_verified_at == NULL){  
+                    $credentials = $request->only('email');
+                    $request->user()->sendApiEmailVerificationNotification();
+                //return response()->json(['error'=>'Please Verify Email'], 401);
                 }
                 }
                 else{
@@ -232,9 +234,20 @@ public function update(Request $request, $id)
     public function addthumbnail(Request $request, $id)
             {$user = User::find($id);
                  if($request->hasFile('thumbnail')){
-                $thumbnail      = $request->file('thumbnail');
+                    $thumbnail      = $request->file('thumbnail');
+                    $filename  = $thumbnail ->getClientOriginalName();
+                    $extension = $thumbnail ->getClientOriginalExtension();
+                    $picture   = date('His').'-'.$filename;
+                    $thumbnail->move(public_path('assets/photo/'), $picture);
+                    $folder = 'assets/photo/';
+                    $user->thumbnail=$folder.$picture;
+                    $user->save();
+                    return response()->json(["message" => "Image Uploaded Succesfully"]);
+        
+                /*$thumbnail      = $request->file('thumbnail');
                 //$filename    = $thumbnail->getClientOriginalName();
                 $filename =  $user->thumbnail.time().'.'.$request->thumbnail->extension();
+                $filename->move(public_path('assets/photo/'), $picture);
                 $image_resize = Image::make($thumbnail->getRealPath());              
                 $image_resize->resize(300, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -243,7 +256,7 @@ public function update(Request $request, $id)
                  $folder = 'assets/photo/';
                  
                  $user->thumbnail=$folder.$filename;
-                 $user->save();
+                 $user->save();*/
             }
             
             }
