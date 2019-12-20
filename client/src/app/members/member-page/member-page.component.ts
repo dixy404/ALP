@@ -72,6 +72,8 @@ console.log(data);
 
 }
  
-
+refresh() {
+  location.reload();
+}
 
 }
