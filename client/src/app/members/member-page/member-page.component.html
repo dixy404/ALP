@@ -1,85 +1,3 @@
-<!--
-<div>
-<mat-list role="list"  >
-        
-    <mat-list-item role="listitem">Ime: {{user?.name}}</mat-list-item>
-    <mat-list-item role="listitem">Prezime: {{user?.lastName}}</mat-list-item>
-    <mat-list-item role="listitem">Datum rođenja: {{user?.dateOfBirth | date:'dd.MM.yyyy.'}}</mat-list-item>
-    <mat-list-item role="listitem">Mjesto rođenja: {{user?.placeOfBirth}} </mat-list-item>
-    <mat-list-item role="listitem">Broj pasoša: {{user?.passportId}}</mat-list-item>
-    <mat-list-item role="listitem">Broj lične karte: {{user?.idNumber}}</mat-list-item>
-    <mat-list-item role="listitem">JMBG: {{user?.ssn}}</mat-list-item>
-    <mat-list-item role="listitem">Nacionalnost: {{user?.nationality}}</mat-list-item>
-    <mat-list-item role="listitem">Zanimanje: {{user?.occupation}}</mat-list-item>
-    <mat-list-item role="listitem">Krvna grupa: {{user?.bloodType}}</mat-list-item>
-    <mat-list-item role="listitem">Adresa: {{user?.address}}</mat-list-item>
-    <mat-list-item role="listitem">Telefon: {{user?.phoneNumber}}</mat-list-item>
-    <mat-list-item role="listitem">Email: {{user?.email}}</mat-list-item>
-  </mat-list>
-</div>
-
-
- *ngFor="let user of users" -->
-
-
-
- <!-- 
-<div class="container">
-<div id = "our-team-section"> 
-
-    
-    <div id = "team-tile-container">
-
-      <div id = "team-left-tile">
-
-        <img class = "team-headshot" src = "https://res.cloudinary.com/zelcro/image/upload/v1487627737/Contact%20Card/person1.jpg">
-        
-        <div class = "team-name-bio"> 
-               
-                <span><b>Datum rođenja:</b> {{user?.dateOfBirth | date:'dd.MM.yyyy.'}}</span> <br>
-                <span><b>Mjesto rođenja:</b> {{user?.placeOfBirth}} </span> <br>
-                <span><b>Broj pasoša:</b> {{user?.passportId}}</span> <br>
-                <span><b>Broj lične karte:</b> {{user?.idNumber}}</span> <br>
-                <span><b>JMBG: </b>{{user?.ssn}} </span> <br>
-                <span><b>Nacionalnost:</b> {{user?.nationality}}</span> <br>
-                <span><b>Krvna grupa:</b> {{user?.bloodType}}</span> <br>
-                <span><b>Adresa:</b> {{user?.address}}</span> <br>
-                <span><b>Telefon:</b> {{user?.phoneNumber}}</span> <br>
-                <span><b>Email:</b> {{user?.email}}</span> <br><br>
-
-                <button mat-raised-button color="primary" (click)="editMember()" class="btn-color">Prepravi podatke</button>
-              
-        </div>
-
-        <div class = "team-name-banner"> {{user?.name}} {{user?.lastName}}  </div>
-
-        <div class = "team-title-banner"> {{user?.occupation}} </div>
-
-      
-      </div>
-
-      <div id = "team-right-tile">
-
-					<div id="accomplishment">Priznanja: </div>
-					
-					<div class = "team-name-bio"></div>
-
-					<div class = "team-name-banner"> </div>
-
-					<div class = "team-title-banner"> </div>
-
-				
-					</div>
-					</div>
-				</div>
-			</div>
-		
-    -->
-
-
-
-<!-- https://codepen.io/Zelcro/pen/Gravyw -->
-
 
 <div id="background"> 
 
@@ -99,7 +17,7 @@
           <input id="input" type="file" #fileupload [(ngModel)]="thumbnail" name="thumbnail" (change)="fileEvent($event)"/>
           <label for="input" id="label">Izaberite sliku</label> 
         
-          <button mat-raised-button color="primary" class="btn-color">Učitaj sliku</button>
+          <button mat-raised-button color="primary" class="btn-color" (click)="refresh()" >Učitaj sliku</button>
           </form>
         </th>
         <td>
@@ -109,19 +27,6 @@
         </td> 
     </tr>
     
-<!--  
-    <tr>
-      <th>
-
-         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <input type="file" #fileupload [(ngModel)]="thumbnail" name="thumbnail" (change)="fileEvent($event)"/>
-    <button>Upload Image</button>
-    </form>
-
-
-      </th>
-    </tr>
-  -->
 
 	<tr>
 		<th>Ime: </th>
