@@ -115,7 +115,7 @@ export class RegistrationMemberComponent implements OnInit {
       email: [this.user.email, Validators.email],
       password: [this.user.password, Validators.required],
       password_confirmation : [this.user.password_confirmation, Validators.required],
-      thumbnail: [this.user.thumbnail],
+      //thumbnail: [this.user.thumbnail],
       checkbox : [this.user.checkbox , Validators.required],
 
       
@@ -125,11 +125,11 @@ export class RegistrationMemberComponent implements OnInit {
 
   save({value, valid}: {value: Member, valid: boolean}) { 
     console.log(this.form.value)
-    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail } = this.form.value
+    const {name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation } = this.form.value
      this.router.navigate(['/registration/verification-member']); 
     
     
-      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation, thumbnail )
+      this.registrationService.register(name, address, email, phoneNumber, lastName, dateOfBirth, placeOfBirth, passportId, idNumber, ssn, nationality, occupation, bloodType, password, password_confirmation )
       .subscribe(data => console.log(data))
    
    

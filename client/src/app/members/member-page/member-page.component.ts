@@ -18,8 +18,6 @@ export class MemberPageComponent implements OnInit {
 
  
   filedata:any;
-  //membersService: any;
-  //user: any;
   public form: NgForm
     fileEvent(e){
         this.filedata = e.target.files[0];
@@ -67,11 +65,10 @@ myFormData.append('thumbnail', this.filedata);
 this.http.post(`http://localhost:8000/api/adduserphoto/${id}` +  user, myFormData, {
 headers: headers
 }).subscribe(data => {
-console.log(data);
+console.log(data); { 
+  location.reload(); 
+}
 });
 
 }
- 
-
-
 }

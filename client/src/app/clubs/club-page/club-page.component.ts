@@ -61,11 +61,12 @@ myFormData.append('thumbnail', this.filedata);
 this.http.post(`http://localhost:8000/api/addclubphoto/${id}` +  club, myFormData, {
 headers: headers
 }).subscribe(data => {
-console.log(data);
+console.log(data); { 
+  location.reload(); 
+}
 });
 
 }
-
-  }
+}
   
 

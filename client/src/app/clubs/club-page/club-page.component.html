@@ -1,33 +1,3 @@
-<!--  
-<div>
-    <mat-list role="list" >
-            
-        <mat-list-item role="listitem">Ime kluba: {{club?.clubName}}</mat-list-item>
-        <mat-list-item role="listitem">Predsjednik kluba: {{club?.clubPresident}}</mat-list-item>
-        <mat-list-item role="listitem">Sekretar kluba: {{club?.clubSecretary}}</mat-list-item>
-        <mat-list-item role="listitem">Datum osnivanja: {{club?.foundedIn | date:'dd.MM.yyyy.'}}</mat-list-item>
-        <mat-list-item role="listitem">Vizija: {{club?.vision}} </mat-list-item>
-        <mat-list-item role="listitem">Misija: {{club?.mission}}</mat-list-item>
-        <mat-list-item role="listitem">Adresa: {{club?.address}}</mat-list-item>
-        <mat-list-item role="listitem">Telefon: {{club?.phoneNumber}}</mat-list-item>
-        <mat-list-item role="listitem">Email: {{club?.email}}</mat-list-item>
-      </mat-list>
-    </div>
-    
-    <br>
-
-<button mat-raised-button color="primary" (click)="editClub()" class="btn-color">Prepravi podatke</button>
-
-<br><br>
-<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs">Izbriši podatke</button>
-
-<br><br>  
-<button mat-raised-button color="primary" class="btn-color" routerLink="/clubs/event">Dodaj događaj</button>
-
--->
-
-<!-- *ngFor="let club of clubs" -->
-
  
 <div id="background">
 
@@ -39,16 +9,19 @@
 
 <table>
     <tr>
+		 
         <th > <img src="http://localhost:8000/{{club?.thumbnail}}" alt="" class="img-responsive">
         <br>
         
         <form #f="ngForm" (ngSubmit)="onSubmit(f,club?.id)">
 		  <input id="input" type="file" #fileupload [(ngModel)]="thumbnail" name="thumbnail" (change)="fileEvent($event)"/>
-		  <label for="input" id="label">Izaberite sliku</label> 
+		  <label for="input" id="label" >Izaberite sliku</label> 
 
-		  <button mat-raised-button color="primary" class="btn-color">Učitaj sliku</button>
+		  <button mat-raised-button color="primary" class="btn-color" >Učitaj sliku</button>
           </form>
-        </th>
+		</th>
+		 
+
         <td>
 				<button mat-raised-button color="primary" (click)="editClub()" class="btn-color"><mat-icon>edit</mat-icon> Promjeni podatke</button>
 
